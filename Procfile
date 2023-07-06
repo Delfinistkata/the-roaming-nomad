@@ -1,1 +1,1 @@
-web: gunicorn the-roaming-nomad-travel-blog.wsgi
+web: gunicorn theroamingnomad.wsgi
