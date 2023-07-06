@@ -30,7 +30,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['the-roaming-nomad-travel-blog.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['the-roaming-nomad-travel-blog.herokuapp.com',
+                '8000-delfinistka-theroamingn-1a8cal8m37g.ws-eu101.gitpod.io']
 
 
 # Application definition
