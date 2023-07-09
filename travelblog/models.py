@@ -6,6 +6,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.utils.text import slugify
 from cloudinary.models import CloudinaryField
+from django.urls import reverse
 
 
 STATUS = ((0, "Draft"), (1, "Published"))
@@ -35,7 +36,7 @@ class Post(models.Model):
     categories = models.ManyToManyField(Category)
     body_content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
-    post_number = models.PositiveIntegerField()
+    post_number = models.PositiveIntegerField(default=0)
     slug = models.SlugField(max_length=200, unique=True)
     featured_image = CloudinaryField('image', default='placeholder')
     likes = models.ManyToManyField(
@@ -77,6 +78,14 @@ class Post(models.Model):
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)
         super().save(*args, **kwargs)
+
+    def get_absolute_url(self):
+        """
+        Returns the absolute URL for the post.
+        The absolute URL is generated based on the post's slug field
+        and can be used to link to the post's detail page.
+        """
+        return reverse('post_detail', args=[str(self.slug)])
 
 
 class Comment(models.Model):

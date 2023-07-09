@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %} Create a New Blog Post! {% endblock %}
+{% block content %}
+
+<h1> Create Post</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-secondary">Submit</button>
+        <a href="{% url 'home' %}" class="btn btn-primary">Back</a>
+    </form>
+
+{% endblock %}
