@@ -1,7 +1,7 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView
 from .models import Post
-from .forms import PostForm
+from .forms import PostForm, EditForm
 
 
 class PostList(ListView):
@@ -34,3 +34,8 @@ class CreatePostView(CreateView):
     form_class = PostForm
     template_name = 'create_post.html'
 
+
+class EditPostView(UpdateView):
+    model = Post
+    form_class = EditForm
+    template_name = 'edit_post.html'

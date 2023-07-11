@@ -43,6 +43,9 @@
                                 <div>
                                     <span class="text-primary">Status:</span> {{ post.get_status_display }}
                                 </div>
+                                <div>
+                                    <a href="{% url 'edit_post' post.slug %}" >Edit</a>
+                                </div>
                             </p>
                         </div>
                     </div>
