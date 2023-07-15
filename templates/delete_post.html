@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %} Delete Blog Post! {% endblock %}
+{% block content %}
+
+<div class="container">
+    <h1 class="mb-4 text-center">Delete Post</h1>
+    <br>
+    <form method="POST" class="form">
+        {% csrf_token %}
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="{{ form.title.id_for_label }}">Title:</label>
+                    {{ form.title }}
+                </div>
+
+                <div class="text-center">
+                    <button class="btn btn-secondary btn-sm" type="submit">Delete</button>
+                    <a href="{% url 'home' %}" class="btn btn-primary btn-sm">Back</a>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+{% endblock %}
