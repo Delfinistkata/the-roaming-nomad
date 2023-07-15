@@ -20,12 +20,6 @@
                     <label for="{{ form.title_tag.id_for_label }}">Title Tag:</label>
                     {{ form.title_tag }}
                 </div>
-
-                <div class="form-group">
-                    <label for="{{ form.author.id_for_label }}">Author:</label>
-                    {{ form.author }}
-                </div>
-
                 <div class="form-group">
                     <label for="{{ form.categories.id_for_label }}">Categories:</label>
                     {{ form.categories }}
@@ -56,7 +50,7 @@
         </div>
 
         <div class="text-center">
-            <button class="btn btn-secondary btn-sm">Update</button>
+            <button class="btn btn-secondary btn-sm" type="submit">Submit</button>
             <a href="{% url 'home' %}" class="btn btn-primary btn-sm">Back</a>
         </div>
     </form>
