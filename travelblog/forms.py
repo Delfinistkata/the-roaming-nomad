@@ -1,7 +1,6 @@
 from django import forms
 from .models import Post
 
-
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
@@ -23,7 +22,7 @@ class PostForm(forms.ModelForm):
                     }),
             'title_tag': forms.TextInput(attrs={'class': 'form-control'}),
             'author': forms.Select(attrs={'class': 'form-control'}),
-            'categories': forms.Select(attrs={'class': 'form-control'}),
+            'categories': forms.CheckboxSelectMultiple,
             'body_content': forms.Textarea(attrs={
                     'class': 'form-control',
                     'placeholder': 'Text goes here',
@@ -35,6 +34,7 @@ class PostForm(forms.ModelForm):
                 }),
             'status': forms.Select(attrs={'class': 'form-control'}),
         }
+
 
 
 class EditForm(forms.ModelForm):
@@ -56,7 +56,7 @@ class EditForm(forms.ModelForm):
                     'placeholder': 'Fill in your title'
                     }),
             'title_tag': forms.TextInput(attrs={'class': 'form-control'}),
-            'categories': forms.Select(attrs={'class': 'form-control'}),
+            'categories': forms.CheckboxSelectMultiple,
             'body_content': forms.Textarea(attrs={
                     'class': 'form-control',
                     'placeholder': 'Text goes here',
