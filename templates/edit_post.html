@@ -2,6 +2,7 @@
 {% block title %} Edit Blog Post! {% endblock %}
 {% block content %}
 
+{% if user.is_authenticated %}
 <div class="container">
 
     <h1 class="mb-4 text-center" style="color: #333;">Edit Post</h1>
@@ -55,5 +56,15 @@
         </div>
     </form>
 </div>
+{% else %}
+<div>
+    You are not authorised for this activity! Please log in to your profile.
+</div>
+
+<a href="{% url 'account_signup' %}" class="btn btn-primary btn-sm">Register</a>
+<a href="{% url 'account_login' %}" class="btn btn-primary btn-sm">LogIn</a>
+
+
+{% endif %}
 
 {% endblock %}
