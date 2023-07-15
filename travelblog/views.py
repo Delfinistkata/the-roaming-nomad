@@ -1,5 +1,12 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView, CreateView, UpdateView
+from django.views.generic import (
+    ListView,
+    DetailView,
+    CreateView,
+    UpdateView,
+    DeleteView
+)
+from django.urls import reverse_lazy
 from .models import Post
 from .forms import PostForm, EditForm
 
@@ -36,6 +43,20 @@ class CreatePostView(CreateView):
 
 
 class EditPostView(UpdateView):
+    """
+    View for editing a specific post.
+    Inherits from Django's UpdateView class.
+    """
     model = Post
     form_class = EditForm
     template_name = 'edit_post.html'
+
+
+class DeletePostView(DeleteView):
+    """
+    View for deleting a specific post.
+    Inherits from Django's DeleteView class.
+    """
+    model = Post
+    template_name = 'delete_post.html'
+    success_url = reverse_lazy('home')
