@@ -32,33 +32,69 @@
               <p class="text-sm  text-gray mb-0">“Traveling: it leaves you speechless, then turns you into a storyteller.” by: Ibn Battuta </p></a></div>
         </nav>
         <!-- Navbar 2 -->
-        <nav class="navbar navbar-expand-lg navbar-light border-gray py-2 bg-light">
-          <div class="container">
-            <button class="navbar-toggler navbar-toggler-right mx-auto border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse text-center" id="navbarSupportedContent">
-              <ul class="navbar-nav mx-auto">
-                <li class="nav-item px-1">
+<nav class="navbar navbar-expand-lg navbar-light border-gray py-2 bg-light">
+  <div class="container">
+      <button class="navbar-toggler navbar-toggler-right mx-auto border-0" type="button" data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse text-center" id="navbarSupportedContent">
+          <ul class="navbar-nav mx-auto">
+              <li class="nav-item px-1">
                   <!-- Link--><a class="nav-link active" href="{% url 'home' %}">Home</a>
-                </li>
-                {% if user.is_authenticated %}
-                <li class="nav-item px-1">
+              </li>
+              {% if user.is_authenticated %}
+              <li class="nav-item px-1">
                   <!-- Link--><a class="nav-link" href="{% url 'create_post' %}">Add Post</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
-                </li>
-                {% else %}
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'account_login' %}">Login</a>
-                </li>
-                {% endif %}
-              </ul>
-            </div>
+              </li>
+              <li class="nav-item px-1">
+                  <!-- Link--><a class="nav-link" href="{% url 'add_category' %}">Add Category</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
+              </li>
+              {% else %}
+              <li class="nav-item">
+                  <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="{% url 'account_login' %}">Login</a>
+              </li>
+              {% endif %}
+          </ul>
+
+          <!-- Sandwich Menu -->
+          <div class="sandwich-menu">
+              <button class="sandwich-btn" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#categoryMenu" aria-expanded="false" aria-controls="categoryMenu">
+                  <i class="fas fa-bars"></i>
+              </button>
+              <div class="collapse" id="categoryMenu">
+                  <div class="bg-light p-4">
+                      <form id="categoryForm">
+                          <div class="form-group">
+                              <label for="category">Category:</label>
+                              <select name="category" id="category" class="form-control" multiple>
+                                  <option value="">All Categories</option>
+                                  {% for category in categories %}
+                                  <option value="{{ category.id }}">{{ category.category_name }}</option>
+                                  {% endfor %}
+                              </select>
+                          </div>
+                          <div class="form-group text-right">
+                              <button type="submit" class="btn btn-primary">Apply Filter</button>
+                              <button type="button" class="btn btn-secondary" id="resetFilterBtn">Reset</button>
+                          </div>
+                      </form>
+                  </div>
+              </div>
           </div>
-        </nav>
+          <!-- End Sandwich Menu -->
+      </div>
+  </div>
+</nav>
+
       </header>
     <main class="flex-shrink-0 main-bg">
         {% block content %}
@@ -89,6 +125,20 @@
           </div>
         </div>
       </footer>
+
+      <script>
+        // JavaScript code
+        document.addEventListener('DOMContentLoaded', function() {
+            var categoryMenu = document.getElementById('categoryMenu');
+            var sandwichBtn = document.querySelector('.sandwich-btn');
+            if (categoryMenu && sandwichBtn) {
+                if (window.location.pathname !== "{% url 'home' %}") {
+                    categoryMenu.classList.add('d-none');
+                    sandwichBtn.classList.add('d-none');
+                }
+            }
+        });
+    </script>
 </body>
 
 </html>
