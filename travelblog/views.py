@@ -7,7 +7,7 @@ from django.views.generic import (
     DeleteView
 )
 from django.urls import reverse_lazy
-from .models import Post
+from .models import Post, Category
 from .forms import PostForm, EditForm
 
 
@@ -19,6 +19,20 @@ class PostList(ListView):
     template_name = 'index.html'
     paginate_by = 6
 
+    def get_queryset(self):
+        queryset = super().get_queryset().filter(status=1)
+
+        category_filter = self.request.GET.getlist('category')
+        if category_filter:
+            queryset = queryset.filter(categories__id__in=category_filter)
+
+        return queryset.order_by("-created_on")
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['categories'] = Category.objects.all()
+        return context
+
 
 class PostDetailView(DetailView):
     """
@@ -28,6 +42,17 @@ class PostDetailView(DetailView):
     """
     model = Post
     template_name = 'post_detail.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['categories'] = Category.objects.all()
+        return context
+
+
+class AddCategoryView(CreateView):
+    model = Category
+    template_name = 'add_category.html'
+    fields = '__all__'
 
 
 class CreatePostView(CreateView):
@@ -40,6 +65,17 @@ class CreatePostView(CreateView):
     model = Post
     form_class = PostForm
     template_name = 'create_post.html'
+
+    def form_valid(self, form):
+        response = super().form_valid(form)
+        self.object.post_number = Post.objects.count()
+        self.object.save()
+        return response
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['object'] = self.object
+        return context
 
 
 class EditPostView(UpdateView):
