@@ -4,9 +4,10 @@ Module containing model imports and utility functions for a blog application.
 
 from django.db import models
 from django.contrib.auth.models import User
-from django.utils.text import slugify
-from cloudinary.models import CloudinaryField
 from django.urls import reverse
+from django.utils.text import slugify
+
+from cloudinary.models import CloudinaryField
 
 
 STATUS = ((0, "Draft"), (1, "Published"))
@@ -20,8 +21,20 @@ class Category(models.Model):
     """
     category_name = models.CharField(max_length=255)
 
+    class Meta:
+        verbose_name_plural = "Categories"
+
     def __str__(self) -> str:
+        """
+        Returns a string representation of the category_name.
+        """
         return str(self.category_name)
+
+    def get_absolute_url(self):
+        """
+        Returns the absolute URL for the category.
+        """
+        return reverse('home')
 
 
 class Post(models.Model):
