@@ -4,7 +4,8 @@ from .views import (
     PostDetailView,
     CreatePostView,
     EditPostView,
-    DeletePostView
+    DeletePostView,
+    AddCategoryView
 )
 
 
@@ -15,6 +16,11 @@ urlpatterns = [
         'templates/create_post/',
         CreatePostView.as_view(),
         name='create_post'
+    ),
+    path(
+        'templates/add_category/',
+        AddCategoryView.as_view(),
+        name='add_category'
     ),
     path(
         'templates/edit_post/<slug:slug>/',
