@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.views.generic import (
     ListView,
     DetailView,
@@ -7,6 +7,7 @@ from django.views.generic import (
     DeleteView
 )
 from django.urls import reverse_lazy
+from django.template.defaultfilters import slugify
 from .models import Post, Category
 from .forms import PostForm, EditForm
 
@@ -47,6 +48,26 @@ class PostDetailView(DetailView):
         context = super().get_context_data(**kwargs)
         context['categories'] = Category.objects.all()
         return context
+
+
+def CategoryListView(request):
+    category_list_menu = Category.objects.all()
+    return render(
+        request,
+        'category_list.html',
+        {'category_list_menu': category_list_menu}
+    )
+
+
+def CategoryView(request, cats):
+    category_name = cats.replace('-', ' ').title()
+    category = Category.objects.get(category_name__iexact=category_name)
+    category_posts = Post.objects.filter(categories=category)
+    return render(
+        request,
+        'category.html',
+        {'category': category, 'category_posts': category_posts}
+    )
 
 
 class AddCategoryView(CreateView):
