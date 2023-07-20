@@ -4,7 +4,9 @@
 <h1>All Categories</h1>
 <ul>
     {% for category in category_list_menu %}
-    <li><a href="{% url 'category' cats=category.category_name|slugify %}">{{ category.category_name }}</a></li>
+    <li><a href="{% url 'category' cats=category.category_name|slugify %}">{{ category.category_name }}</a>
+        <a href="{% url 'edit_category' slug=category.category_name|slugify %}">Edit</a>
+    </li>
     {% endfor %}
 </ul>
 {% endblock %}
