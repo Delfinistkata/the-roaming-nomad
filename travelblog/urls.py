@@ -7,7 +7,8 @@ from .views import (
     DeletePostView,
     AddCategoryView,
     CategoryView,
-    CategoryListView
+    CategoryListView,
+    EditCategoryView,
 )
 
 
@@ -39,5 +40,10 @@ urlpatterns = [
         'category/<slug:cats>/',
         CategoryView,
         name='category'
+    ),
+    path(
+        'templates/edit_category/<slug:slug>/',
+        EditCategoryView.as_view(),
+        name='edit_category'
     ),
 ]
