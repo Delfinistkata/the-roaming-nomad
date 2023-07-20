@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import (
     ListView,
     DetailView,
@@ -9,7 +9,7 @@ from django.views.generic import (
 from django.urls import reverse_lazy
 from django.template.defaultfilters import slugify
 from .models import Post, Category
-from .forms import PostForm, EditForm
+from .forms import PostForm, EditForm, CategoryEditForm
 
 
 class PostList(ListView):
@@ -117,3 +117,20 @@ class DeletePostView(DeleteView):
     model = Post
     template_name = 'delete_post.html'
     success_url = reverse_lazy('home')
+
+
+class EditCategoryView(UpdateView):
+    """
+    View for editing a specific category.
+    """
+    model = Category
+    form_class = CategoryEditForm
+    template_name = 'edit_category.html'
+    slug_url_kwarg = 'category_name'
+    slug_field = 'category_name'
+    success_url = reverse_lazy('category_list')
+
+    def get_object(self, queryset=None):
+        slug = self.kwargs.get('slug')
+        category_name = slugify(slug)
+        return get_object_or_404(Category, category_name__iexact=category_name)
