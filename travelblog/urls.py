@@ -5,12 +5,15 @@ from .views import (
     CreatePostView,
     EditPostView,
     DeletePostView,
-    AddCategoryView
+    AddCategoryView,
+    CategoryView,
+    CategoryListView
 )
 
 
 urlpatterns = [
     path('', PostList.as_view(), name='home'),
+    path('category_list/', CategoryListView, name='category_list'),
     path('<slug:slug>/', PostDetailView.as_view(), name='post_detail'),
     path(
         'templates/create_post/',
@@ -31,5 +34,10 @@ urlpatterns = [
         'templates/<slug:slug>/remove',
         DeletePostView.as_view(),
         name='delete_post'
+    ),
+    path(
+        'category/<slug:cats>/',
+        CategoryView,
+        name='category'
     ),
 ]
