@@ -23,7 +23,7 @@
                                     <p class="author">Author: {{ post.author }}</p>
                                     <p class="category">Categories:
                                         {% for category in post.categories.all %}
-                                            {{ category.category_name }}
+                                        <a href="{% url 'category' cats=category.category_name|slugify %}">{{ category.category_name|title }}</a>
                                         {% endfor %}
                                     </p>
                                 </div>
