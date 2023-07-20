@@ -51,6 +51,11 @@ class PostDetailView(DetailView):
 
 
 def CategoryListView(request):
+    """
+    View to display a list of all categories.
+    This view retrieves all categories from the database and passes them to the
+    'category_list.html' template, where they are displayed as a list.
+    """
     category_list_menu = Category.objects.all()
     return render(
         request,
@@ -60,6 +65,14 @@ def CategoryListView(request):
 
 
 def CategoryView(request, cats):
+    """
+    View to display a specific category and its associated posts.
+    This view retrieves the category specified
+    by the 'cats' parameter from the database.
+    It then queries the posts associated with that category
+    and passes them along with
+    the category object to the 'category.html' template for rendering.
+    """
     category_name = cats.replace('-', ' ').title()
     category = Category.objects.get(category_name__iexact=category_name)
     category_posts = Post.objects.filter(categories=category)
@@ -71,6 +84,12 @@ def CategoryView(request, cats):
 
 
 class AddCategoryView(CreateView):
+    """
+    View to add a new category.
+    This view uses Django's CreateView to handle
+    the creation of a new category object.
+    The view uses the 'add_category.html' template for rendering the form.
+    """
     model = Category
     template_name = 'add_category.html'
     fields = '__all__'
@@ -131,6 +150,32 @@ class EditCategoryView(UpdateView):
     success_url = reverse_lazy('category_list')
 
     def get_object(self, queryset=None):
+        slug = self.kwargs.get('slug')
+        category_name = slugify(slug)
+        return get_object_or_404(Category, category_name__iexact=category_name)
+
+
+class DeleteCategoryView(DeleteView):
+    """
+    View to delete a category.
+
+    This view uses Django's DeleteView to handle
+    the deletion of a category object.
+    The view retrieves the category to delete using the 'slug' URL parameter
+    and slugifies it to match the 'category_name' field.
+    The view uses the 'delete_category.html'
+    template for rendering the confirmation page.
+    """
+    model = Category
+    template_name = 'delete_category.html'
+    slug_url_kwarg = 'category_name'
+    slug_field = 'category_name'
+    success_url = reverse_lazy('category_list')
+
+    def get_object(self, queryset=None):
+        """
+        Get the category object to delete based on the slug URL parameter.
+        """
         slug = self.kwargs.get('slug')
         category_name = slugify(slug)
         return get_object_or_404(Category, category_name__iexact=category_name)
