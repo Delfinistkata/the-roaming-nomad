@@ -1,5 +1,5 @@
 from django import forms
-from .models import Post
+from .models import Post, Category
 
 
 class PostForm(forms.ModelForm):
@@ -68,3 +68,9 @@ class EditForm(forms.ModelForm):
                 }),
             'status': forms.Select(attrs={'class': 'form-control'}),
         }
+
+
+class CategoryEditForm(forms.ModelForm):
+    class Meta:
+        model = Category
+        fields = ['category_name']
