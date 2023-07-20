@@ -23,7 +23,7 @@ class PostAdmin(SummernoteModelAdmin):
     It specifies the list display fields, search fields, list filters,
     prepopulated fields, and Summernote fields for rich text editing.
     """
-    list_display = ('title', 'slug', 'status', 'created_on')
+    list_display = ('title', 'slug', 'status', 'created_on',)
     search_fields = ['title', 'body_content']
     list_filter = ('status', 'created_on')
     prepopulated_fields = {'slug': ('title',)}
@@ -75,7 +75,13 @@ class CommentAdmin(admin.ModelAdmin):
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
-    """
-    Admin class for managing Category model.
-    """
-    list_display = ('category_name',)
+    list_display = ('category_name', 'post_count',)
+
+    def post_count(self, obj):
+        """
+        Method to display the count of associated posts
+        for each category.
+        """
+        return obj.post_set.count()
+
+    post_count.short_description = 'Post Count'
