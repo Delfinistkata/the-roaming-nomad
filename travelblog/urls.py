@@ -9,7 +9,8 @@ from .views import (
     CategoryView,
     CategoryListView,
     EditCategoryView,
-    DeleteCategoryView
+    DeleteCategoryView,
+    LikeDislikePost
 )
 
 
@@ -52,4 +53,5 @@ urlpatterns = [
         DeleteCategoryView.as_view(),
         name='delete_category'
     ),
+    path('like_dislike/<int:pk>/', LikeDislikePost, name='like_dislike_post'),
 ]
