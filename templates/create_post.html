@@ -10,7 +10,6 @@
 
     <form method="POST"  class="form">
         {% csrf_token %}
-
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
@@ -38,6 +37,7 @@
                 <div class="form-group">
                     <label for="{{ form.body_content.id_for_label }}">Body Content:</label>
                     {{ form.body_content }}
+                    {{ form.media }}
                 </div>
 
                 <div class="form-group">
