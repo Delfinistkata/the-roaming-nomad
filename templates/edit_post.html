@@ -3,59 +3,66 @@
 {% block content %}
 
 {% if user.is_authenticated %}
-<div class="container">
+    {% if user.id == post.author.id %}
+        <div class="container">
 
-    <h1 class="mb-4 text-center" style="color: #333;">Edit Post</h1>
+            <h1 class="mb-4 text-center" style="color: #333;">Edit Post</h1>
 
-    <form method="POST" class="form">
-        {% csrf_token %}
+            <form method="POST" class="form">
+                {% csrf_token %}
+                {{ form.media }}
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="{{ form.title.id_for_label }}">Title:</label>
+                            {{ form.title }}
+                        </div>
 
-        <div class="row">
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label for="{{ form.title.id_for_label }}">Title:</label>
-                    {{ form.title }}
+                        <div class="form-group">
+                            <label for="{{ form.title_tag.id_for_label }}">Title Tag:</label>
+                            {{ form.title_tag }}
+                        </div>
+                        <div class="form-group">
+                            <label for="{{ form.categories.id_for_label }}">Categories:</label>
+                            {{ form.categories }}
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="{{ form.body_content.id_for_label }}">Body Content:</label>
+                            {{ form.body_content }}
+                        </div>
+
+                        <div class="form-group">
+                            <label for="{{ form.featured_image.id_for_label }}">Featured Image:</label>
+                            {{ form.featured_image }}
+                        </div>
+
+                        <div class="form-group">
+                            <label for="{{ form.excerpt.id_for_label }}">Excerpt:</label>
+                            {{ form.excerpt }}
+                        </div>
+
+                        <div class="form-group">
+                            <label for="{{ form.status.id_for_label }}">Status:</label>
+                            {{ form.status }}
+                        </div>
+                    </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="{{ form.title_tag.id_for_label }}">Title Tag:</label>
-                    {{ form.title_tag }}
+                <div class="text-center">
+                    <button class="btn btn-secondary btn-sm" type="submit">Submit</button>
+                    <a href="{% url 'home' %}" class="btn btn-primary btn-sm">Back</a>
                 </div>
-                <div class="form-group">
-                    <label for="{{ form.categories.id_for_label }}">Categories:</label>
-                    {{ form.categories }}
-                </div>
-            </div>
-
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label for="{{ form.body_content.id_for_label }}">Body Content:</label>
-                    {{ form.body_content }}
-                </div>
-
-                <div class="form-group">
-                    <label for="{{ form.featured_image.id_for_label }}">Featured Image:</label>
-                    {{ form.featured_image }}
-                </div>
-
-                <div class="form-group">
-                    <label for="{{ form.excerpt.id_for_label }}">Excerpt:</label>
-                    {{ form.excerpt }}
-                </div>
-
-                <div class="form-group">
-                    <label for="{{ form.status.id_for_label }}">Status:</label>
-                    {{ form.status }}
-                </div>
-            </div>
+            </form>
         </div>
+    {% else %}
+            <div>
+                You are not authorised for this activity! Please log in to your profile.
+            </div>
+    {% endif %}
 
-        <div class="text-center">
-            <button class="btn btn-secondary btn-sm" type="submit">Submit</button>
-            <a href="{% url 'home' %}" class="btn btn-primary btn-sm">Back</a>
-        </div>
-    </form>
-</div>
 {% else %}
 <div>
     You are not authorised for this activity! Please log in to your profile.
@@ -63,7 +70,6 @@
 
 <a href="{% url 'account_signup' %}" class="btn btn-primary btn-sm">Register</a>
 <a href="{% url 'account_login' %}" class="btn btn-primary btn-sm">LogIn</a>
-
 
 {% endif %}
 
