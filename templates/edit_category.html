@@ -1,12 +1,15 @@
-<!-- edit_category.html -->
-
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Edit Category: {{ object.category_name }}</h1>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Save Changes</button>
-</form>
+    {% if user.is_superuser %}
+        <h1>Edit Category: {{ object.category_name }}</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Save Changes</button>
+        </form>
+    {% else %}
+        <h1>Access Denied</h1>
+        <p>You don't have permission to perform this action.</p>
+    {% endif %}
 {% endblock %}
