@@ -8,6 +8,7 @@ from django.urls import reverse
 from django.utils.text import slugify
 
 from cloudinary.models import CloudinaryField
+from ckeditor.fields import RichTextField
 
 
 STATUS = ((0, "Draft"), (1, "Published"))
@@ -34,7 +35,7 @@ class Category(models.Model):
         """
         Returns the absolute URL for the category.
         """
-        return reverse('home')
+        return reverse('category', args=[str(self.category_name)])
 
 
 class Post(models.Model):
@@ -47,7 +48,7 @@ class Post(models.Model):
         User, on_delete=models.CASCADE, related_name='blog_posts'
     )
     categories = models.ManyToManyField(Category)
-    body_content = models.TextField()
+    body_content = RichTextField(blank=True, null=True)
     created_on = models.DateTimeField(auto_now_add=True)
     post_number = models.PositiveIntegerField(default=0)
     slug = models.SlugField(max_length=200, unique=True)
@@ -58,7 +59,7 @@ class Post(models.Model):
         User, related_name='blog_dislikes', blank=True)
     last_modified = models.DateTimeField(auto_now=True)
     status = models.IntegerField(choices=STATUS, default=0)
-    excerpt = models.TextField()
+    excerpt = models.CharField(max_length=255)
 
     class Meta:
         """
