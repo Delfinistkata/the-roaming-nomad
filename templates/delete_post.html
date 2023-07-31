@@ -3,28 +3,33 @@
 {% block content %}
 
 {% if user.is_authenticated %}
+    {% if user.id == post.author.id %}
+        <div class="container">
+            <h1 class="mb-4 text-center">Delete Post</h1>
+            <br>
+            <form method="POST" class="form">
+                {% csrf_token %}
 
-<div class="container">
-    <h1 class="mb-4 text-center">Delete Post</h1>
-    <br>
-    <form method="POST" class="form">
-        {% csrf_token %}
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="{{ form.title.id_for_label }}">Title:</label>
+                            {{ form.title }}
+                        </div>
 
-        <div class="row">
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label for="{{ form.title.id_for_label }}">Title:</label>
-                    {{ form.title }}
+                        <div class="text-center">
+                            <button class="btn btn-secondary btn-sm" type="submit">Delete</button>
+                            <a href="{% url 'home' %}" class="btn btn-primary btn-sm">Back</a>
+                        </div>
+                    </div>
                 </div>
-
-                <div class="text-center">
-                    <button class="btn btn-secondary btn-sm" type="submit">Delete</button>
-                    <a href="{% url 'home' %}" class="btn btn-primary btn-sm">Back</a>
-                </div>
-            </div>
+            </form>
         </div>
-    </form>
-</div>
+        {% else %}
+            <div>
+                You are not authorised for this activity! Please log in to your profile.
+            </div>
+        {% endif %}
 
 {% else %}
 <div>
@@ -34,8 +39,6 @@
 <a href="{% url 'account_signup' %}" class="btn btn-primary btn-sm">Register</a>
 <a href="{% url 'account_login' %}" class="btn btn-primary btn-sm">LogIn</a>
 
-
 {% endif %}
-
 
 {% endblock %}
