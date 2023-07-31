@@ -4,12 +4,33 @@ from django.views.generic import (
     DetailView,
     CreateView,
     UpdateView,
-    DeleteView
+    DeleteView,
 )
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 from django.template.defaultfilters import slugify
+from django.http import HttpResponseRedirect
 from .models import Post, Category
 from .forms import PostForm, EditForm, CategoryEditForm
+
+
+def LikeDislikePost(request, pk):
+    post = get_object_or_404(Post, id=pk)
+
+    if request.method == 'POST':
+        if 'like' in request.POST:
+            if request.user in post.likes.all():
+                post.likes.remove(request.user)
+            else:
+                post.likes.add(request.user)
+                post.dislikes.remove(request.user)
+        elif 'dislike' in request.POST:
+            if request.user in post.dislikes.all():
+                post.dislikes.remove(request.user)
+            else:
+                post.dislikes.add(request.user)
+                post.likes.remove(request.user)
+        return redirect('post_detail', slug=post.slug)
+    return redirect('post_detail', slug=post.slug)
 
 
 class PostList(ListView):
@@ -107,10 +128,9 @@ class CreatePostView(CreateView):
     template_name = 'create_post.html'
 
     def form_valid(self, form):
-        response = super().form_valid(form)
-        self.object.post_number = Post.objects.count()
-        self.object.save()
-        return response
+        form.instance.post_number = Post.objects.count() + 1
+        form.instance.author = self.request.user
+        return super().form_valid(form)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
