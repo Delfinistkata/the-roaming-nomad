@@ -8,7 +8,6 @@ class PostForm(forms.ModelForm):
         fields = (
             'title',
             'title_tag',
-            'author',
             'categories',
             'body_content',
             'featured_image',
@@ -22,7 +21,6 @@ class PostForm(forms.ModelForm):
                     'placeholder': 'Fill in your title'
                     }),
             'title_tag': forms.TextInput(attrs={'class': 'form-control'}),
-            'author': forms.Select(attrs={'class': 'form-control'}),
             'categories': forms.CheckboxSelectMultiple,
             'body_content': forms.Textarea(attrs={
                     'class': 'form-control',
