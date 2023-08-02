@@ -146,3 +146,20 @@ body {
     font-size: 14px;
     border-radius: 4px;
 }
+
+.sandwich-menu {
+    display: flex;
+    align-items: center;
+}
+
+.sandwich-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.sandwich-btn i {
+    font-size: 24px;
+    color: #4A4A4F;
+}
