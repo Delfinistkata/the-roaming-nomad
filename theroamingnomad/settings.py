@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'cloudinary',
     'ckeditor',
     'django_summernote',
+    'members',
     'travelblog',
 ]
 
