@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1> User Profile... </h1>
+
+<div class="card mb-3">
+    <div class="row no-gutters">
+        <div class="col-12 col-md-2">
+            <div class="text-center">
+                {% if "placeholder" in page_user.profile_picture.url %}
+                <img src="https://res.cloudinary.com/doyc0uqcs/image/upload/v1691407204/Porject%204%20Travel%20Blog/male-user-shadow_318-34042_eotvtf.avif"
+                    class="img-thumbnail rounded d-block mx-auto img-fluid" style="width: 80px; height: 80px;">
+                {% else %}
+                <img src="{{ page_user.profile_picture.url }}"
+                    class="img-thumbnail rounded d-block mx-auto img-fluid" style="width: 80px; height: 80px;">
+                {% endif %}
+            </div>
+        </div>
+        <div class="col-12 col-md-10">
+            <div class="card-body">
+                <h5 class="card-title">{{ page_user.user.author }}</h5>
+                <div class="mt-2">
+                    {% if page_user.twitter_profile %}
+                    <a href="{{page_user.twitter_profile}}" class="social-icon"><i
+                            class="fab fa-twitter"></i> Twitter </a> |
+                    {% endif %}
+                    {% if page_user.facebook_profile %}
+                    <a href="{{page_user.facebook_profile}}" class="social-icon"><i
+                            class="fab fa-facebook"></i> Facebook</a> |
+                    {% endif %}
+                    {% if page_user.linkedin_profile %}
+                    <a href="{{page_user.linkedin_profile}}" class="social-icon"><i
+                            class="fab fa-linkedin"></i> LinkedIn</a> |
+                    {% endif %}
+                    {% if page_user.website %}
+                    <a href="{{page_user.website}}" class="social-icon"><i
+                            class="fas fa-globe"></i> Website</a> |
+                    {% endif %}
+                    {% if page_user.youtube %}
+                    <a href="{{page_user.youtube}}" class="social-icon"><i
+                            class="fab fa-youtube"></i> YouTube</a> |
+                    {% endif %}
+                    {% if page_user.instagram %}
+                    <a href="{{page_user.instagram}}" class="social-icon"><i
+                            class="fab fa-instagram"></i> Instagram</a> |
+                    {% endif %}
+                </div>
+                <hr>
+                <p class="card-text">
+                    {{ page_user.bio }}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{%endblock%}
