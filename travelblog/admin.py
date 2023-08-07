@@ -11,7 +11,7 @@ admin configuration.
 """
 from django.contrib import admin
 from django_summernote.admin import SummernoteModelAdmin
-from .models import Post, Category, Comment
+from .models import Post, Category, Comment, UserProfile
 
 
 @admin.register(Post)
@@ -85,3 +85,17 @@ class CategoryAdmin(admin.ModelAdmin):
         return obj.post_set.count()
 
     post_count.short_description = 'Post Count'
+
+
+@admin.register(UserProfile)
+class UserProfileAdmin(admin.ModelAdmin):
+    list_display = ['user', 'profile_picture', 'date_of_birth', 'location']
+    list_filter = ['location', 'subscribed_categories']
+    search_fields = ['user__username', 'user__email', 'location']
+    fieldsets = (
+        (None, {'fields': ('user', 'profile_picture')}),
+        ('Personal Information', {'fields': ('bio', 'date_of_birth', 'location', 'address')}),
+        ('Social Media', {'fields': ('website', 'facebook_profile', 'twitter_profile', 'linkedin_profile', 'instagram_profile', 'youtube_profile')}),
+        ('Contact', {'fields': ('email', 'phone_number')}),
+        ('Interests', {'fields': ('interests_or_hobbies', 'subscribed_categories')}),
+    )
