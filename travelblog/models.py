@@ -38,6 +38,28 @@ class Category(models.Model):
         return reverse('category', args=[str(self.category_name)])
 
 
+class UserProfile(models.Model):
+    user = models.OneToOneField(User, null=True,  on_delete=models.CASCADE)
+    bio = models.TextField(blank=True)
+    profile_picture = CloudinaryField('image', default='placeholder')
+    date_of_birth = models.DateField(blank=True, null=True)
+    website = models.URLField(blank=True)
+    facebook_profile = models.CharField(max_length=255, blank=True, null=True)
+    twitter_profile = models.CharField(max_length=255, blank=True, null=True)
+    linkedin_profile = models.CharField(max_length=255, blank=True, null=True)
+    instagram_profile = models.CharField(max_length=255, blank=True, null=True)
+    youtube_profile = models.CharField(max_length=255, blank=True, null=True)
+    email = models.EmailField(blank=True)
+    phone_number = models.CharField(max_length=20, blank=True)
+    address = models.CharField(max_length=255, blank=True)
+    location = models.CharField(max_length=100, blank=True)
+    interests_or_hobbies = models.TextField(blank=True)
+    subscribed_categories = models.ManyToManyField(Category, blank=True)
+
+    def __str__(self) -> str:
+        return str(self.user)
+
+
 class Post(models.Model):
     """
     Model representing a blog post.
