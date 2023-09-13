@@ -9,8 +9,9 @@ from django.views.generic import (
 from django.urls import reverse_lazy, reverse
 from django.template.defaultfilters import slugify
 from django.http import HttpResponseRedirect
-from .models import Post, Category
-from .forms import PostForm, EditForm, CategoryEditForm
+from .models import Post, Category, Comment
+from .forms import PostForm, EditForm, CategoryEditForm, CommentForm
+
 
 
 def LikeDislikePost(request, pk):
@@ -136,6 +137,22 @@ class CreatePostView(CreateView):
         context = super().get_context_data(**kwargs)
         context['object'] = self.object
         return context
+
+class AddCommentView(CreateView):
+    """
+    View for creating a new blog post.
+    This view provides a form to create a new blog post.
+    The form includes fields such as title, title tag, author,
+    categories, body content, featured image, excerpt, and status.
+    """
+    model = Comment
+    form_class = CommentForm
+    template_name = 'add_comment.html'
+    success_url = reverse_lazy('home')
+
+    def form_valid(self, form):
+        form.instance.post_id = self.kwargs['pk']
+        return super().form_valid(form)
 
 
 class EditPostView(UpdateView):
