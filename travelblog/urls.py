@@ -10,7 +10,8 @@ from .views import (
     CategoryListView,
     EditCategoryView,
     DeleteCategoryView,
-    LikeDislikePost
+    LikeDislikePost,
+    AddCommentView,
 )
 
 
@@ -54,4 +55,9 @@ urlpatterns = [
         name='delete_category'
     ),
     path('like_dislike/<int:pk>/', LikeDislikePost, name='like_dislike_post'),
+    path(
+        'templates/<int:pk>/comment/',
+        AddCommentView.as_view(),
+        name='add_comment'
+    ),
 ]
