@@ -30,7 +30,7 @@
                 <!-- post_detail.html -->
                 <form method="POST" action="{% url 'like_dislike_post' pk=post.pk %}">
                     {% csrf_token %}
-
+                    
                     {% if user.is_authenticated %}
                     <div class="row">
                         <div class="col-1">
@@ -61,26 +61,34 @@
                 <hr>
             </div>
         </div>
+        <hr>
         <div class="row">
             <div class="col-md-8 card mb-4 mt-3">
                 <h3 class="mb-3">Comments:</h3>
                 <div class="card-body">
-                    {% for comment in comments %}
-                    <div class="card mb-3">
-                        <div class="card-body">
-                            <p class="font-weight-bold mb-0">
-                                {{ comment.name }}
-                                <span class="text-muted font-weight-normal">
-                                    {{ comment.created_on }}
-                                </span> wrote:
-                            </p>
-                            <p class="mt-2">{{ comment.body | linebreaks }}</p>
+                    {% if not post.comments.all %}
+                        No comments yet... <a href="{% url 'add_comment' post.pk %}">Add Comment</a>
+                    {% else %}
+                    <a href="{% url 'add_comment' post.pk %}">Add Comment</a>
+                        {% for comment in post.comments.all %}
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <p class="font-weight-bold mb-0">
+                                    <strong> {{ comment.author }} </strong>
+                                    <span class="text-muted font-weight-normal">
+                                        {{ comment.date_posted }}
+                                    </span> wrote:
+                                </p>
+                                <p class="mt-2">{{ comment.body_content | linebreaks }}</p>
+                            </div>
                         </div>
-                    </div>
-                    {% endfor %}
+                        {% endfor %}
+                    {% endif %}
                 </div>
             </div>
-
+        </div>
+        <hr>
+        <br> <br>
             {% if user.is_authenticated %}
             {% if user.id == post.author.id %}
             <div>
