@@ -56,21 +56,21 @@ class CommentAdmin(admin.ModelAdmin):
         queryset.update(approved=True)
     approve_comments.short_description = "Approve selected comments"
 
-    def number_of_comment_likes(self):
+    def number_of_comment_likes(self, obj):
         '''
         It calculates and returns the total number of likes
         that the comment has received.
         '''
         # pylint: disable=E1101
-        return str(self.comment_likes.count())
+        return obj.comment_likes.count()
 
-    def number_of_comment_dislikes(self):
+    def number_of_comment_dislikes(self, obj):
         '''
         It calculates and returns the total number of dislikes
         that the comment has received.
         '''
         # pylint: disable=E1101
-        return str(self.comment_dislikes.count())
+        return obj.comment_dislikes.count()
 
 
 @admin.register(Category)
