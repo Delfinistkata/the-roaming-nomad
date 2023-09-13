@@ -59,6 +59,9 @@ class UserProfile(models.Model):
     def __str__(self) -> str:
         return str(self.user)
 
+    def get_absolute_url(self):
+        return reverse('show_user_profile_page', args=[str(self.id)])
+
 
 class Post(models.Model):
     """
