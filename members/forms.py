@@ -1,6 +1,72 @@
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm, PasswordChangeForm
 from django.contrib.auth.models import User
 from django import forms
+from travelblog.models import UserProfile
+
+
+class ProfilePageForm(forms.ModelForm):
+    class Meta:
+        model = UserProfile
+        fields = ('bio', 'profile_picture', 'date_of_birth', 'website',
+                'facebook_profile', 'twitter_profile', 'linkedin_profile',
+                'instagram_profile', 'youtube_profile', 'email',
+                'phone_number',
+                'address', 'location', 'interests_or_hobbies',
+                'subscribed_categories')
+
+        widgets = {
+            'bio': forms.Textarea(attrs={
+                'class': 'form-control',
+                'placeholder': 'Describe yourself here'
+            }),
+            'profile_picture': forms.FileInput(attrs={'class': 'form-control'}),
+            'date_of_birth': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
+            'website': forms.URLInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Enter website URL here',
+            }),
+            'facebook_profile': forms.URLInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Enter Facebook profile URL here',
+            }),
+            'twitter_profile': forms.URLInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Enter Twitter profile URL here',
+            }),
+            'linkedin_profile': forms.URLInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Enter LinkedIn profile URL here',
+            }),
+            'instagram_profile': forms.URLInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Enter Instagram profile URL here',
+            }),
+            'youtube_profile': forms.URLInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Enter YouTube profile URL here',
+            }),
+            'email': forms.EmailInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Enter your email address',
+            }),
+            'phone_number': forms.TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Enter your phone number',
+            }),
+            'address': forms.Textarea(attrs={
+                'class': 'form-control',
+                'placeholder': 'Enter your detailed address here',
+            }),
+            'location': forms.TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Enter your location or city here',
+            }),
+            'interests_or_hobbies': forms.Textarea(attrs={
+                'class': 'form-control',
+                'placeholder': 'Enter your interests or hobbies',
+            }),
+            'subscribed_categories': forms.SelectMultiple(attrs={'class': 'form-control'}),
+        }
 
 
 class SignUpForm(UserCreationForm):
