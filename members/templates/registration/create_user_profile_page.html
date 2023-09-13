@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %} Create Your Profile! {% endblock %}
+{% block content %}
+
+{% if user.is_authenticated %}
+
+<div class="container">
+
+    <h1 class="mb-4 text-center">Create Profile</h1>
+
+    <form method="POST"  class="form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="text-center">
+            <button type= "submit" class= "btn btn-secondary btn-sm">Create Profile</button>
+            <a href="{% url 'home' %}" class="btn btn-primary btn-sm">Back</a>
+        </div>
+    </form>
+</div>
+
+{% else %}
+<div>
+    You are not authorised for this activity! Please log in to your profile.
+</div>
+
+<a href="{% url 'account_signup' %}" class="btn btn-primary btn-sm">Register</a>
+<a href="{% url 'account_login' %}" class="btn btn-primary btn-sm">LogIn</a>
+
+
+{% endif %}
+
+{% endblock %}
