@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %} Comment on Blog Post {% endblock %}
+{% block content %}
+
+{% if user.is_authenticated %}
+
+<div class="container">
+
+    <h1 class="mb-4 text-center">Add Comment</h1>
+
+    <form method="POST"  class="form">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <div class="text-center">
+            <button type= "submit" class= "btn btn-secondary btn-sm">Add comment</button>
+            <a href="{% url 'home' %}" class="btn btn-primary btn-sm">Back</a>
+        </div>
+    </form>
+</div>
+
+{% else %}
+<div>
+    You are not authorised for this activity! Please log in to your profile.
+</div>
+
+<a href="{% url 'account_signup' %}" class="btn btn-primary btn-sm">Register</a>
+<a href="{% url 'account_login' %}" class="btn btn-primary btn-sm">LogIn</a>
+
+
+{% endif %}
+
+{% endblock %}
