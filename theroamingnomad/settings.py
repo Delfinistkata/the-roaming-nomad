@@ -31,7 +31,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = True
 
 ALLOWED_HOSTS = ['the-roaming-nomad-travel-blog-f5d807b27cbd.herokuapp.com',
-                '8000-delfinistka-theroamingn-pqqs5mr0ud0.ws-eu102.gitpod.io']
+                '8000-delfinistka-theroamingn-pqqs5mr0ud0.ws-eu104.gitpod.io']
 
 
 # Application definition
