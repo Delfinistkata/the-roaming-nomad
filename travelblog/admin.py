@@ -75,6 +75,12 @@ class CommentAdmin(admin.ModelAdmin):
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
+    """
+    Admin configuration for the Category model.
+    This class defines the admin configuration for the Category model.
+    It specifies the list display fields and defines a custom method
+    to display the count of associated posts for each category.
+    """
     list_display = ('category_name', 'post_count',)
 
     def post_count(self, obj):
@@ -89,13 +95,30 @@ class CategoryAdmin(admin.ModelAdmin):
 
 @admin.register(UserProfile)
 class UserProfileAdmin(admin.ModelAdmin):
+    """
+    This class defines the admin configuration for the UserProfile model.
+    It specifies the list display fields, list filter options, search fields,
+    and fieldsets for organizing user profile information, including personal
+    information, social media links, contact details, and interests.
+    """
     list_display = ['user', 'profile_picture', 'date_of_birth', 'location']
     list_filter = ['location', 'subscribed_categories']
     search_fields = ['user__username', 'user__email', 'location']
     fieldsets = (
         (None, {'fields': ('user', 'profile_picture')}),
-        ('Personal Information', {'fields': ('bio', 'date_of_birth', 'location', 'address')}),
-        ('Social Media', {'fields': ('website', 'facebook_profile', 'twitter_profile', 'linkedin_profile', 'instagram_profile', 'youtube_profile')}),
-        ('Contact', {'fields': ('email', 'phone_number')}),
-        ('Interests', {'fields': ('interests_or_hobbies', 'subscribed_categories')}),
+        ('Personal Information', {
+            'fields': ('bio', 'date_of_birth', 'location', 'address')
+        }),
+        ('Social Media', {
+            'fields': (
+                'website', 'facebook_profile', 'twitter_profile',
+                'linkedin_profile', 'instagram_profile', 'youtube_profile'
+            )
+        }),
+        ('Contact', {
+            'fields': ('email', 'phone_number')
+        }),
+        ('Interests', {
+            'fields': ('interests_or_hobbies', 'subscribed_categories')
+        }),
     )
