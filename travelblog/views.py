@@ -1,3 +1,11 @@
+"""
+This module contains Django imports for various view classes,
+utilities, and models
+used in a blog application.
+This module helps in setting up a Django blog application
+by providing necessary imports
+for views, forms, models, and utilities.
+"""
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import (
     ListView,
@@ -13,8 +21,17 @@ from .models import Post, Category, Comment
 from .forms import PostForm, EditForm, CategoryEditForm, CommentForm
 
 
-
 def LikeDislikePost(request, pk):
+    """
+    View function to handle liking and disliking a post.
+    If the 'like' button is clicked and
+    the user has not already liked the post,
+    it adds the user to the post's likes.
+    If the 'like' button is clicked and the user has already liked the post,
+    it removes the user from the post's likes.
+    Similarly, if the 'dislike' button is clicked,
+    it adds or removes the user from the post's dislikes accordingly.
+    """
     post = get_object_or_404(Post, id=pk)
 
     if request.method == 'POST':
@@ -35,7 +52,16 @@ def LikeDislikePost(request, pk):
 
 
 class PostList(ListView):
-    """A class-based view that displays a list of published posts.
+    """
+    A class-based view that displays a list of published posts.
+    This view displays a paginated list of published blog posts, 
+    with the option to filter by categories.
+    It uses the 'model' and 'queryset' attributes to fetch
+    and display the posts.
+    The 'get_queryset' method further filters
+    the queryset based on selected categories.
+    The 'get_context_data' method adds a list of all available
+    categories to the context.
     """
     model = Post
     queryset = Post.objects.filter(status=1).order_by("-created_on")
@@ -127,6 +153,7 @@ class CreatePostView(CreateView):
     model = Post
     form_class = PostForm
     template_name = 'create_post.html'
+    success_url = reverse_lazy('home')
 
     def form_valid(self, form):
         form.instance.post_number = Post.objects.count() + 1
@@ -137,6 +164,7 @@ class CreatePostView(CreateView):
         context = super().get_context_data(**kwargs)
         context['object'] = self.object
         return context
+
 
 class AddCommentView(CreateView):
     """
