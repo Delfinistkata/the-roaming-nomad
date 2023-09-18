@@ -1,3 +1,9 @@
+"""
+URL patterns for a Django blog application.
+It includes patterns for listing posts, viewing post details,
+creating, editing, and deleting posts,
+managing categories, liking/disliking posts, and adding comments.
+"""
 from django.urls import path
 from .views import (
     PostList,
