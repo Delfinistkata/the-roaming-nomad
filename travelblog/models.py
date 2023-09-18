@@ -1,15 +1,16 @@
 """
-Module containing model imports and utility functions for a blog application.
+This module contains Django model imports for this blog application.
+These imports are defining the blog's data models,
+handling user authentication,
+generating URLs, managing image uploads with Cloudinary,
+and incorporating rich text content editing with CKEditor.
 """
-
 from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
 from django.utils.text import slugify
-
 from cloudinary.models import CloudinaryField
 from ckeditor.fields import RichTextField
-
 
 STATUS = ((0, "Draft"), (1, "Published"))
 
@@ -18,7 +19,13 @@ STATUS = ((0, "Draft"), (1, "Published"))
 
 class Category(models.Model):
     """
-    Model representing a category for blog posts.
+    This model represents categories that can be assigned
+    to blog posts to organize them.
+    It includes a field for the category name
+    and provides a human-readable plural name.
+    The '__str__' method returns a string representation of the category name,
+    and 'get_absolute_url' generates the URL for viewing
+    all posts in the category.
     """
     category_name = models.CharField(max_length=255)
 
@@ -26,19 +33,25 @@ class Category(models.Model):
         verbose_name_plural = "Categories"
 
     def __str__(self) -> str:
-        """
-        Returns a string representation of the category_name.
-        """
+        """ Returns a string representation of the category_name. """
         return str(self.category_name)
 
     def get_absolute_url(self):
-        """
-        Returns the absolute URL for the category.
-        """
+        """ Returns the absolute URL for the category. """
         return reverse('category', args=[str(self.category_name)])
 
 
 class UserProfile(models.Model):
+    """
+    Model representing user profiles with additional information.
+    This model extends the default User model with
+    additional fields to store user profile information.
+    It includes fields for personal details,
+    social media profiles, contact information, and more.
+    The '__str__' method returns the username of the associated user,
+    and 'get_absolute_url' generates the URL for
+    viewing the user's profile page.
+    """
     user = models.OneToOneField(User, null=True,  on_delete=models.CASCADE)
     bio = models.TextField(blank=True)
     profile_picture = CloudinaryField('image', default='placeholder')
@@ -57,16 +70,16 @@ class UserProfile(models.Model):
     subscribed_categories = models.ManyToManyField(Category, blank=True)
 
     def __str__(self) -> str:
+        """ Returns a string representation of the associated user. """
         return str(self.user)
 
     def get_absolute_url(self):
+        """ Returns the absolute URL for the user's profile page. """
         return reverse('show_user_profile_page', args=[str(self.id)])
 
 
 class Post(models.Model):
-    """
-    Model representing a blog post.
-    """
+    """ Model representing a blog post. """
     title = models.CharField(max_length=200, unique=True)
     title_tag = models.CharField(max_length=200, default="The Roaming Nomad")
     author = models.ForeignKey(
@@ -115,6 +128,10 @@ class Post(models.Model):
         return str(self.dislikes.count())
 
     def save(self, *args, **kwargs):
+        """
+        Overrides the save method to automatically
+        generate the post's slug.
+        """
         self.slug = slugify(self.title)
         super().save(*args, **kwargs)
 
@@ -157,9 +174,7 @@ class Comment(models.Model):
         ordering = ['date_posted']
 
     def __str__(self):
-        '''
-        Returns a string representation of the comment.
-        '''
+        ''' Returns a string representation of the comment. '''
         return f"Comment by {self.author} on {self.post}"
 
     def number_of_comment_likes(self) -> str:
