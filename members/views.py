@@ -9,7 +9,7 @@ from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from django.views.generic import DetailView, CreateView
 from django.contrib.auth.views import PasswordChangeView
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 from django.contrib import messages
 from travelblog.models import UserProfile
 from travelblog.models import Post
@@ -54,7 +54,7 @@ class EditProfilePageView(generic.UpdateView):
         'bio', 'profile_picture', 'date_of_birth', 'website',
         'facebook_profile', 'twitter_profile',
         'linkedin_profile', 'instagram_profile', 'youtube_profile',
-        'phone_number', 'address', 'location',
+        'email', 'phone_number', 'address', 'location',
         'interests_or_hobbies', 'subscribed_categories'
     ]
     success_url = reverse_lazy('home')
@@ -81,6 +81,11 @@ class ShowProfilePageView(DetailView):
 
         context['page_user'] = page_user
         context['user_posts'] = user_posts
+        context['profile_url'] = reverse(
+            'show_user_profile_page',
+            kwargs={'pk': page_user.pk}
+        )
+
         return context
 
 
@@ -130,7 +135,7 @@ class UserEditView(generic.UpdateView):
     template_name = 'registration/edit_profile.html'
     success_url = reverse_lazy('home')
 
-    def get_object(self):
+    def get_object(self, queryset=None):
         """
         This method overrides the get_object method to return the instance of
         the currently authenticated user for editing.
