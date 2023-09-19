@@ -1,13 +1,43 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block content %}
-<h1>All Categories</h1>
-<ul>
-    {% for category in category_list_menu %}
-    <li><a href="{% url 'category' cats=category.category_name|slugify %}">{{ category.category_name }}</a>
-        <a href="{% url 'edit_category' slug=category.category_name|slugify %}">Edit</a>
-        <a href="{% url 'delete_category' slug=category.category_name|slugify %}">Delete</a>
-    </li>
-    {% endfor %}
-</ul>
+
+<div class="container  mt-5 mb-4">
+    <div class="card border-0 shadow rounded-3 my-5">
+        <div class="card-body p-4 p-sm-5">
+            <h1 class="mb-4 text-center">Categories</h1>
+            <table class="table">
+                <thead class="table-light">
+                    <tr>            
+                        <th>Name</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for category in category_list_menu %}
+                        <tr>
+                            <td><a class="text-dark" href="{% url 'category' cats=category.category_name|slugify %}">{{ category.category_name }}</a></td>
+
+                            <td>
+                                {% if user.is_staff %}
+                                    <a href="{% url 'edit_category' slug=category.category_name|slugify %}">
+                                        <i class="fas fa-edit mr-2"></i> Edit
+                                    </a>
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if user.is_staff %}
+                                    <a href="{% url 'delete_category' slug=category.category_name|slugify %}">
+                                        <i class="fas fa-archive mr-2"></i> Delete
+                                    </a>
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}                        
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 {% endblock %}
