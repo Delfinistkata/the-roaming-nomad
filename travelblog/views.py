@@ -14,6 +14,8 @@ from django.views.generic import (
     UpdateView,
     DeleteView,
 )
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 from django.urls import reverse_lazy, reverse
 from django.template.defaultfilters import slugify
 from django.http import HttpResponseRedirect
@@ -143,6 +145,7 @@ class AddCategoryView(CreateView):
     fields = '__all__'
 
 
+@method_decorator(login_required, name='dispatch')
 class CreatePostView(CreateView):
     """
     View for creating a new blog post.
@@ -164,6 +167,12 @@ class CreatePostView(CreateView):
         context = super().get_context_data(**kwargs)
         context['object'] = self.object
         return context
+
+    def dispatch(self, request, *args, **kwargs):
+        if not request.user.userprofile.is_complete():
+            return redirect('create_profile_page')
+
+        return super().dispatch(request, *args, **kwargs)
 
 
 class AddCommentView(CreateView):
