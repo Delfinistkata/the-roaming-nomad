@@ -75,7 +75,21 @@ class UserProfile(models.Model):
 
     def get_absolute_url(self):
         """ Returns the absolute URL for the user's profile page. """
-        return reverse('show_user_profile_page', args=[str(self.id)])
+        return reverse('show_user_profile_page', args=[str(self.pk)])
+
+    def is_complete(self):
+        """
+        Checks if the user's profile is considered complete.
+        """
+        required_fields = [
+            'bio',
+        ]
+
+        for field_name in required_fields:
+            if not getattr(self, field_name):
+                return False
+
+        return True
 
 
 class Post(models.Model):
