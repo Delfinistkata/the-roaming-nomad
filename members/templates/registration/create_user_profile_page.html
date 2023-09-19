@@ -1,32 +1,176 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block title %} Create Your Profile! {% endblock %}
 {% block content %}
 
-{% if user.is_authenticated %}
+
 
 <div class="container">
-
-    <h1 class="mb-4 text-center">Create Profile</h1>
-
-    <form method="POST"  class="form">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <div class="text-center">
-            <button type= "submit" class= "btn btn-secondary btn-sm">Create Profile</button>
-            <a href="{% url 'home' %}" class="btn btn-primary btn-sm">Back</a>
+    <div class="container  mt-5 mb-4">
+        <div class="card border-0 shadow rounded-3 my-5">
+            <div class="card-body p-4 p-sm-5">
+                <h1 class="mb-4 text-center">Create Profile</h1>
+                {% if user.is_authenticated %}
+                    <form method="POST" class="form" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div>            
+                                    {{ form.bio}}
+                                    <label class="form-label mb-3" for="userName">Bio</label>
+                                    {% if form.errors.bio%}
+                                        {% for error in form.errors.bio %}
+                                            <p class="text-danger">{{ error }}</p>
+                                        {% endfor%}                                            
+                                    {%endif%}
+                                </div> 
+                                <div class="">            
+                                    <label for="id_profile_picture">Image:</label>
+                                    {{ form.profile_picture}}
+                                    
+                                    {% if form.errors.profile_picture%}
+                                        {% for error in form.errors.profile_picture %}
+                                            <p class="text-danger">{{ error }}</p>
+                                        {% endfor%}                                            
+                                    {%endif%}
+                                </div> 
+                                <div class="mt-3">            
+                                    <label for="id_profile_picture">Date of birth:</label>
+                                    {{ form.date_of_birth}}
+                                    
+                                    {% if form.errors.date_of_birth%}
+                                        {% for error in form.errors.date_of_birth %}
+                                            <p class="text-danger">{{ error }}</p>
+                                        {% endfor%}                                            
+                                    {%endif%}
+                                </div> 
+                                <div class="form-floating mt-3">            
+                                    {{ form.email}}
+                                    <label class="form-label mb-3" for="email">Email</label>
+                                    {% if form.errors.email%}
+                                        {% for error in form.errors.email %}
+                                            <p class="text-danger">{{ error }}</p>
+                                        {% endfor%}                                            
+                                    {%endif%}
+                                </div> 
+                                <div class="form-floating mt-3">            
+                                    {{ form.address}}
+                                    <label class="form-label mb-3" for="email">Address</label>
+                                    {% if form.errors.address%}
+                                        {% for error in form.errors.address %}
+                                            <p class="text-danger">{{ error }}</p>
+                                        {% endfor%}                                            
+                                    {%endif%}
+                                </div>
+                                <div class="form-floating mt-3">            
+                                    {{ form.location}}
+                                    <label class="form-label mb-3" for="email">Location</label>
+                                    {% if form.errors.location%}
+                                        {% for error in form.errors.location %}
+                                            <p class="text-danger">{{ error }}</p>
+                                        {% endfor%}                                            
+                                    {%endif%}
+                                </div> 
+                              
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating mb-3">            
+                                    {{ form.website}}
+                                    <label class="form-label mb-3" for="userName">Website</label>
+                                    {% if form.errors.website%}
+                                        {% for error in form.errors.website %}
+                                            <p class="text-danger">{{ error }}</p>
+                                        {% endfor%}                                            
+                                    {%endif%}
+                                </div> 
+                                <div class="form-floating mb-3">            
+                                    {{ form.facebook_profile}}
+                                    <label class="form-label mb-3" for="userName">Facebook Profile</label>
+                                    {% if form.errors.facebook_profile%}
+                                        {% for error in form.errors.facebook_profile %}
+                                            <p class="text-danger">{{ error }}</p>
+                                        {% endfor%}                                            
+                                    {%endif%}
+                                </div> 
+                                <div class="form-floating mb-3">            
+                                    {{ form.twitter_profile}}
+                                    <label class="form-label mb-3" for="userName">Twitter Profile</label>
+                                    {% if form.errors.twitter_profile%}
+                                        {% for error in form.errors.twitter_profile %}
+                                            <p class="text-danger">{{ error }}</p>
+                                        {% endfor%}                                            
+                                    {%endif%}
+                                </div> 
+                                <div class="form-floating mb-3">            
+                                    {{ form.linkedin_profile}}
+                                    <label class="form-label mb-3" for="userName">Linkedin Profile</label>
+                                    {% if form.errors.linkedin_profile%}
+                                        {% for error in form.errors.linkedin_profile %}
+                                            <p class="text-danger">{{ error }}</p>
+                                        {% endfor%}                                            
+                                    {%endif%}
+                                </div> 
+                                <div class="form-floating mb-3">            
+                                    {{ form.instagram_profile}}
+                                    <label class="form-label mb-3" for="userName">Instagram Profile</label>
+                                    {% if form.errors.instagram_profile%}
+                                        {% for error in form.errors.instagram_profile %}
+                                            <p class="text-danger">{{ error }}</p>
+                                        {% endfor%}                                            
+                                    {%endif%}
+                                </div> 
+                                
+                                <div class="form-floating mb-3">            
+                                    {{ form.youtube_profile}}
+                                    <label class="form-label mb-3" for="userName">Youtube Profile</label>
+                                    {% if form.errors.youtube_profile%}
+                                        {% for error in form.errors.youtube_profile %}
+                                            <p class="text-danger">{{ error }}</p>
+                                        {% endfor%}                                            
+                                    {%endif%}
+                                </div> 
+                                
+                                <div class="form-floating mb-3">            
+                                    {{ form.interests_or_hobbies}}
+                                    <label class="form-label mb-3" for="userName">Interests or hobbies:</label>
+                                    {% if form.errors.interests_or_hobbies%}
+                                        {% for error in form.errors.interests_or_hobbies %}
+                                            <p class="text-danger">{{ error }}</p>
+                                        {% endfor%}                                            
+                                    {%endif%}
+                                </div> 
+                                <div class="mt-3">            
+                                    <label class="form-label mb-3" for="email">Categories</label>
+                                    {{ form.subscribed_categories}}
+                                
+                                    {% if form.errors.subscribed_categories%}
+                                        {% for error in form.errors.subscribed_categories %}
+                                            <p class="text-danger">{{ error }}</p>
+                                        {% endfor%}                                            
+                                    {%endif%}
+                                </div> 
+                            </div>
+                        </div>
+                        <div class="text-center mt-3">
+                            <button type= "submit" class= "btn btn-primary btn-sm">Create Profile</button>
+                            <a href="{% url 'home' %}" class="btn btn-secondary btn-sm">Cancel</a>
+                        </div>
+                    </form>
+                    {% else %}
+                        <h3 class="text-center text-dark">
+                            You are not authorised for this activity! Please log in to your profile.
+                        </div>
+                        <div class="flex text-center mb-3">
+                            <a href="{% url 'account_signup' %}" class="btn btn-primary btn-sm">Register</a>
+                            <a href="{% url 'account_login' %}" class="btn btn-primary btn-sm">LogIn</a>
+                        </div>
+                    
+                {% endif %}
+            </div>
         </div>
-    </form>
+    </div>
 </div>
 
-{% else %}
-<div>
-    You are not authorised for this activity! Please log in to your profile.
-</div>
 
-<a href="{% url 'account_signup' %}" class="btn btn-primary btn-sm">Register</a>
-<a href="{% url 'account_login' %}" class="btn btn-primary btn-sm">LogIn</a>
-
-
-{% endif %}
 
 {% endblock %}
