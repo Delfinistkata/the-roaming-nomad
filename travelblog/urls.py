@@ -5,6 +5,7 @@ creating, editing, and deleting posts,
 managing categories, liking/disliking posts, and adding comments.
 """
 from django.urls import path
+from django.contrib.auth.views import LoginView
 from .views import (
     PostList,
     PostDetailView,
@@ -66,4 +67,5 @@ urlpatterns = [
         AddCommentView.as_view(),
         name='add_comment'
     ),
+    path('login/', LoginView.as_view(), name='login'),
 ]
