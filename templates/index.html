@@ -1,79 +1,143 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block content %}
+{% if user.is_authenticated %}
 
-<div class="container-fluid">
-    <div class="row">
+<div class="container py-2" id="post-lists">
+    {% if post_list %}
+    <div class="h1 text-center text-dark" id="pageHeaderTitle">Travel Posts</div>
+    <div class="container mt-4 mb-4">
+        <div class="row justify-content-md-center">
+            <div class="mb-3 w-40">
 
-        <!-- Blog Entries Column -->
-        <div class="col-12 mt-3 left">
-            <div class="row">
-                {% for post in post_list %}
-                <div class="col-md-4">
-                    <div class="card mb-4">
-                        <div class="card-body">
-                            <div class="image-container">
-                                {% if "placeholder" in post.featured_image.url %}
-                                <img class="card-img-top"
-                                    src="https://res.cloudinary.com/doyc0uqcs/image/upload/v1688827561/Porject%204%20Travel%20Blog/pexels-vojta-kova%C5%99%C3%ADk-3243090_lpneiv.jpg">
-                                {% else %}
-                                <img class="card-img-top" src=" {{ post.featured_image.url }}">
-                                {% endif %}
-                                <div class="image-flash">
-                                    <p class="author">Author: {{ post.author }}</p>
-                                    <p class="category">Categories:
-                                        {% for category in post.categories.all %}
-                                        <a href="{% url 'category' cats=category.category_name|slugify %}">{{ category.category_name|title }}</a>
-                                        {% endfor %}
-                                    </p>
-                                </div>
-                            </div>
-                            <a href="{% url 'post_detail' post.slug %}" class="post-link">
-                                <h2 class="card-title">{{ post.title }}</h2>
-                                <p class="card-text">{{ post.excerpt }}</p>
-                            </a>
-                            <hr/>
-                            <div>
-                                <span class="text-primary">Body:</span> {{ post.body_content|safe }}
-                            </div>
-                            <p class="card-text text-muted h6">
-                                <div>
-                                    <span class="text-primary">Created On:</span> {{ post.created_on }}
-                                    <span class="text-primary"><i class="far fa-heart text-success"></i></span>
-                                    {{ post.likes.count }}
-                                    <span class="text-primary"><i class="far fa-thumbs-down text-danger"></i></span>
-                                    {{ post.dislikes.count }}
-                                </div>
-                                <div>
-                                    <span class="text-primary">Post Number:</span> {{ post.post_number }}
-                                </div>
-                                <div>
-                                    <span class="text-primary">Last Modified:</span> {{ post.last_modified }}
-                                </div>
-                                <div>
-                                    <span class="text-primary">Status:</span> {{ post.get_status_display }}
-                                </div>
-                                {% if user.is_authenticated %}
-                                    {% if user.id == post.author.id %}
-                                        <div>
-                                            <a href="{% url 'edit_post' post.slug %}">Edit</a>
-                                            <a href="{% url 'delete_post' post.slug %}">Delete</a>
-                                        </div>
-                                        {% endif %}
-                                {% endif %}
-                            </p>
-                        </div>
+                <form id="categoryForm">
+                    <div class="input-group mb-3">
+                        <select class="form-select form-select-sm" name="category" data-placeholder="Select Categories"
+                            id="small-bootstrap-class-multiple-field" multiple>
+                            {% for category in categories %}
+                            <option value="{{ category.id }}">{{ category.category_name }}</option>
+                            {%endfor%}
+                        </select>
+                        <button class="btn btn-outline-secondary btn btn-primary text-white"
+                            type="submit">Apply</button>
+                        <a type="button" class="btn btn-secondary" href="{% url 'home' %}">Reset</a>
                     </div>
-                </div>
-                {% if forloop.counter|divisibleby:3 %}
-            </div>
-            <div class="row">
-                {% endif %}
-                {% endfor %}
-
+                </form>
             </div>
         </div>
     </div>
+    {% else %}
+    <div class="h3 text-center text-dark" id="pageHeaderTitle">Not Posts yet</div>
+    {% endif %}
+
+    {% for post in post_list %}
+    <article class="postcard light yellow">
+        <a class="postcard__img_link" href="{% url 'post_detail' post.slug %}">
+            {% if "placeholder" in post.featured_image.url %}
+            <img class="postcard__img"
+                src="https://res.cloudinary.com/doyc0uqcs/image/upload/v1688827561/Porject%204%20Travel%20Blog/pexels-vojta-kova%C5%99%C3%ADk-3243090_lpneiv.jpg">
+            {% else %}
+            <img class="postcard__img" src=" {{ post.featured_image.url }}" alt="Image Title">
+            {% endif %}
+        </a>
+        <div class="postcard__text t-dark">
+
+            <div>
+                <a href="{% url 'show_user_profile_page' post.author.userprofile.id%}"
+                    class="text-bold text-dark text-decoration-underline">
+                    {% if post.author.userprofile.profile_picture.url == '' %}
+                    <img src="https://res.cloudinary.com/doyc0uqcs/image/upload/v1691407204/Porject%204%20Travel%20Blog/male-user-shadow_318-34042_eotvtf.avif"
+                        class="rounded-circle me-3" height="50px" width="50px" alt="avatar">
+                    {% else%}
+                    <img src="{{ post.author.userprofile.profile_picture.url }}" class="rounded-circle me-3"
+                        height="50px" width="50px" alt="avatar">
+                    {% endif%}
+
+                    {{ post.author.userprofile.user.first_name }} {{ post.author.userprofile.user.last_name }}
+                </a>
+
+
+                <time datetime="2020-05-25 12:00:00">
+                    <i class="fas fa-clock mr-2"></i><span class="ms-2">{{ post.last_modified }}</span>
+                </time>
+            </div>
+            <a class="text-bold h4 text-dark" href="{% url 'post_detail' post.slug %}">{{ post.title }}</a>
+            <div class="postcard__bar"></div>
+            <div class="postcard__preview-txt">{{ post.body_content| truncatewords_html:50| safe }}</div>
+            <ul class="list-inline d-sm-flex my-0">
+                {% for category in post.categories.all %}
+                <li class="list-inline-item g-mr-20">
+                    <span class="badge bg-secondary">
+                        <i class="fas fa-tag mr-2"></i>
+                        {{category}}
+                    </span>
+                </li>
+                {%endfor%}
+            </ul>
+            <div class="mt-3">
+                <hr class="style1">
+                <form method="POST" action="{% url 'like_dislike_post' pk=post.pk %}">
+                    {% csrf_token %}
+                    <ul class="list-inline d-sm-flex my-0">
+                        <li class="list-inline-item g-mr-20">
+                            <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#!">
+                                <i class="far fa-heart text-danger"></i>
+                                {{ post.number_of_likes }}
+                            </a>
+                        </li>
+                        <li class="list-inline-item g-mr-20 ms-2">
+                            <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#!">
+                                <i class="fa fa-thumbs-down g-pos-rel g-top-1 g-mr-3"></i>
+                                {{ post.number_of_dislikes }}
+                            </a>
+                        </li>
+                        <li class="list-inline-item ml-auto ms-2">
+                            <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover open-comments"
+                                id="open-comments" href="#" data-post="{{post.id}}">
+                                <i class="far fa-comments text-info"></i> {{ post.comments.count }}
+                            </a>
+                        </li>
+                    </ul>
+                </form>
+
+            </div>
+        </div>
+
+    </article>
+    <div class="container d-none comments" id="comments_{{post.id}}">
+        <div class="be-comment-block">
+            <h1 class="comments-title">Comments ({{ post.comments.count }})</h1>
+            {% for comment in post.comments.all %}
+            <div class="be-comment">
+                <div class="be-img-comment">
+                    <a href="blog-detail-2.html">
+                        <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="be-ava-comment">
+                    </a>
+                </div>
+                <div class="be-comment-content">
+
+                    <span class="be-comment-name">
+                        <a href="blog-detail-2.html">{{ comment.author }}</a>
+                    </span>
+                    <span class="be-comment-time">
+                        <p class="mt-2">{{ comment.date_posted }}</p>
+                    </span>
+
+                    <div class="be-comment-text bg-white">
+                        <p>
+                            {{ comment.body_content | linebreaks }}
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            <a href="{% url 'add_comment' post.pk %}">Add Comment</a>
+        </div>
+    </div>
+
+    {% endfor %}
+
     {% if is_paginated %}
     <nav aria-label="Page navigation">
         <ul class="pagination justify-content-center">
@@ -88,4 +152,12 @@
     </nav>
     {% endif %}
 </div>
+</div>
+{% else %}
+<div>
+    To access this page you have to be logged in. Please log in to your profile.
+</div>
+    <a href="{% url 'register' %}" class="btn btn-primary btn-sm">Register</a>
+    <a href="{% url 'login' %}" class="btn btn-primary btn-sm">Log In</a>
+{% endif %}
 {%endblock%}
