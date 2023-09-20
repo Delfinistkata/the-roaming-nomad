@@ -1,24 +1,39 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
+<div class="container text-center">
+    <div class="w3l-homeblock1 text-center mb-4">
+        <div class="container mt-md-3">
+            <div class="user text-center">
+                <div class="profile">
+                    {% if post.author.userprofile.profile_picture.url == '' %}
+                    <img src="https://res.cloudinary.com/doyc0uqcs/image/upload/v1691407204/Porject%204%20Travel%20Blog/male-user-shadow_318-34042_eotvtf.avif"
+                        class="rounded-circle" width="80">
+                    {% else%}
+                    <img src="{{ post.author.userprofile.profile_picture.url }}" class="rounded-circle" width="100px">
+                    {% endif%}
 
-<div class="masthead">
-    <div class="container">
-        <div class="row g-0">
-            <div class="col-md-6 masthead-text">
-                <h1 class="post-title">{{ post.title }}</h1>
-                <p class="post-subtitle">{{ post.author }} | {{ post.created_on }}</p>
+                </div>
+
+                <a href="{% url 'show_user_profile_page' post.author.userprofile.id%}"
+                    class="text-dark mt-10 h6"><u>{{ post.author }}</u></a>
+
+                <h2 class="text-dark mt-10">{{ post.title }}</h2>
+                <time datetime="2020-05-25 12:00:00" class="mt-2">
+                    <i class="fas fa-clock mr-2"></i><span class="ms-2">{{ post.created_on}}</span>
+                </time>
             </div>
-            <div class="d-none d-md-block col-md-6 masthead-image">
-                {% if "placeholder" in post.featured_image.url %}
-                <img src="https://res.cloudinary.com/doyc0uqcs/image/upload/v1688827561/Porject%204%20Travel%20Blog/pexels-vojta-kova%C5%99%C3%ADk-3243090_lpneiv.jpg"
-                    width="100%">
-                {% else %}
-                <img src="{{ post.featured_image.url }}" width="100%">
-                {% endif %}
-            </div>
+
         </div>
     </div>
+    {% if "placeholder" in post.featured_image.url %}
+    <img src="https://res.cloudinary.com/doyc0uqcs/image/upload/v1688827561/Porject%204%20Travel%20Blog/pexels-vojta-kova%C5%99%C3%ADk-3243090_lpneiv.jpg"
+        width="100%">
+    {% else %}
+    <img src="{{ post.featured_image.url }}" width="100%" height="600px" class="rounded">
+    {% endif %}
 </div>
+
 
 <div class="container">
     <div class="row">
@@ -27,10 +42,45 @@
                 <p class="card-text">
                     {{ post.body_content|safe }}
                 </p>
+
+                <div class="container d-none comments" id="comments_{{post.id}}">
+                    <div class="be-comment-block">
+                        <h1 class="comments-title">Comments ({{ post.comments.count }})</h1>
+                        {% for comment in post.comments.all %}
+                        <div class="be-comment">
+                            <div class="be-img-comment">
+                                <a href="blog-detail-2.html">
+                                    <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt=""
+                                        class="be-ava-comment">
+                                </a>
+                            </div>
+                            <div class="be-comment-content">
+
+                                <span class="be-comment-name">
+                                    <a href="blog-detail-2.html">{{ comment.author }}</a>
+                                </span>
+                                <span class="be-comment-time">
+                                    <p class="mt-2">{{ comment.date_posted }}</p>
+                                </span>
+
+                                <div class="be-comment-text bg-white">
+                                    <p>
+                                        {{ comment.body_content | linebreaks }}
+                                    </p>
+
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                        <a href="{% url 'add_comment' post.pk %}">Add Comment</a>
+                    </div>
+                </div>
+
+
                 <!-- post_detail.html -->
                 <form method="POST" action="{% url 'like_dislike_post' pk=post.pk %}">
                     {% csrf_token %}
-                    
+
                     {% if user.is_authenticated %}
                     <div class="row">
                         <div class="col-1">
@@ -45,7 +95,7 @@
                         </div>
                         <div class="col-1">
                             <strong class="text-secondary">
-                                <i class="far fa-comments text-info"></i> {{ comments.count }}
+                                <i class="far fa-comments text-info"></i> {{ post.comments.count }}
                             </strong>
                         </div>
                     </div>
@@ -55,109 +105,46 @@
                 </form>
             </div>
         </div>
-        <br /><br /><br /><br />
-        <div class="row">
-            <div class="col">
-                <hr>
-            </div>
-        </div>
-        <hr>
+
         <div class="row">
             <div class="col-md-8 card mb-4 mt-3">
                 <h3 class="mb-3">Comments:</h3>
                 <div class="card-body">
                     {% if not post.comments.all %}
-                        No comments yet... <a href="{% url 'add_comment' post.pk %}">Add Comment</a>
+                    No comments yet... <a href="{% url 'add_comment' post.pk %}">Add Comment</a>
                     {% else %}
                     <a href="{% url 'add_comment' post.pk %}">Add Comment</a>
-                        {% for comment in post.comments.all %}
-                        <div class="card mb-3">
-                            <div class="card-body">
-                                <p class="font-weight-bold mb-0">
-                                    <strong> {{ comment.author }} </strong>
-                                    <span class="text-muted font-weight-normal">
-                                        {{ comment.date_posted }}
-                                    </span> wrote:
-                                </p>
-                                <p class="mt-2">{{ comment.body_content | linebreaks }}</p>
-                            </div>
+                    {% for comment in post.comments.all %}
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <p class="font-weight-bold mb-0">
+                                <strong> {{ comment.author }} </strong>
+                                <span class="text-muted font-weight-normal">
+                                    {{ comment.date_posted }}
+                                </span> wrote:
+                            </p>
+                            <p class="mt-2">{{ comment.body_content | linebreaks }}</p>
                         </div>
-                        {% endfor %}
+                    </div>
+                    {% endfor %}
                     {% endif %}
                 </div>
             </div>
         </div>
         <hr>
         <br> <br>
-            {% if user.is_authenticated %}
-            {% if user.id == post.author.id %}
-            <div>
-                <a href="{% url 'home' %}" class="btn btn-primary btn-sm">Back</a>
-                <a href="{% url 'edit_post' post.slug %}" class="btn btn-secondary btn-sm">Edit</a>
-                <a href="{% url 'delete_post' post.slug %}">Delete</a>
-            </div>
-            <div class="col-md-4 card mb-4 mt-3">
-                <div class="card-body">
-                    <!-- For later -->
-                </div>
-            </div>
-            {% endif %}
-            {% endif %}
+        {% if user.is_authenticated %}
+        {% if user.id == post.author.id %}
+        <div>
+            <a href="{% url 'home' %}" class="btn btn-primary btn-sm">Back</a>
+            <a href="{% url 'edit_post' post.slug %}" class="btn btn-secondary btn-sm">Edit</a>
+            <a href="{% url 'delete_post' post.slug %}">Delete</a>
         </div>
+        {% endif %}
+        {% endif %}
     </div>
+</div>
 
-    <div class="card mb-3">
-        <div class="row no-gutters">
-            <div class="col-12 col-md-2">
-                <div class="text-center">
-                    {% if "placeholder" in post.author.userprofile.profile_picture.url %}
-                    <img src="https://res.cloudinary.com/doyc0uqcs/image/upload/v1691407204/Porject%204%20Travel%20Blog/male-user-shadow_318-34042_eotvtf.avif"
-                        class="img-thumbnail rounded d-block mx-auto img-fluid" style="width: 80px; height: 80px;">
-                    {% else %}
-                    <img src="{{ post.author.userprofile.profile_picture.url }}"
-                        class="img-thumbnail rounded d-block mx-auto img-fluid" style="width: 80px; height: 80px;">
-                    {% endif %}
-                </div>
-            </div>
-            <div class="col-12 col-md-10">
-                <div class="card-body">
-                    <h5 class="card-title">{{ post.author }}</h5>
-                    <div class="mt-2">
-                        <a href="{% url 'show_user_profile_page' post.author.userprofile.id%}"
-                            class="fas fa-user-circle"> Profile Page </a> |
-                        {% if post.author.userprofile.twitter_profile %}
-                        <a href="{{post.author.userprofile.twitter_profile}}" class="social-icon"><i
-                                class="fab fa-twitter"></i> Twitter </a> |
-                        {% endif %}
-                        {% if post.author.userprofile.facebook_profile %}
-                        <a href="{{post.author.userprofile.facebook_profile}}" class="social-icon"><i
-                                class="fab fa-facebook"></i> Facebook</a> |
-                        {% endif %}
-                        {% if post.author.userprofile.linkedin_profile %}
-                        <a href="{{post.author.userprofile.linkedin_profile}}" class="social-icon"><i
-                                class="fab fa-linkedin"></i> LinkedIn</a> |
-                        {% endif %}
-                        {% if post.author.userprofile.website %}
-                        <a href="{{post.author.userprofile.website}}" class="social-icon"><i class="fas fa-globe"></i>
-                            Website</a> |
-                        {% endif %}
-                        {% if post.author.userprofile.youtube %}
-                        <a href="{{post.author.userprofile.youtube}}" class="social-icon"><i class="fab fa-youtube"></i>
-                            YouTube</a> |
-                        {% endif %}
-                        {% if post.author.userprofile.instagram %}
-                        <a href="{{post.author.userprofile.instagram}}" class="social-icon"><i
-                                class="fab fa-instagram"></i> Instagram</a> |
-                        {% endif %}
-                    </div>
-                    <hr>
-                    <p class="card-text">
-                        {{ post.author.userprofile.bio }}
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <br /><br />
-    {% endblock content %}
+<br /><br />
+{% endblock content %}
