@@ -1,37 +1,204 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block title %} Edit Profile Page! {% endblock %}
 {% block content %}
 
-{% if user.is_authenticated %}
-    {% if user.id == userprofile.user.id %}
-        <div class="container">
 
+
+{% if user.is_authenticated and user.id == userprofile.user.id %}
+<div class="container mt-5 mb-4">
+    <div class="card border-0 shadow rounded-3 my-5">
+        <div class="card-body p-4 p-sm-5">
             <h1 class="mb-4 text-center">Edit Profile</h1>
-
-            <form method="POST" class="form">
+            <form method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
-                {{ form.as_p }}
-                <div class="text-center">
-                    <button type="submit" class="btn btn-secondary btn-sm">Update Profile Page</button>
-                    <a href="{% url 'home' %}" class="btn btn-primary btn-sm">Back</a>
+                
+                <!-- Bio -->
+                <div class="form-control mb-3">
+                    {{ form.bio.label_tag }}
+                    {{ form.bio }}
+                    {% if form.bio.errors %}
+                    {% for error in form.bio.errors %}
+                    <p class="text-danger">{{ error }}</p>
+                    {% endfor %}
+                    {% endif %}
+                </div>
+
+                <!-- Profile Picture -->
+                <div class="form-control mt-3">
+                    {{ form.profile_picture.label_tag }}
+                    {{ form.profile_picture }}
+                    {% if form.profile_picture.errors %}
+                    {% for error in form.profile_picture.errors %}
+                    <p class="text-danger">{{ error }}</p>
+                    {% endfor %}
+                    {% endif %}
+                </div>
+
+                <!-- Date of Birth -->
+                <div class="form-control mb-3">
+                    {{ form.date_of_birth.label_tag }}
+                    {{ form.date_of_birth }}
+                    {% if form.date_of_birth.errors %}
+                    {% for error in form.date_of_birth.errors %}
+                    <p class="text-danger">{{ error }}</p>
+                    {% endfor %}
+                    {% endif %}
+                </div>
+
+                <!-- Website -->
+                <div class="form-control mb-3">
+                    {{ form.website.label_tag }}
+                    {{ form.website }}
+                    {% if form.website.errors %}
+                    {% for error in form.website.errors %}
+                    <p class="text-danger">{{ error }}</p>
+                    {% endfor %}
+                    {% endif %}
+                </div>
+
+                <!-- Facebook Profile -->
+                <div class="form-control mb-3">
+                    {{ form.facebook_profile.label_tag }}
+                    {{ form.facebook_profile }}
+                    {% if form.facebook_profile.errors %}
+                    {% for error in form.facebook_profile.errors %}
+                    <p class="text-danger">{{ error }}</p>
+                    {% endfor %}
+                    {% endif %}
+                </div>
+
+                <!-- Twitter Profile -->
+                <div class="form-control mb-3">
+                    {{ form.twitter_profile.label_tag }}
+                    {{ form.twitter_profile }}
+                    {% if form.twitter_profile.errors %}
+                    {% for error in form.twitter_profile.errors %}
+                    <p class="text-danger">{{ error }}</p>
+                    {% endfor %}
+                    {% endif %}
+                </div>
+
+                <!-- LinkedIn Profile -->
+                <div class="form-control mb-3">
+                    {{ form.linkedin_profile.label_tag }}
+                    {{ form.linkedin_profile }}
+                    {% if form.linkedin_profile.errors %}
+                    {% for error in form.linkedin_profile.errors %}
+                    <p class="text-danger">{{ error }}</p>
+                    {% endfor %}
+                    {% endif %}
+                </div>
+
+                <!-- Instagram Profile -->
+                <div class="form-control mb-3">
+                    {{ form.instagram_profile.label_tag }}
+                    {{ form.instagram_profile }}
+                    {% if form.instagram_profile.errors %}
+                    {% for error in form.instagram_profile.errors %}
+                    <p class="text-danger">{{ error }}</p>
+                    {% endfor %}
+                    {% endif %}
+                </div>
+
+                <!-- YouTube Profile -->
+                <div class="form-control mb-3">
+                    {{ form.youtube_profile.label_tag }}
+                    {{ form.youtube_profile }}
+                    {% if form.youtube_profile.errors %}
+                    {% for error in form.youtube_profile.errors %}
+                    <p class="text-danger">{{ error }}</p>
+                    {% endfor %}
+                    {% endif %}
+                </div>
+
+                <!-- Email -->
+                <div class="form-control mb-3">
+                    {{ form.email.label_tag }}
+                    {{ form.email }}
+                    {% if form.email.errors %}
+                    {% for error in form.email.errors %}
+                    <p class="text-danger">{{ error }}</p>
+                    {% endfor %}
+                    {% endif %}
+                </div>
+
+                <!-- Phone Number -->
+                <div class="form-control mb-3">
+                    {{ form.phone_number.label_tag }}
+                    {{ form.phone_number }}
+                    {% if form.phone_number.errors %}
+                    {% for error in form.phone_number.errors %}
+                    <p class="text-danger">{{ error }}</p>
+                    {% endfor %}
+                    {% endif %}
+                </div>
+
+                <!-- Address -->
+                <div class="form-control mb-3">
+                    {{ form.address.label_tag }}
+                    {{ form.address }}
+                    {% if form.address.errors %}
+                    {% for error in form.address.errors %}
+                    <p class="text-danger">{{ error }}</p>
+                    {% endfor %}
+                    {% endif %}
+                </div>
+
+                <!-- Location -->
+                <div class="form-control mb-3">
+                    {{ form.location.label_tag }}
+                    {{ form.location }}
+                    {% if form.location.errors %}
+                    {% for error in form.location.errors %}
+                    <p class="text-danger">{{ error }}</p>
+                    {% endfor %}
+                    {% endif %}
+                </div>
+
+                <!-- Interests or Hobbies -->
+                <div class="form-control mb-3">
+                    {{ form.interests_or_hobbies.label_tag }}
+                    {{ form.interests_or_hobbies }}
+                    {% if form.interests_or_hobbies.errors %}
+                    {% for error in form.interests_or_hobbies.errors %}
+                    <p class="text-danger">{{ error }}</p>
+                    {% endfor %}
+                    {% endif %}
+                </div>
+
+                <!-- Subscribed Categories -->
+                <div class="form-control">
+                    <label for="{{ form.subscribed_categories.id_for_label }}">Subscribed Categories:</label>
+                    {{ form.subscribed_categories }}
+                    {% if form.subscribed_categories.errors %}
+                    {% for error in form.subscribed_categories.errors %}
+                    <p class="text-danger">{{ error }}</p>
+                    {% endfor %}
+                    {% endif %}
+                </div>
+
+                <div class="text-center mt-3">
+                    <button type="submit" class="btn btn-primary btn-sm">Update Profile</button>
+                    <a href="{% url 'home' %}" class="btn btn-secondary btn-sm">Cancel</a>
                 </div>
             </form>
         </div>
+    </div>
+</div>
 
-    {% else %}
-        <div> You are not the correct user to edit this page! </div>
-
-        <a href="{% url 'account_signup' %}" class="btn btn-primary btn-sm">Register</a>
-        <a href="{% url 'account_login' %}" class="btn btn-primary btn-sm">LogIn</a>
-
-
-    {% endif %}
 {% else %}
+    <div> You are not the correct user to edit this page! </div>
 
+    <a href="{% url 'account_signup' %}" class="btn btn-primary btn-sm">Register</a>
+    <a href="{% url 'account_login' %}" class="btn btn-primary btn-sm">LogIn</a>
+
+{% endif %}
+
+{% if not user.is_authenticated %}
     <div>
         You are not authorised for this activity! Please log in to your profile.
     </div>
-
 {% endif %}
 
 {% endblock %}
