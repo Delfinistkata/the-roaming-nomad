@@ -1,20 +1,61 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block title%} Edit Settings {% endblock %}
 {% block content %}
-
-<h1> Edit Settings </h1>
-<br> <br>
-<hr>
-
-
-<div class="form-group">
-    <form method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-
-        <button class="btn btn-secondary"> Update Profile </button>
-    </form>
-</div>
-
+    <div class="container  mt-5 mb-4">
+        <div class="card border-0 shadow rounded-3 my-5">
+            <div class="card-body p-4 p-sm-5">
+                <h1 class="mb-4 text-center">Edit Settings Profile</h1>
+                <form method="POST">
+                    {% csrf_token %}                    
+                    <div class="form-floating mb-3">            
+                        {{ form.username}}
+                        <label class="form-label mb-3" for="userName">Username</label>
+                        {% if form.errors.username%}
+                            {% for error in form.errors.username %}
+                                <p class="text-danger">{{ error }}</p>
+                            {% endfor%}                                            
+                        {%endif%}
+                    </div>                                                                            
+                    <div class="form-floating mb-3">
+                        {{ form.first_name}}            
+                        <label class="form-label" for="firstNname">First Name</label>
+                        {% if form.errors.first_name%}
+                            {% for error in form.errors.first_name %}
+                                <p class="text-danger">{{ error }}</p>
+                            {% endfor%}                                            
+                        {%endif%}
+                    </div>
+                    <div class="form-floating mb-3">
+                        {{ form.last_name}}
+                        <label class="form-label" for="lastName">Last Name</label>
+                        {% if form.errors.last_name%}
+                            {% for error in form.errors.last_name %}
+                                <p class="text-danger">{{ error }}</p>
+                            {% endfor%}                                            
+                        {%endif%}
+                    </div>
+                    <div class="form-floating mb-3">
+                        {{ form.email}}
+                        <label class="form-label" for="email">Email</label>
+                        {% if form.errors.email%}
+                            {% for error in form.errors.email %}
+                                <p class="text-danger">{{ error }}</p>
+                            {% endfor%}                                            
+                        {%endif%}
+                    </div>
+                    <div class="form-floating mb-3">
+                        {% if form.errors.password_change_link%}
+                            {% for error in form.errors.password_change_link %}
+                                <p class="text-danger">{{ error }}</p>
+                            {% endfor%}                                            
+                        {%endif%}
+                    </div>
+                    <p>Password: <a href="{% url 'password_change' %}">Click here to change your password</a></p>
+                    <button class="btn btn-primary"> Update Profile </button>
+                
+                </form>
+            </div>
+        </div>
+    </div>
 {% endblock %}
