@@ -6,7 +6,7 @@
     <div class="card border-0 shadow rounded-3 my-5">
         <div class="card-body p-4 p-sm-5">
             <h1 class="mb-4 text-center">Categories</h1>
-            <table class="table">
+            <table class="table" id="category_list">
                 <thead class="table-light">
                     <tr>            
                         <th>Name</th>
@@ -21,16 +21,17 @@
 
                             <td>
                                 {% if user.is_staff %}
-                                    <a href="{% url 'edit_category' slug=category.category_name|slugify %}">
-                                        <i class="fas fa-edit mr-2"></i> Edit
-                                    </a>
+                                    <a class="text-dark" href="{% url 'edit_category' slug=category.category_name|slugify %}"><i class="fas fa-edit mr-2"></i> Edit</a>                            
                                 {% endif %}
                             </td>
                             <td>
-                                {% if user.is_staff %}
-                                    <a href="{% url 'delete_category' slug=category.category_name|slugify %}">
-                                        <i class="fas fa-archive mr-2"></i> Delete
-                                    </a>
+                                {% if user.is_staff %}                
+                                    <form method="post" action="{% url 'delete_category' slug=category.category_name|slugify %}" class="delete-button">
+                                        {% csrf_token %}
+                                        <button class="text-dark"  data-title="Delete category {{category.category_name}}">
+                                            <i class="fas fa-edit mr-2"></i> Delete
+                                        </button>       
+                                    </form>                                                            
                                 {% endif %}
                             </td>
                         </tr>
