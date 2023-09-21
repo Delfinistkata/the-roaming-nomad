@@ -135,10 +135,15 @@
         <br> <br>
         {% if user.is_authenticated %}
         {% if user.id == post.author.id %}
-        <div>
-            <a href="{% url 'home' %}" class="btn btn-primary btn-sm">Back</a>
-            <a href="{% url 'edit_post' post.slug %}" class="btn btn-secondary btn-sm">Edit</a>
-            <a href="{% url 'delete_post' post.slug %}">Delete</a>
+        <div class="d-flex flex-row-reverse">
+            <a href="{% url 'home' %}" class="btn btn-primary btn-sm ml-auto">Back</a>
+            <a href="{% url 'edit_post' post.slug %}" class="btn btn-secondary btn-sm ml-auto">Edit</a>
+            <form method="post" action="{% url 'delete_post' post.slug %}" class="delete-button ml-auto">
+                {% csrf_token %}
+                <button class="btn btn-danger btn-sm" data-title="Delete post {{post.title}}">
+                    <i class="fas fa-edit mr-2"></i> Delete
+                </button>       
+            </form>   
         </div>
         {% endif %}
         {% endif %}
