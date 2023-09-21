@@ -1,59 +1,57 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block title %} Edit Blog Post! {% endblock %}
 {% block content %}
 
 {% if user.is_authenticated %}
     {% if user.id == post.author.id %}
-        <div class="container">
-
-            <h1 class="mb-4 text-center" style="color: #333;">Edit Post</h1>
-
-            <form method="POST" class="form"  enctype="multipart/form-data">
+        <div class="container  mt-5 mb-4">
+            <h1 class="mb-4 text-center">Edit Post</h1>
+            
+            <form method="POST" class="form" enctype="multipart/form-data">
                 {% csrf_token %}
-                {{ form.media }}
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="{{ form.title.id_for_label }}">Title:</label>
+                            <label class="mb-1" for="{{ form.title.id_for_label }}">Title:</label>
                             {{ form.title }}
                         </div>
-
+        
                         <div class="form-group">
-                            <label for="{{ form.title_tag.id_for_label }}">Title Tag:</label>
+                            <label class="mt-1 mb-1" for="{{ form.title_tag.id_for_label }}">Title Tag:</label>
                             {{ form.title_tag }}
                         </div>
-                        <div class="form-group">
+        
+                        <div class="form-group mt-2">
                             <label for="{{ form.categories.id_for_label }}">Categories:</label>
                             {{ form.categories }}
                         </div>
-                    </div>
-
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="{{ form.body_content.id_for_label }}">Body Content:</label>
-                            {{ form.body_content }}
-                        </div>
-
-                        <div class="form-group">
-                            <label for="{{ form.featured_image.id_for_label }}">Featured Image:</label>
-                            {{ form.featured_image }}
-                        </div>
-
                         <div class="form-group">
                             <label for="{{ form.excerpt.id_for_label }}">Excerpt:</label>
                             {{ form.excerpt }}
                         </div>
-
+                    </div>
+        
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="{{ form.body_content.id_for_label }}">Body Content:</label>
+                            {{ form.body_content }}
+                            {{ form.media }}
+                        </div>
+                        <div class="form-group mt-3">
+                            <label for="{{ form.featured_image.id_for_label }}">Featured Image:</label>
+                            {{ form.featured_image }}
+                        </div>
                         <div class="form-group">
                             <label for="{{ form.status.id_for_label }}">Status:</label>
                             {{ form.status }}
                         </div>
                     </div>
                 </div>
-
-                <div class="text-center">
-                    <button class="btn btn-secondary btn-sm" type="submit">Submit</button>
-                    <a href="{% url 'home' %}" class="btn btn-primary btn-sm">Back</a>
+        
+                <div class="text-center mt-3">
+                    <button type= "submit" class= "btn btn-primary btn-sm">Update Post</button>
+                    <a href="{% url 'home' %}" class="btn btn-secondary btn-sm">Cancel</a>
                 </div>
             </form>
         </div>
