@@ -3,69 +3,109 @@
 {% block title %} Create a New Blog Post! {% endblock %}
 {% block content %}
 
-{% if user.is_authenticated %}
+<div class="container">
+    <div class="container  mt-5 mb-4">
+        <div class="card border-0 shadow rounded-3 my-5">
+            <div class="card-body p-4 p-sm-5">
+                <h1 class="mb-4 text-center">Create Post</h1>
+                {% if user.is_authenticated %}
+                <form method="POST" class="form" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="mb-1" for="{{ form.title.id_for_label }}">Title:</label>
+                                {{ form.title }}       
+                                {% if form.errors.title%}
+                                {% for error in form.errors.title %}
+                                    <p class="text-danger">{{ error }}</p>
+                                {% endfor%}                                            
+                                {%endif%}               
+                            </div>
+            
+                            <div class="form-group">
+                                <label class="mt-1 mb-1" for="{{ form.title_tag.id_for_label }}">Title Tag:</label>
+                                {{ form.title_tag }}
+                                {% if form.errors.title_tag%}
+                                    {% for error in form.errors.title_tag %}
+                                        <p class="text-danger">{{ error }}</p>
+                                    {% endfor%}                                            
+                                {%endif%}     
+                            </div>
+            
+                            <div class="form-group mt-2">
+                                <label for="{{ form.categories.id_for_label }}">Categories:</label>
+                                {{ form.categories }}
+                                {% if form.errors.categories%}
+                                    {% for error in form.errors.categories %}
+                                        <p class="text-danger">{{ error }}</p>
+                                    {% endfor%}                                            
+                                {%endif%}                                     
+                            </div>
+                            <div class="form-group">
+                                <label for="{{ form.excerpt.id_for_label }}">Excerpt:</label>
+                                {{ form.excerpt }}
+                                {% if form.errors.excerpt%}
+                                    {% for error in form.errors.excerpt %}
+                                        <p class="text-danger">{{ error }}</p>
+                                    {% endfor%}                                            
+                                {%endif%}                                       
+                            </div>
+                        </div>
+            
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="{{ form.body_content.id_for_label }}">Body Content:</label>
+                                {{ form.body_content }}
+                                {{ form.media }}
+                                {% if form.errors.body_content%}
+                                    {% for error in form.errors.body_content %}
+                                        <p class="text-danger">{{ error }}</p>
+                                    {% endfor%}                                            
+                                {%endif%}                    
+                                {% if form.errors.media%}
+                                    {% for error in form.errors.media %}
+                                        <p class="text-danger">{{ error }}</p>
+                                    {% endfor%}                                            
+                                {%endif%}                                        
+                            </div>
+                            <div class="form-group mt-3">
+                                <label for="{{ form.featured_image.id_for_label }}">Featured Image:</label>
+                                {{ form.featured_image }}
+                                {% if form.errors.featured_image%}
+                                    {% for error in form.errors.medfeatured_imageia %}
+                                        <p class="text-danger">{{ error }}</p>
+                                    {% endfor%}                                            
+                                {%endif%}
+                            </div>
+                            <div class="form-group">
+                                <label for="{{ form.status.id_for_label }}">Status:</label>
+                                {{ form.status }}
+                                {% if form.errors.status%}
+                                    {% for error in form.errors.status %}
+                                        <p class="text-danger">{{ error }}</p>
+                                    {% endfor%}                                            
+                                {%endif%}
+                            </div>
+                        </div>
+                    </div>
+            
+                    <div class="text-center mt-3">
+                        <button type= "submit" class= "btn btn-primary btn-sm">Create Post</button>
+                        <a href="{% url 'home' %}" class="btn btn-secondary btn-sm">Cancel</a>
+                    </div>
+                </form>
+                {% else %}
+                    <h3 class="text-center">
+                        You are not authorised for this activity! Please log in to your profile.
+                    </div>
 
-<div class="container mt-5 mb-4">
+                    <a href="{% url 'account_signup' %}" class="btn btn-primary btn-sm">Register</a>
+                    <a href="{% url 'account_login' %}" class="btn btn-primary btn-sm">LogIn</a>
 
-    <h1 class="mb-4 text-center">Create Post</h1>
-
-    <form method="POST" class="form" enctype="multipart/form-data">
-        {% csrf_token %}
-        <div class="row">
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label class="mb-1" for="{{ form.title.id_for_label }}">Title:</label>
-                    {{ form.title }}
-                </div>
-
-                <div class="form-group">
-                    <label class="mt-1 mb-1" for="{{ form.title_tag.id_for_label }}">Title Tag:</label>
-                    {{ form.title_tag }}
-                </div>
-
-                <div class="form-group mt-2">
-                    <label for="{{ form.categories.id_for_label }}">Categories:</label>
-                    {{ form.categories }}
-                </div>
-                <div class="form-group">
-                    <label for="{{ form.excerpt.id_for_label }}">Excerpt:</label>
-                    {{ form.excerpt }}
-                </div>
-            </div>
-
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label for="{{ form.body_content.id_for_label }}">Body Content:</label>
-                    {{ form.body_content }}
-                    {{ form.media }}
-                </div>
-                <div class="form-group mt-3">
-                    <label for="{{ form.featured_image.id_for_label }}">Featured Image:</label>
-                    {{ form.featured_image }}
-                </div>
-                <div class="form-group">
-                    <label for="{{ form.status.id_for_label }}">Status:</label>
-                    {{ form.status }}
-                </div>
+                {% endif %}
             </div>
         </div>
-
-        <div class="text-center mt-3">
-            <button type= "submit" class= "btn btn-primary btn-sm">Create Post</button>
-            <a href="{% url 'home' %}" class="btn btn-secondary btn-sm">Cancel</a>
-        </div>
-    </form>
-</div>
-
-{% else %}
-<div>
-    You are not authorised for this activity! Please log in to your profile.
-</div>
-
-<a href="{% url 'account_signup' %}" class="btn btn-primary btn-sm">Register</a>
-<a href="{% url 'account_login' %}" class="btn btn-primary btn-sm">LogIn</a>
-
-
-{% endif %}
-
+    </div>
+</div>    
 {% endblock %}
