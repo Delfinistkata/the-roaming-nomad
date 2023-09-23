@@ -79,10 +79,10 @@
             <article class="postcard light yellow">
                 <a class="postcard__img_link" href="{% url 'post_detail' post.slug %}">
                     {% if "placeholder" in post.featured_image.url %}
-                    <img class="postcard__img"
+                    <img class="postcard__img img-fluid"
                         src="https://res.cloudinary.com/doyc0uqcs/image/upload/v1688827561/Porject%204%20Travel%20Blog/pexels-vojta-kova%C5%99%C3%ADk-3243090_lpneiv.jpg">
                     {% else %}
-                    <img class="postcard__img" src=" {{ post.featured_image.url }}" alt="Image Title">
+                    <img class="postcard__img img-fluid" src=" {{ post.featured_image.url }}" alt="Image Title">
                     {% endif %}
                 </a>
                 <div class="postcard__text t-dark">
