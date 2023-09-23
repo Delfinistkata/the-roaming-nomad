@@ -11,17 +11,21 @@
             <div class="mb-3 w-40">
 
                 <form id="categoryForm">
-                    <div class="input-group mb-3">
-                        <select class="form-select form-select-sm" name="category" data-placeholder="Select Categories"
-                            id="small-bootstrap-class-multiple-field" multiple>
-                            {% for category in categories %}
-                            <option value="{{ category.id }}">{{ category.category_name }}</option>
-                            {%endfor%}
-                        </select>
-                        <button class="btn btn-outline-secondary btn btn-primary text-white"
-                            type="submit">Apply</button>
-                        <a type="button" class="btn btn-secondary" href="{% url 'home' %}">Reset</a>
+                    <div class="d-flex flex-column flex-md-row">
+                        <div class="flex-glow-1 flex-fill">
+                            <select class="form-select form-select-sm" name="category" data-placeholder="Select Categories" id="small-bootstrap-class-multiple-field" multiple>
+                                {% for category in categories %}
+                                    <option value="{{ category.id }}">{{ category.category_name }}</option>
+                                {%endfor%}
+                            </select>
+                        </div>
+                        <div class="ms-2 mt-3 mt-md-0">
+                            <button class="btn btn-block btn-primary text-white" type="submit">Apply</button>
+                            <a type="button" class="btn btn-secondary" href="{% url 'home' %}">Reset</a>
+                        </div>
+                    
                     </div>
+            
                 </form>
             </div>
         </div>
@@ -37,11 +41,10 @@
             <img class="postcard__img"
                 src="https://res.cloudinary.com/doyc0uqcs/image/upload/v1688827561/Porject%204%20Travel%20Blog/pexels-vojta-kova%C5%99%C3%ADk-3243090_lpneiv.jpg">
             {% else %}
-            <img class="postcard__img" src=" {{ post.featured_image.url }}" alt="Image Title">
+            <img class="postcard__img rounded img-fluid" src=" {{ post.featured_image.url }}" alt="Image Title">
             {% endif %}
         </a>
-        <div class="postcard__text t-dark">
-
+        <div class="postcard__text text-dark">
             <div>
                 <a href="{% url 'show_user_profile_page' post.author.userprofile.id%}"
                     class="text-bold text-dark text-decoration-underline">
@@ -61,7 +64,7 @@
                     <i class="fas fa-clock mr-2"></i><span class="ms-2">{{ post.last_modified }}</span>
                 </time>
             </div>
-            <a class="text-bold h4 text-dark" href="{% url 'post_detail' post.slug %}">{{ post.title }}</a>
+            <a class="text-bold h4 text-dark mt-3" href="{% url 'post_detail' post.slug %}">{{ post.title }}</a>
             <div class="postcard__bar"></div>
             <div class="postcard__preview-txt">{{ post.body_content| truncatewords_html:50| safe }}</div>
             <ul class="list-inline d-sm-flex my-0">
@@ -78,26 +81,29 @@
                 <hr class="style1">
                 <form method="POST" action="{% url 'like_dislike_post' pk=post.pk %}">
                     {% csrf_token %}
-                    <ul class="list-inline d-sm-flex my-0">
-                        <li class="list-inline-item g-mr-20">
-                            <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#!">
-                                <i class="far fa-heart text-danger"></i>
-                                {{ post.number_of_likes }}
-                            </a>
-                        </li>
-                        <li class="list-inline-item g-mr-20 ms-2">
-                            <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#!">
-                                <i class="fa fa-thumbs-down g-pos-rel g-top-1 g-mr-3"></i>
-                                {{ post.number_of_dislikes }}
-                            </a>
-                        </li>
-                        <li class="list-inline-item ml-auto ms-2">
+
+                    {% if user.is_authenticated %}
+                    <div class="d-flex justify-content-end ">
+                        <div>
+                            <button type="submit" class="btn btn-link" name="like">
+                                <i class="far fa-heart text-danger"></i> {{ post.number_of_likes }}
+                            </button>
+                        </div>
+                        <div class="me-3">
+                            <button type="submit" class="btn btn-link" name="dislike">
+                                <i class="far fa-thumbs-down text-primary"></i> {{ post.number_of_dislikes }}
+                            </button>
+                        </div>
+                        <div class="me-3">
                             <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover open-comments"
-                                id="open-comments" href="#" data-post="{{post.id}}">
-                                <i class="far fa-comments text-info"></i> {{ post.comments.count }}
-                            </a>
-                        </li>
-                    </ul>
+                            id="open-comments" href="#" data-post="{{post.id}}">
+                            <i class="far fa-comments text-info"></i> {{ post.comments.count }}
+                        </a>
+                        </div>
+                    </div>
+                    {% else %}
+                    Please log in to like the post!
+                    {% endif %}
                 </form>
 
             </div>
@@ -154,10 +160,15 @@
 </div>
 </div>
 {% else %}
-<div>
-    To access this page you have to be logged in. Please log in to your profile.
+<div class="container mb-3">
+    <h5 class="text-center row">
+        To access this page you have to be logged in. Please log in to your profile.
+    </div>
+    <div class="d-flex justify-content-center mb-3">
+        <a href="{% url 'register' %}" class="btn btn-primary btn-sm">Register</a>
+        <a href="{% url 'login' %}" class="btn btn-primary btn-sm ms-2">Log In</a>
+    </div>
+    
 </div>
-    <a href="{% url 'register' %}" class="btn btn-primary btn-sm">Register</a>
-    <a href="{% url 'login' %}" class="btn btn-primary btn-sm">Log In</a>
 {% endif %}
 {%endblock%}
