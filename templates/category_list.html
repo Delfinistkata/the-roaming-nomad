@@ -26,7 +26,7 @@
                             </td>
                             <td>
                                 {% if user.is_staff %}                
-                                    <form method="post" action="{% url 'delete_category' slug=category.category_name|slugify %}" class="delete-button">
+                                    <form method="post" data-title="Delete category {{category.category_name}}" action="{% url 'delete_category' slug=category.category_name|slugify %}" class="delete-button">
                                         {% csrf_token %}
                                         <button class="text-dark"  data-title="Delete category {{category.category_name}}">
                                             <i class="fas fa-edit mr-2"></i> Delete
