@@ -1,15 +1,25 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
-    {% if user.is_superuser %}
-        <h1>Edit Category: {{ object.category_name }}</h1>
-        <form method="post">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit">Save Changes</button>
-        </form>
-    {% else %}
-        <h1>Access Denied</h1>
-        <p>You don't have permission to perform this action.</p>
-    {% endif %}
+    <div class="container mt-5 mb-4">
+        <div class="col-12 col-sm-12 text-dark" style="height: 814px;">
+            <div class="card border-0 shadow rounded-3 my-5">
+                <div class="card-body p-4 p-sm-5">
+                    <a href="{% url 'edit_category' slug=category.slug %}">Edit</a>
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="form-floating mb-3">
+                            <input type="text" id="categoryName" name="category_name" class="form-control" value="{{ category.category_name }}" />
+                            <label class="form-label" for="categoryName">Category Name</label>
+                        </div>                                                                            
+
+                        <div class="d-grid">
+                            <button class="btn btn-primary btn-login text-uppercase fw-bold" type="submit">Update</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
