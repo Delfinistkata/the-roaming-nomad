@@ -28,6 +28,7 @@ class Category(models.Model):
     all posts in the category.
     """
     category_name = models.CharField(max_length=255)
+    slug = models.SlugField(unique=True, max_length=255, blank=True)
 
     class Meta:
         verbose_name_plural = "Categories"
@@ -39,6 +40,10 @@ class Category(models.Model):
     def get_absolute_url(self):
         """ Returns the absolute URL for the category. """
         return reverse('category', args=[str(self.category_name)])
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.category_name)
+        super().save(*args, **kwargs)
 
 
 class UserProfile(models.Model):
