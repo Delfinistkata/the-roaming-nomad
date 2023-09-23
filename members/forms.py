@@ -9,6 +9,7 @@ from django.contrib.auth.forms import (
     UserChangeForm,
     PasswordChangeForm,
 )
+from django.urls import reverse_lazy
 from django.contrib.auth.models import User
 from django import forms
 from travelblog.models import UserProfile
@@ -36,7 +37,7 @@ class ProfilePageForm(forms.ModelForm):
             'phone_number', 'address', 'location', 'interests_or_hobbies',
             'subscribed_categories'
         )
-
+        
         widgets = {
             'bio': forms.Textarea(attrs={
                 'class': 'form-control',
@@ -48,7 +49,7 @@ class ProfilePageForm(forms.ModelForm):
             'date_of_birth': forms.DateInput(
                 attrs={
                     'class': 'form-control',
-                    'type': 'date'
+                    'type': 'date',
                 }
             ),
             'website': forms.URLInput(attrs={
@@ -95,9 +96,81 @@ class ProfilePageForm(forms.ModelForm):
                 'class': 'form-control',
                 'placeholder': 'Enter your interests or hobbies',
             }),
-            'subscribed_categories': forms.SelectMultiple(
+            'subscribed_categories': forms.CheckboxSelectMultiple(
                 attrs={'class': 'form-control'}
             ),
+        }
+
+
+class EditProfilePageForm(forms.ModelForm):
+    class Meta:
+        model = UserProfile
+        fields = (
+            'bio', 'profile_picture', 'date_of_birth', 'website',
+            'facebook_profile', 'twitter_profile', 'linkedin_profile',
+            'instagram_profile', 'youtube_profile', 'email',
+            'phone_number', 'address', 'location', 'interests_or_hobbies',
+            'subscribed_categories'
+        )
+        widgets = {
+            'bio': forms.Textarea(attrs={
+                'class': 'form-control',
+                'placeholder': 'Describe yourself here'
+            }),
+            'profile_picture': forms.FileInput(
+                attrs={'class': 'form-control'}
+            ),
+            'date_of_birth': forms.DateInput(
+                attrs={
+                    'class': 'form-control',
+                    'type': 'date',
+                }
+            ),
+            'website': forms.URLInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Enter website URL here',
+            }),
+            'facebook_profile': forms.URLInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Enter Facebook profile URL here',
+            }),
+            'twitter_profile': forms.URLInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Enter Twitter profile URL here',
+            }),
+            'linkedin_profile': forms.URLInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Enter LinkedIn profile URL here',
+            }),
+            'instagram_profile': forms.URLInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Enter Instagram profile URL here',
+            }),
+            'youtube_profile': forms.URLInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Enter YouTube profile URL here',
+            }),
+            'email': forms.EmailInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Enter your email address',
+            }),
+            'phone_number': forms.TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Enter your phone number',
+            }),
+            'address': forms.Textarea(attrs={
+                'class': 'form-control',
+                'placeholder': 'Enter your detailed address here',
+            }),
+            'location': forms.TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Enter your location or city here',
+            }),
+            'interests_or_hobbies': forms.Textarea(attrs={
+                'class': 'form-control',
+                'placeholder': 'Enter your interests or hobbies',
+            }),
+            'subscribed_categories': forms.CheckboxSelectMultiple(),
         }
 
 
@@ -143,7 +216,6 @@ class SignUpForm(UserCreationForm):
         """
         super(SignUpForm, self).__init__(*args, **kwargs)
 
-        # Add custom styling to form fields
         self.fields['username'].widget.attrs['class'] = 'form-control'
         self.fields['password1'].widget.attrs['class'] = 'form-control'
         self.fields['password2'].widget.attrs['class'] = 'form-control'
@@ -151,13 +223,20 @@ class SignUpForm(UserCreationForm):
 
 class EditProfileForm(UserChangeForm):
     """
-    This form extends the UserChangeForm provided by Django
-    to include additional fields and custom widgets
-    for editing user profile information.
-    It includes fields for email, first name, last name, username,
-    last login, user status, and date joined.
-    Custom widgets are applied to ensure a consistent look and feel.
+    Custom form for editing user profile information.
+    Removes unwanted fields like is_superuser, is_staff, etc.
     """
+    class Meta:
+        model = User
+        fields = (
+            'username',
+            'first_name',
+            'last_name',
+            'email',
+            'last_login',
+            'date_joined'
+        )
+
     email = forms.EmailField(
         widget=forms.EmailInput(attrs={'class': 'form-control'})
     )
@@ -173,46 +252,36 @@ class EditProfileForm(UserChangeForm):
         max_length=100,
         widget=forms.TextInput(attrs={'class': 'form-control'})
     )
-    last_login = forms.CharField(
-        max_length=100,
-        widget=forms.TextInput(attrs={'class': 'form-control'})
-    )
-    is_superuser = forms.CharField(
-        max_length=100,
-        widget=forms.CheckboxInput(attrs={'class': 'form-check'})
-    )
-    is_staff = forms.CharField(
-        max_length=100,
-        widget=forms.CheckboxInput(attrs={'class': 'form-check'})
-    )
-    is_active = forms.CharField(
-        max_length=100,
-        widget=forms.CheckboxInput(attrs={'class': 'form-check'})
-    )
+
     date_joined = forms.CharField(
         max_length=100,
-        widget=forms.TextInput(attrs={'class': 'form-control'})
+        widget=forms.TextInput(attrs={'class': 'form-control'}),
+        required=False,
+        disabled=True,
     )
 
-    class Meta:
-        """
-        It specifies the model to be used, as well as the fields
-        that should be included in the form
-        for editing user profile information.
-        """
-        model = User
-        fields = (
-            'username',
-            'first_name',
-            'last_name',
-            'email',
-            'password',
-            'last_login',
-            'is_superuser',
-            'is_staff',
-            'is_active',
-            'date_joined'
-        )
+    last_login = forms.CharField(
+        max_length=100,
+        widget=forms.TextInput(attrs={'class': 'form-control'}),
+        required=False,
+        disabled=True,
+    )
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        self.fields.pop('is_superuser', None)
+        self.fields.pop('is_staff', None)
+        self.fields.pop('is_active', None)
+
+        if self.instance:
+            self.fields['date_joined'].initial = self.instance.date_joined
+            self.fields['last_login'].initial = self.instance.last_login
+            self.fields['password'].widget = forms.HiddenInput()
+            self.fields['password_change_link'] = forms.CharField(
+                widget=forms.TextInput(attrs={'class': 'form-control', 'readonly': True}),
+                initial=reverse_lazy("password_change")
+            )
 
 
 class PasswordChangedForm(PasswordChangeForm):
