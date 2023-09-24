@@ -1,182 +1,142 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html lang="en" class="h-100">
+<html lang="en">
 
 <head>
+  <title>{% block title %}The Roaming Nomad{% endblock %}</title>
 
-    <title>{% block title %}The Roaming Nomad{% endblock %}</title>
-
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
-    </script>
-    <script src="{% static 'js/script.js' %}"></script>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.4/jquery-confirm.min.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+  <link href=" https://cdn.jsdelivr.net/npm/@icon/themify-icons@1.0.1-alpha.3/themify-icons.min.css " rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" />
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" />
+    
+    
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.4/jquery-confirm.min.js"></script>
+  <script src="{% static 'js/script.js' %}"></script>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}"></script>
 </head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white p-3">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#"><img
+            src="https://www.cvalencianatb.com/wp-content/uploads/2016/07/Consejero-Viajero-LOGO-300x300.jpg"
+            height="70" alt="MDB Logo" loading="lazy" /></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-<body class="d-flex flex-column h-100 main-bg">
-
-    <!-- Navigation -->
-    <header class="header">
-
-        <!-- Navbar 1 -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-white py-4">
-            <div class="container text-center"><a class="navbar-brand mx-auto" href="{% url 'home' %}"><img
-                        class="img-fluid mb-4"
-                        src="https://res.cloudinary.com/doyc0uqcs/image/upload/v1688828660/Porject%204%20Travel%20Blog/logo1_p5ygpx.png"
-                        alt="" width="140">
-                    <p class="text-sm  text-gray mb-0">“Traveling: it leaves you speechless, then turns you into a
-                        storyteller.” by: Ibn Battuta </p>
-                </a></div>
-        </nav>
-        <!-- Navbar 2 -->
-        <nav class="navbar navbar-expand-lg navbar-light border-gray py-2 bg-light">
-            <div class="container">
-                <button class="navbar-toggler navbar-toggler-right mx-auto border-0" type="button"
-                    data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse text-center" id="navbarSupportedContent">
-                    <ul class="navbar-nav mx-auto">
-                        <li class="nav-item px-1">
-                            <a class="nav-link active" href="{% url 'home' %}">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'category_list' %}">Categories</a>
-                        </li>
-                        {% if user.is_authenticated %}
-                        <li class="nav-item px-1">
-                            <a class="nav-link" href="{% url 'create_post' %}">Add Post</a>
-                        </li>
-                        <li class="nav-item px-1">
-                            <a class="nav-link" href="{% url 'add_category' %}">Add Category</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Profile
-                            </a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="{% url 'edit_profile' %}">Edit Settings</a>
-                                <a class="dropdown-item" href="{% url 'edit_profile_page' user.userprofile.id %}">Edit Profile Page</a>
-                                <a class="dropdown-item" href="{% url 'show_user_profile_page' user.userprofile.id%}">My Profile</a>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'logout' %}">Logout</a>
-                        </li>
-                        {% else %}
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'register' %}">Register</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'login' %}">Login</a>
-                        </li>
-                        {% endif %}
-                    </ul>
-
-                    <!-- Sandwich Menu -->
-                    <div class="sandwich-menu">
-                        <button class="sandwich-btn" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#categoryMenu" aria-expanded="false" aria-controls="categoryMenu">
-                            <i class="fas fa-bars"></i>
-                        </button>
-                        <div class="collapse" id="categoryMenu">
-                            <div class="bg-light p-4">
-                                <form id="categoryForm">
-                                    <div class="form-group">
-                                        <label for="category">Category:</label>
-                                        <select name="category" id="category" class="form-control" multiple>
-                                            <option value="">All Categories</option>
-                                            {% for category in categories %}
-                                            <option value="{{ category.id }}">{{ category.category_name }}</option>
-                                            {% endfor %}
-                                        </select>
-                                    </div>
-                                    <div class="form-group text-right">
-                                        <button type="submit" class="btn btn-primary">Apply Filter</button>
-                                        <button type="button" class="btn btn-secondary"
-                                            id="resetFilterBtn">Reset</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Sandwich Menu -->
-                </div>
-            </div>
-        </nav>
-
-        <!-- Flash messages display -->
-        <div class="container">
-            {% if messages %}
-            {% for message in messages %}
-            <div class="alert alert-success mt-3">
-                {{ message }}
-            </div>
-            {% endfor %}
+        <div class=" collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav ms-auto ">
+            {% if user.is_authenticated %}
+            <li class="nav-item active">
+              <a class="nav-link active" href="{% url 'home' %}">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'category_list' %}">Categories</a>
+            </li>
+            {% if user.userprofile.is_complete %}
+            <li class="nav-item px-1">
+              <a class="nav-link" href="{% url 'create_post' %}">Add Post</a>
+            </li>
             {% endif %}
+            {% if user.is_staff %}
+            <li class="nav-item px-1">
+              <a class="nav-link" href="{% url 'add_category' %}">Add Category</a>
+            </li>
+            {% endif %}
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Profile
+              </a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="{% url 'edit_profile' %}">Edit Settings</a>
+                {% if user.userprofile.id %}
+                <a class="dropdown-item" href="{% url 'show_user_profile_page' user.userprofile.id%}">My Profile</a>
+                <a class="dropdown-item" href="{% url 'edit_profile_page' user.userprofile.id %}">Edit Profile Page</a>
+                {% else %}
+                <a class="dropdown-item" href="{% url 'create_profile_page' %}">Create Profile Page</a>
+                {% endif %}
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+            </li>
+            {% else %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'register' %}">Register</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'login' %}">Login</a>
+            </li>
+            {% endif %}
+          </ul>
         </div>
-
-    </header>
-    <main class="flex-shrink-0 main-bg">
-        {% block content %}
-        <!-- Content Goes here -->
-        {% endblock content %}
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-dark py-4">
+      </div>
+    </nav>
+  </header>
+  <section class="scrolled-offset">
+    <div class="content mb-4">
+      <div class="hero-image-searchbar image text-center shadow-1-strong rounded text-white"    style="background-image: url('https://res.cloudinary.com/doyc0uqcs/image/upload/v1694633695/P4_pic_nl7reg.jpg');object-fit:fill;">
         <div class="container">
-            <div class="row py-2 gy-2">
-                <div class="col-lg-4 text-center text-lg-start">
-                    <p class="small text-muted text-uppercase mb-0">© copyright 2023 - all rights reserved </p>
-                </div>
-                <div class="col-lg-4 text-center">
-                    <ul class="list-inline text-white small mb-0">
-                        <li class="list-inline-item"><a class="reset-anchor" href="#!"><i
-                                    class="fab fa-facebook-f"></i></a></li>
-                        <li class="list-inline-item"><a class="reset-anchor" href="#!"><i
-                                    class="fab fa-twitter"></i></a></li>
-                        <li class="list-inline-item"><a class="reset-anchor" href="#!"><i
-                                    class="fab fa-instagram"></i></a></li>
-                        <li class="list-inline-item"><a class="reset-anchor" href="#!"><i
-                                    class="fab fa-youtube"></i></a></li>
-                        <li class="list-inline-item"><a class="reset-anchor" href="#!"><i
-                                    class="fab fa-vimeo-v"></i></a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-4 text-center text-lg-end">
-                    <p class="small text-muted text-uppercase mb-0">Made by <a
-                            href="https://www.linkedin.com/in/eli-dimitrova-ed707499">Eli Dimitrova</a>. </p>
-                    <!-- If you want to remove the backlink, please purchase the Attribution-Free License. See details in readme.txt or license.txt. Thanks!-->
-                </div>
+          <div class="row justify-content-center">
+            <div class="col-12 text-center">
+              <h1 class="heading-1 text-white text-bold text-center">Adventure is out there !</h1>
+              <p class="fs-18 text-white text-bold d-none d-md-block"></p>
             </div>
+
+          </div>
         </div>
-    </footer>
+        <img src="https://www.yomeanimo.com/wp-content/themes/creativedog-timber-theme-v2/assets/images/hero-home-cut.svg"
+          class="hero-cut" alt="cut">
+    </div>
 
-    <script>
-        // JavaScript code
-        document.addEventListener('DOMContentLoaded', function () {
-            var categoryMenu = document.getElementById('categoryMenu');
-            var sandwichBtn = document.querySelector('.sandwich-btn');
-            if (categoryMenu && sandwichBtn) {
-                if (window.location.pathname !== "{% url 'home' %}") {
-                    categoryMenu.classList.add('d-none');
-                    sandwichBtn.classList.add('d-none');
-                }
-            }
-        });
-    </script>
-
+  </div>
+</section>
+  <main>
+    {% block content %}
+      <!-- Content Goes here -->
+      {% endblock content %}
+  </main>
+  <footer class="bg-dark py-4 mb-0">
+    <div class="container">
+      <div class="row py-2 gy-2">
+        <div class="col-lg-4 text-center text-lg-start">
+          <p class="small text-muted text-uppercase mb-0">© copyright 2023 - all rights reserved </p>
+        </div>
+        <div class="col-lg-4 text-center">
+          <ul class="list-inline text-white small mb-0">
+            <li class="list-inline-item"><a class="reset-anchor" href="#!"><i class="fab fa-facebook-f"></i></a></li>
+            <li class="list-inline-item"><a class="reset-anchor" href="#!"><i class="fab fa-twitter"></i></a></li>
+            <li class="list-inline-item"><a class="reset-anchor" href="#!"><i class="fab fa-instagram"></i></a></li>
+            <li class="list-inline-item"><a class="reset-anchor" href="#!"><i class="fab fa-youtube"></i></a></li>
+            <li class="list-inline-item"><a class="reset-anchor" href="#!"><i class="fab fa-vimeo-v"></i></a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4 text-center text-lg-end">
+          <p class="small text-muted text-uppercase mb-0">Made by <a
+              href="https://www.linkedin.com/in/eli-dimitrova-ed707499">Eli Dimitrova</a>. </p>
+        </div>
+      </div>
+    </div>
+  </footer>
 </body>
 
 </html>
