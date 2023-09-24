@@ -16,9 +16,10 @@ from django.views.generic import (
 )
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
+from django.contrib.auth.decorators import user_passes_test
 from django.urls import reverse_lazy, reverse
 from django.template.defaultfilters import slugify
-from django.http import HttpResponseRedirect
+from django.http import Http404, HttpResponse
 from .models import Post, Category, Comment
 from .forms import PostForm, EditForm, CategoryEditForm, CommentForm
 
@@ -143,6 +144,7 @@ class AddCategoryView(CreateView):
     model = Category
     template_name = 'add_category.html'
     fields = '__all__'
+    success_url = reverse_lazy('category_list')
 
 
 @method_decorator(login_required, name='dispatch')
@@ -219,14 +221,12 @@ class EditCategoryView(UpdateView):
     model = Category
     form_class = CategoryEditForm
     template_name = 'edit_category.html'
-    slug_url_kwarg = 'category_name'
-    slug_field = 'category_name'
     success_url = reverse_lazy('category_list')
 
     def get_object(self, queryset=None):
         slug = self.kwargs.get('slug')
         category_name = slugify(slug)
-        return get_object_or_404(Category, category_name__iexact=category_name)
+        return get_object_or_404(Category, slug=category_name)
 
 
 class DeleteCategoryView(DeleteView):
@@ -242,14 +242,9 @@ class DeleteCategoryView(DeleteView):
     """
     model = Category
     template_name = 'delete_category.html'
-    slug_url_kwarg = 'category_name'
-    slug_field = 'category_name'
     success_url = reverse_lazy('category_list')
 
     def get_object(self, queryset=None):
-        """
-        Get the category object to delete based on the slug URL parameter.
-        """
         slug = self.kwargs.get('slug')
         category_name = slugify(slug)
-        return get_object_or_404(Category, category_name__iexact=category_name)
+        return get_object_or_404(Category, slug=category_name)
