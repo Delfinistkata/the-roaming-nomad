@@ -96,9 +96,7 @@ class ProfilePageForm(forms.ModelForm):
                 'class': 'form-control',
                 'placeholder': 'Enter your interests or hobbies',
             }),
-            'subscribed_categories': forms.CheckboxSelectMultiple(
-                attrs={'class': 'form-control'}
-            ),
+            'subscribed_categories': forms.CheckboxSelectMultiple(),
         }
 
 
