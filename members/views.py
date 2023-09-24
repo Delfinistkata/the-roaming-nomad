@@ -5,6 +5,7 @@ It includes imports for rendering templates, working with generic views,
 changing passwords, and handling user profiles. Additionally, it imports forms
 used for user registration, profile editing, and password change operations.
 """
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from django.views.generic import DetailView, CreateView
@@ -18,6 +19,7 @@ from .forms import (
     EditProfileForm,
     PasswordChangedForm,
     ProfilePageForm,
+    EditProfilePageForm
 )
 
 
@@ -42,7 +44,7 @@ class CreateProfilePageView(CreateView):
         return super().form_valid(form)
 
 
-class EditProfilePageView(generic.UpdateView):
+class EditProfilePageView(LoginRequiredMixin, generic.UpdateView):
     """
     This class-based view allows users to edit their profile information.
     It uses the UserProfile model and specifies the fields that can be edited.
@@ -50,14 +52,21 @@ class EditProfilePageView(generic.UpdateView):
     """
     model = UserProfile
     template_name = 'registration/edit_profile_page.html'
-    fields = [
-        'bio', 'profile_picture', 'date_of_birth', 'website',
-        'facebook_profile', 'twitter_profile',
-        'linkedin_profile', 'instagram_profile', 'youtube_profile',
-        'email', 'phone_number', 'address', 'location',
-        'interests_or_hobbies', 'subscribed_categories'
-    ]
+    form_class = EditProfilePageForm
     success_url = reverse_lazy('home')
+
+    def get_object(self, queryset=None):
+        """
+        Return the user's profile to be edited.
+        """
+        return get_object_or_404(UserProfile, user=self.request.user)
+
+    def form_valid(self, form):
+        """
+        If the form is valid, save the changes and redirect to success_url.
+        """
+        form.instance.user = self.request.user
+        return super().form_valid(form)
 
 
 class ShowProfilePageView(DetailView):
