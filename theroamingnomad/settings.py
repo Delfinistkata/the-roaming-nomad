@@ -28,10 +28,11 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEVELOPMENT')
 
 ALLOWED_HOSTS = ['the-roaming-nomad-travel-blog-f5d807b27cbd.herokuapp.com',
-                '8000-delfinistka-theroamingn-pqqs5mr0ud0.ws-eu104.gitpod.io']
+                '8000-delfinistka-theroamingn-pqqs5mr0ud0.ws-eu104.gitpod.io',
+                ]
 
 
 # Application definition
@@ -93,8 +94,9 @@ TEMPLATES = [
 WSGI_APPLICATION = 'theroamingnomad.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/3.2/ref/settings/#databases
+# Database settings documentation URL
+# 'https://docs.djangoproject.com/en/3.2/ref/settings/'
+
 
 #DATABASES = {
 #    'default': {
@@ -104,9 +106,8 @@ WSGI_APPLICATION = 'theroamingnomad.wsgi.application'
 #}
 
 DATABASES = {
-    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+    'default': dj_database_url.parse(os.environ.get("DATABASE_URL")),
 }
-
 
 
 # Password validation
