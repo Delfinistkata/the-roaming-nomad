@@ -191,6 +191,7 @@ class AddCommentView(CreateView):
 
     def form_valid(self, form):
         form.instance.post_id = self.kwargs['pk']
+        form.instance.author = self.request.user        
         return super().form_valid(form)
 
 
@@ -248,3 +249,20 @@ class DeleteCategoryView(DeleteView):
         slug = self.kwargs.get('slug')
         category_name = slugify(slug)
         return get_object_or_404(Category, slug=category_name)
+
+
+# 404 Handler
+def phandler_404(request, exception):
+    return render(request, '404.html', status=404)
+
+
+# 500 Handler
+def handler_500(request, exception):
+    response = render(request, '500.html')
+    response.status_code = 500
+    return response
+
+
+# 403 Handler
+def handler_403(request, *args, **kwargs):
+    return render(request, '403.html', status=403)
