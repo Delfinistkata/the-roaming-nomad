@@ -177,7 +177,9 @@ class Comment(models.Model):
         related_name="comments"
     )
     body_content = models.TextField()
-    author = models.CharField(max_length=80)
+    author = models.ForeignKey(
+        User, on_delete=models.CASCADE
+    )
     date_posted = models.DateTimeField(auto_now_add=True)
     comment_likes = models.ManyToManyField(
         User, related_name='comment_likes', blank=True)
@@ -193,8 +195,12 @@ class Comment(models.Model):
         ordering = ['date_posted']
 
     def __str__(self):
-        ''' Returns a string representation of the comment. '''
-        return f"Comment by {self.author} on {self.post}"
+        author = (
+            f"{self.author.first_name} {self.author.last_name}"
+            if self.author.first_name
+            else self.author.username
+        )
+        return f"Comment by {author} on {self.post}"
 
     def number_of_comment_likes(self) -> str:
         '''
