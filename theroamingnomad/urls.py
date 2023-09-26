@@ -24,3 +24,7 @@ urlpatterns = [
     path('members/', include('django.contrib.auth.urls')),
     path('members/', include('members.urls')),
 ]
+
+handler404 = "travelblog.views.handler_404"
+handler404 = "travelblog.views.handler_403"
+handler404 = "travelblog.views.handler_500"
