@@ -105,7 +105,7 @@
     <div class="container d-none comments mb-4 mt-4" id="comments_{{post.id}}">
         <div class="container">
             <div class="row">
-                <div class="col-12 pb-4">
+                <div class="col-12 pb-4 card bg-light text-dark">
                     <h5 class="text-center mt-3">Comments ({{ post.comments.count }})</h5>
                     {% for comment in post.comments.all %}
                         <div class="comment mt-4 text-justify float-left">
@@ -128,7 +128,6 @@
                         </div>
                         {% endfor %}
                 </div>     
-                <a class="mb-3" href="{% url 'add_comment' post.pk %}">Add Comment</a>       
             </div>
         </div>
     </div>
