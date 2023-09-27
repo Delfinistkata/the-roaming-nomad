@@ -33,6 +33,7 @@
 </head>
 
 <body>
+
   <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-white p-3">
       <div class="container-fluid">
@@ -115,6 +116,15 @@
     </div>
   </section>
   <main>
+    {% if messages %}
+		<div class="messages container py-2">
+		{% for message in messages %}
+			<div class="alert {% if message.tags %}alert-{{ message.tags }}"{% endif %}>
+				{{ message }}
+			</div>
+		{% endfor %}
+		</div>
+	{% endif %}
     {% block content %}
     <!-- Content Goes here -->
     {% endblock content %}
