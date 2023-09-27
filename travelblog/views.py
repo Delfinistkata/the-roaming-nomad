@@ -7,6 +7,7 @@ by providing necessary imports
 for views, forms, models, and utilities.
 """
 from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib import messages
 from django.views.generic import (
     ListView,
     DetailView,
@@ -163,6 +164,7 @@ class CreatePostView(CreateView):
     def form_valid(self, form):
         form.instance.post_number = Post.objects.count() + 1
         form.instance.author = self.request.user
+        messages.success(self.request, 'The post has been created successfully.')
         return super().form_valid(form)
 
     def get_context_data(self, **kwargs):
@@ -204,6 +206,14 @@ class EditPostView(UpdateView):
     form_class = EditForm
     template_name = 'edit_post.html'
 
+    def form_valid(self, form):
+        messages.success(self.request, 'The post has been updated successfully.')
+        return super().form_valid(form)
+
+    def form_invalid(self, form):
+        messages.error(self.request, 'There was an error in updating the post.')
+        return super().form_invalid(form)
+
 
 class DeletePostView(DeleteView):
     """
@@ -213,6 +223,10 @@ class DeletePostView(DeleteView):
     model = Post
     template_name = 'delete_post.html'
     success_url = reverse_lazy('home')
+
+    def delete(self, request, *args, **kwargs):
+        messages.success(self.request, 'The post has been deleted successfully.')
+        return super().delete(request, *args, **kwargs)
 
 
 class EditCategoryView(UpdateView):
@@ -228,6 +242,14 @@ class EditCategoryView(UpdateView):
         slug = self.kwargs.get('slug')
         category_name = slugify(slug)
         return get_object_or_404(Category, slug=category_name)
+
+    def form_valid(self, form):
+        messages.success(self.request, 'The category has been updated successfully.')
+        return super().form_valid(form)
+
+    def form_invalid(self, form):
+        messages.error(self.request, 'There was an error in updating the category.')
+        return super().form_invalid(form)
 
 
 class DeleteCategoryView(DeleteView):
@@ -249,6 +271,10 @@ class DeleteCategoryView(DeleteView):
         slug = self.kwargs.get('slug')
         category_name = slugify(slug)
         return get_object_or_404(Category, slug=category_name)
+
+    def delete(self, request, *args, **kwargs):
+        messages.success(self.request, 'The category has been deleted successfully.')
+        return super().delete(request, *args, **kwargs)
 
 
 # 404 Handler
