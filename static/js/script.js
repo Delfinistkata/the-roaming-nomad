@@ -1,4 +1,7 @@
 $(document).ready(function () {
+  /* 
+    Add plugins Jquery Select 2 to the select of categories
+  */
 
     $('#small-bootstrap-class-multiple-field').select2({
       theme: "bootstrap-5",
@@ -8,14 +11,22 @@ $(document).ready(function () {
       dropdownParent: $('#small-bootstrap-class-multiple-field').parent(),
     });
 
+  /* 
+    show notifications
+  */
 
-    var flashMessages = document.querySelectorAll('.alert-success');
+    var flashMessages = document.querySelectorAll('.messages');
     flashMessages.forEach(function (message) {
       setTimeout(function () {
         message.style.display = 'none';
       }, 5000); // 5000 milliseconds (5 seconds)
     });
 
+    /* 
+      Show/Hidden section comment in the list of post when user click comment button
+      Hide: add class of boostrap 'd-none'
+      Show: remove class of boostrap 'd-none'
+    */
     $("#post-lists").on('click', '#open-comments', function (e) {
       e.preventDefault();
       // get id of the post
@@ -29,7 +40,10 @@ $(document).ready(function () {
 
     });
 
-
+    /* 
+      Catch event for delete in Category List or Post to show confirm windows 
+      in case confirm submit the form if not just stop the event
+    */
     $("#category_list, #post_actions").on('click', '.delete-button', function (e) {
       e.preventDefault(); // stop the form
       const form = $(this);
