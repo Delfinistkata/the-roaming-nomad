@@ -5,6 +5,7 @@ It includes imports for rendering templates, working with generic views,
 changing passwords, and handling user profiles. Additionally, it imports forms
 used for user registration, profile editing, and password change operations.
 """
+from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
@@ -41,6 +42,7 @@ class CreateProfilePageView(CreateView):
         It associates the user profile with the currently logged-in user.
         """
         form.instance.user = self.request.user
+        messages.success(self.request, 'Your profile has been created successfully.') 
         return super().form_valid(form)
 
 
@@ -66,6 +68,7 @@ class EditProfilePageView(LoginRequiredMixin, generic.UpdateView):
         If the form is valid, save the changes and redirect to success_url.
         """
         form.instance.user = self.request.user
+        messages.success(self.request, 'Your profile has been updated successfully.')
         return super().form_valid(form)
 
 
@@ -132,6 +135,19 @@ class UserRegisterView(generic.CreateView):
     template_name = 'registration/register.html'
     success_url = reverse_lazy('login')
 
+    def form_valid(self, form):
+        """
+        This method is called when the submitted form data is valid.
+        It displays a success message upon successful registration.
+        """
+        response = super().form_valid(form)
+        messages.success(
+            self.request,
+            'Your account has been registered successfully. You can now log in.'
+        )
+
+        return response
+
 
 class UserEditView(generic.UpdateView):
     """
@@ -150,3 +166,16 @@ class UserEditView(generic.UpdateView):
         the currently authenticated user for editing.
         """
         return self.request.user
+
+    def form_valid(self, form):
+        """
+        This method is called when the submitted form data is valid.
+        It displays a success message upon successful profile editing.
+        """
+        response = super().form_valid(form)
+        messages.success(
+            self.request,
+            'Your profile has been updated successfully.'
+        )
+
+        return response
