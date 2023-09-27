@@ -1,20 +1,13 @@
+
+/* 
+  Select Categories 
+*/
 .select2-search__field {
   height: 24px !important;
 }
 
-.comments {
-  background: #e1e5ea;
-}
 
-a,
-a:hover {
-  text-decoration: none;
-  transition: color 0.3s ease-in-out;
-}
-
-
-
-/* Cards */
+/* Cards of post blog*/
 .postcard {
   flex-wrap: wrap;
   display: flex;
@@ -30,7 +23,7 @@ a:hover {
 .postcard a {
   color: inherit;
 }
-
+/* Applies styles to the title in the card*/
 .postcard h1,
 .postcard .h1 {
   margin-bottom: 0.5rem;
@@ -45,24 +38,24 @@ a:hover {
 .postcard .postcard__title {
   font-size: 1.75rem;
 }
-
+/* Applies styles to the img of post in the card*/
 .postcard .postcard__img {
   max-height: 180px;
   width: 100%;
   object-fit: cover;
   position: relative;
 }
-
+/* Applies styles to the <a> which has img inside */
 .postcard .postcard__img_link {
   display: contents;
 }
-
+/* Applies styles to the bar in the card */
 .postcard .postcard__bar {
   width: 50px;
   height: 5px;
   margin: 10px 0;
   border-radius: 5px;
-  background-color: #424242;
+  background-color: #0076bd;
   transition: width 0.2s ease;
 }
 
@@ -82,31 +75,7 @@ a:hover {
   -webkit-line-clamp: 3;
   overflow: hidden;
 }
-
-.postcard .postcard__tagbox {
-  display: flex;
-  flex-flow: row wrap;
-  font-size: 14px;
-  margin: 20px 0 0 0;
-  padding: 0;
-  justify-content: center;
-}
-
-.postcard .postcard__tagbox .tag__item {
-  display: inline-block;
-  background: rgba(83, 83, 83, 0.4);
-  border-radius: 3px;
-  padding: 2.5px 10px;
-  margin: 0 5px 5px 0;
-  cursor: default;
-  user-select: none;
-  transition: background-color 0.3s;
-}
-
-.postcard .postcard__tagbox .tag__item:hover {
-  background: rgba(83, 83, 83, 0.8);
-}
-
+/* Applies styles to card before */
 .postcard:before {
   content: "";
   position: absolute;
@@ -118,11 +87,11 @@ a:hover {
   opacity: 1;
   border-radius: 10px;
 }
-
+/* Applies styles to the bar when do hover show bigger effect */
 .postcard:hover .postcard__bar {
   width: 100px;
 }
-
+/* Applies styles responsive more than 769 px */
 @media screen and (min-width: 769px) {
   .postcard {
     flex-wrap: inherit;
@@ -175,11 +144,11 @@ a:hover {
   }
 
   .postcard:nth-child(2n+0) .postcard__text::before {
-    right: -12px !important;
+    left: -12px !important;
     transform: rotate(-4deg);
   }
 }
-
+/* Applies styles responsive more than 1024 px */
 @media screen and (min-width: 1024px) {
   .postcard__text {
     padding: 2rem 3.5rem;
@@ -194,11 +163,7 @@ a:hover {
     width: 55px;
   }
 
-  .postcard.dark .postcard__text:before {
-    background: #18151f;
-  }
-
-  .postcard.light .postcard__text:before {
+  .postcard .postcard__text:before {
     background: #e1e5ea;
   }
 }
@@ -206,46 +171,28 @@ a:hover {
 
 /* COLORS */
 
-.postcard .postcard__tagbox .yellow.play:hover {
-  background: #0076bd;
-  color: black;
-}
-
-.yellow .postcard__title:hover {
+.postcard__title:hover {
   color: #0076bd;
 }
 
-.yellow .postcard__bar {
-  background-color: #0076bd;
-}
-
-.yellow::before {
+.postcard::before {
   background-image: linear-gradient(-30deg,
       rgba(0, 118, 189, 0.1),
       transparent 50%);
 }
 
-.yellow:nth-child(2n)::before {
-  background-image: linear-gradient(30deg,
-      rgba(0, 118, 189, 0.1),
-      transparent 50%);
-}
 
 @media screen and (min-width: 769px) {
 
-  .yellow::before {
+  .postcard::before {
     background-image: linear-gradient(-80deg,
         rgba(0, 118, 189, 0.1),
         transparent 50%);
   }
 
-  .yellow:nth-child(2n)::before {
-    background-image: linear-gradient(80deg,
-        rgba(0, 118, 189, 0.1),
-        transparent 50%);
-  }
 }
 
+/* Img background in the header */
 
 .hero-image-searchbar {
   position: relative;
@@ -264,6 +211,8 @@ a:hover {
   object-fit: cover;
 }
 
+/* Img cut at the button of  header */
+
 .hero-image-searchbar .hero-cut {
   position: absolute;
   width: 100%;
@@ -273,6 +222,8 @@ a:hover {
   filter: invert(100%) sepia(4%) saturate(3%) hue-rotate(131deg) brightness(102%) contrast(104%);
 }
 
+/* Icon Like */
+
 .fas.fa-heart:hover {
   color: #f44336 !important;
 }
@@ -281,9 +232,7 @@ a:hover {
   color: #0d47a1 !important;
 }
 
-.post_list {
-  background-color: #f5f7fa;
-}
+/* Comments */
 
 .be-comment-block {
   margin-bottom: 50px !important;
@@ -355,23 +304,6 @@ a:hover {
   padding: 15px 20px 20px 20px;
 }
 
-.form-group.fl_icon .icon {
-  position: absolute;
-  top: 1px;
-  left: 16px;
-  width: 48px;
-  height: 48px;
-  background: #f6f6f7;
-  color: #b5b8c2;
-  text-align: center;
-  line-height: 50px;
-  -webkit-border-top-left-radius: 2px;
-  -webkit-border-bottom-left-radius: 2px;
-  -moz-border-radius-topleft: 2px;
-  -moz-border-radius-bottomleft: 2px;
-  border-top-left-radius: 2px;
-  border-bottom-left-radius: 2px;
-}
 
 .form-group .form-input {
   font-size: 13px;
@@ -386,13 +318,14 @@ a:hover {
   border-radius: 3px;
 }
 
-.form-group.fl_icon .form-input {
-  padding-left: 70px;
+/* Text Area bigger */
+.form-group textarea.form-input {
+  height: 200px !important;
+}
+textarea {
+  height: 200px !important;
 }
 
-.form-group textarea.form-input {
-  height: 150px;
-}
 
 html,
 body {
@@ -407,12 +340,4 @@ body {
 main {
   flex: 1;
   overflow: auto;
-}
-
-.img-fluid-custom {
-  max-height: 900px;
-}
-
-textarea {
-  height: 200px !important;
 }
