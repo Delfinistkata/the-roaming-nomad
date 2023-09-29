@@ -25,7 +25,7 @@ from .models import Post, Category, Comment
 from .forms import PostForm, EditForm, CategoryEditForm, CommentForm
 
 
-def LikeDislikePost(request, pk):
+def like_dislike_post(request, post_id):
     """
     View function to handle liking and disliking a post.
     If the 'like' button is clicked and
@@ -36,7 +36,7 @@ def LikeDislikePost(request, pk):
     Similarly, if the 'dislike' button is clicked,
     it adds or removes the user from the post's dislikes accordingly.
     """
-    post = get_object_or_404(Post, id=pk)
+    post = get_object_or_404(Post, id=post_id)
 
     if request.method == 'POST':
         if 'like' in request.POST:
@@ -58,7 +58,7 @@ def LikeDislikePost(request, pk):
 class PostList(ListView):
     """
     A class-based view that displays a list of published posts.
-    This view displays a paginated list of published blog posts, 
+    This view displays a paginated list of published blog posts,
     with the option to filter by categories.
     It uses the 'model' and 'queryset' attributes to fetch
     and display the posts.
@@ -102,7 +102,7 @@ class PostDetailView(DetailView):
         return context
 
 
-def CategoryListView(request):
+def category_list_view(request):
     """
     View to display a list of all categories.
     This view retrieves all categories from the database and passes them to the
@@ -116,7 +116,7 @@ def CategoryListView(request):
     )
 
 
-def CategoryView(request, cats):
+def category_view(request, cats):
     """
     View to display a specific category and its associated posts.
     This view retrieves the category specified
@@ -164,7 +164,10 @@ class CreatePostView(CreateView):
     def form_valid(self, form):
         form.instance.post_number = Post.objects.count() + 1
         form.instance.author = self.request.user
-        messages.success(self.request, 'The post has been created successfully.')
+        messages.success(
+            self.request,
+            'The post has been created successfully.'
+        )
         return super().form_valid(form)
 
     def get_context_data(self, **kwargs):
@@ -193,7 +196,7 @@ class AddCommentView(CreateView):
 
     def form_valid(self, form):
         form.instance.post_id = self.kwargs['pk']
-        form.instance.author = self.request.user        
+        form.instance.author = self.request.user
         return super().form_valid(form)
 
 
@@ -207,11 +210,17 @@ class EditPostView(UpdateView):
     template_name = 'edit_post.html'
 
     def form_valid(self, form):
-        messages.success(self.request, 'The post has been updated successfully.')
+        messages.success(
+            self.request,
+            'The post has been updated successfully.'
+        )
         return super().form_valid(form)
 
     def form_invalid(self, form):
-        messages.error(self.request, 'There was an error in updating the post.')
+        messages.error(
+            self.request,
+            'There was an error in updating the post.'
+        )
         return super().form_invalid(form)
 
 
@@ -225,7 +234,10 @@ class DeletePostView(DeleteView):
     success_url = reverse_lazy('home')
 
     def delete(self, request, *args, **kwargs):
-        messages.success(self.request, 'The post has been deleted successfully.')
+        messages.success(
+            self.request,
+            'The post has been deleted successfully.'
+        )
         return super().delete(request, *args, **kwargs)
 
 
@@ -244,11 +256,17 @@ class EditCategoryView(UpdateView):
         return get_object_or_404(Category, slug=category_name)
 
     def form_valid(self, form):
-        messages.success(self.request, 'The category has been updated successfully.')
+        messages.success(
+            self.request,
+            'The category has been updated successfully.'
+        )
         return super().form_valid(form)
 
     def form_invalid(self, form):
-        messages.error(self.request, 'There was an error in updating the category.')
+        messages.error(
+            self.request,
+            'There was an error in updating the category.'
+        )
         return super().form_invalid(form)
 
 
@@ -273,22 +291,53 @@ class DeleteCategoryView(DeleteView):
         return get_object_or_404(Category, slug=category_name)
 
     def delete(self, request, *args, **kwargs):
-        messages.success(self.request, 'The category has been deleted successfully.')
+        messages.success(
+            self.request,
+            'The category has been deleted successfully.'
+        )
         return super().delete(request, *args, **kwargs)
 
 
 # 404 Handler
-def phandler_404(request, exception):
-    return render(request, '404.html', status=404)
-
-
-# 500 Handler
-def handler_500(request, exception):
-    response = render(request, '500.html')
-    response.status_code = 500
-    return response
+def handler_404(request, exception):
+    """
+    Custom error handler for handling 404 (Page Not Found) errors.
+    """
+    error_message = "The page you requested could not be found."
+    context = {
+        'error_message': error_message,
+    }
+    return render(request, '404_custom.html', context, status=404)
 
 
 # 403 Handler
 def handler_403(request, *args, **kwargs):
-    return render(request, '403.html', status=403)
+    """
+    Custom error handler for handling 403 (Forbidden) errors.
+    """
+    error_message = (
+        "Access not Granted. You do not have permission to access this page."
+    )
+    context = {'error_message': error_message}
+    return render(
+        request,
+        '403.html',
+        context,
+        status=403
+    )
+
+
+# 500 Handler
+def handler_500(request, *args, **kwargs):
+    """
+    Custom error handler for handling 500 (Internal Server Error) errors.
+    """
+    error_message = (
+        "Woops! Something went wrong. We apologize for the inconvenience. "
+        "Our team has been notified about this issue. "
+        "Please try again later or contact support if the problem persists."
+    )
+    context = {'error_message': error_message}
+    response = render(request, '500.html', context)
+    response.status_code = 500
+    return response
