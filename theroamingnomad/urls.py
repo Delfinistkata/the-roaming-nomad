@@ -26,5 +26,5 @@ urlpatterns = [
 ]
 
 handler404 = "travelblog.views.handler_404"
-handler404 = "travelblog.views.handler_403"
-handler404 = "travelblog.views.handler_500"
+handler403 = "travelblog.views.handler_403"
+handler500 = "travelblog.views.handler_500"
