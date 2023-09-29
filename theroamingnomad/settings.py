@@ -28,11 +28,14 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEVELOPMENT')
+# DEBUG = os.environ.get('DEVELOPMENT')
+DEBUG = True
 
-ALLOWED_HOSTS = ['the-roaming-nomad-travel-blog-f5d807b27cbd.herokuapp.com',
-                '8000-delfinistka-theroamingn-pqqs5mr0ud0.ws-eu104.gitpod.io',
-                ]
+ALLOWED_HOSTS = [
+    'the-roaming-nomad-travel-blog-f5d807b27cbd.herokuapp.com',
+    '8000-delfinistka-theroamingn-pqqs5mr0ud0.ws-eu104.gitpod.io',
+    '8000-delfinistka-theroamingn-pqqs5mr0ud0.ws-eu105.gitpod.io'
+]
 
 
 # Application definition
@@ -98,12 +101,12 @@ WSGI_APPLICATION = 'theroamingnomad.wsgi.application'
 # 'https://docs.djangoproject.com/en/3.2/ref/settings/'
 
 
-#DATABASES = {
+# DATABASES = {
 #    'default': {
 #        'ENGINE': 'django.db.backends.sqlite3',
 #        'NAME': BASE_DIR / 'db.sqlite3',
 #    }
-#}
+# }
 
 DATABASES = {
     'default': dj_database_url.parse(os.environ.get("DATABASE_URL")),
@@ -115,19 +118,22 @@ DATABASES = {
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'NAME': 'django.contrib.auth.password_validation.'
+                'UserAttributeSimilarityValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'NAME': 'django.contrib.auth.password_validation.'
+                'MinimumLengthValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        'NAME': 'django.contrib.auth.password_validation.'
+                'CommonPasswordValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        'NAME': 'django.contrib.auth.password_validation.'
+                'NumericPasswordValidator',
     },
 ]
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
@@ -155,6 +161,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_URL = '/media/'
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
 
 # Default primary key field type
