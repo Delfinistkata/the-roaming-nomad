@@ -12,7 +12,6 @@ from django.views import generic
 from django.views.generic import DetailView, CreateView
 from django.contrib.auth.views import PasswordChangeView
 from django.urls import reverse_lazy, reverse
-from django.contrib import messages
 from travelblog.models import UserProfile
 from travelblog.models import Post
 from .forms import (
@@ -42,7 +41,10 @@ class CreateProfilePageView(CreateView):
         It associates the user profile with the currently logged-in user.
         """
         form.instance.user = self.request.user
-        messages.success(self.request, 'Your profile has been created successfully.') 
+        messages.success(
+            self.request,
+            'Your profile has been created successfully.'
+        )
         return super().form_valid(form)
 
 
@@ -68,7 +70,10 @@ class EditProfilePageView(LoginRequiredMixin, generic.UpdateView):
         If the form is valid, save the changes and redirect to success_url.
         """
         form.instance.user = self.request.user
-        messages.success(self.request, 'Your profile has been updated successfully.')
+        messages.success(
+            self.request,
+            'Your profile has been updated successfully.'
+        )
         return super().form_valid(form)
 
 
@@ -143,9 +148,9 @@ class UserRegisterView(generic.CreateView):
         response = super().form_valid(form)
         messages.success(
             self.request,
-            'Your account has been registered successfully. You can now log in.'
+            'Your account has been registered successfully.'
+            'You can now log in.'
         )
-
         return response
 
 
