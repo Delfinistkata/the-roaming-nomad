@@ -10,18 +10,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-
     <link href=" https://cdn.jsdelivr.net/npm/@icon/themify-icons@1.0.1-alpha.3/themify-icons.min.css "
         rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css">
     <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" />
-
+        href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
@@ -33,14 +30,14 @@
 
 <body>
     {% if messages %}
-		<div class="messages container py-2">
-		{% for message in messages %}
-			<div class="alert {% if message.tags %}alert-{{ message.tags }}"{% endif %}>
-				{{ message }}
-			</div>
-		{% endfor %}
-		</div>
-	{% endif %}
+    <div class="messages container py-2">
+        {% for message in messages %}
+        <div class="alert {% if message.tags %}alert-{{ message.tags }}" {% endif %}>
+            {{ message }}
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
 
     <main class="flex-shrink-0 mt-8">
         {% block content %}
@@ -57,22 +54,22 @@
                 </div>
                 <div class="col-lg-4 text-center">
                     <ul class="list-inline text-white small mb-0">
-                        <li class="list-inline-item"><a class="reset-anchor" href="#!"><i
-                                    class="fab fa-facebook-f"></i></a></li>
-                        <li class="list-inline-item"><a class="reset-anchor" href="#!"><i
-                                    class="fab fa-twitter"></i></a></li>
-                        <li class="list-inline-item"><a class="reset-anchor" href="#!"><i
-                                    class="fab fa-instagram"></i></a></li>
-                        <li class="list-inline-item"><a class="reset-anchor" href="#!"><i
-                                    class="fab fa-youtube"></i></a></li>
-                        <li class="list-inline-item"><a class="reset-anchor" href="#!"><i
-                                    class="fab fa-vimeo-v"></i></a></li>
+                        <li class="list-inline-item"><a class="reset-anchor" href="https://www.facebook.com/"
+                                target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                        <li class="list-inline-item"><a class="reset-anchor" href="https://twitter.com/"
+                                target="_blank"><i class="fab fa-twitter"></i></a></li>
+                        <li class="list-inline-item"><a class="reset-anchor" href="https://www.instagram.com/"
+                                target="_blank"><i class="fab fa-instagram"></i></a></li>
+                        <li class="list-inline-item"><a class="reset-anchor" href="https://www.youtube.com/"
+                                target="_blank"><i class="fab fa-youtube"></i></a></li>
+                        <li class="list-inline-item"><a class="reset-anchor" href="https://vimeo.com/"
+                                target="_blank"><i class="fab fa-vimeo-v"></i></a></li>
                     </ul>
                 </div>
                 <div class="col-lg-4 text-center text-lg-end">
                     <p class="small text-muted text-uppercase mb-0">Made by <a
-                            href="https://www.linkedin.com/in/eli-dimitrova-ed707499">Eli Dimitrova</a>. </p>
-                    <!-- If you want to remove the backlink, please purchase the Attribution-Free License. See details in readme.txt or license.txt. Thanks!-->
+                            href="https://www.linkedin.com/in/eli-dimitrova-ed707499" target="_blank">Eli Dimitrova</a>.
+                    </p>
                 </div>
             </div>
         </div>
