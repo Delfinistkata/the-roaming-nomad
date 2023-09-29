@@ -15,19 +15,17 @@
     <div class="flex flex-sm-row d-sm-flex justify-content-between ">
         <div class="col-4 d-none d-sm-block">
             <img src="https://res.cloudinary.com/dugavbmql/image/upload/v1695046729/wepik-export-20230918141652fZZR_cmastr.jpg"
-                class="">
+                class="" alt="travelling">
         </div>
         <div class="col-12 col-sm-6 text-dark" style="height: 814px;">
             <div class="card border-0 shadow rounded-3 my-5">
                 <div class="card-body">
-                    <h4 class="text-uppercase text-center">Create an account</h2> <!-- Page title -->
+                    <h4 class="text-uppercase text-center">Create an account</h4> <!-- Page title -->
                         <form method="POST" class="mt-4">
                             <!-- Form with POST method -->
                             {% csrf_token %}
                             <!-- CSRF token for security -->
-                            <section class="gradient-custom">
-                                <form method="POST">
-                                    {% csrf_token %}
+                            <div class="gradient-custom">
                                     <div class="row">
                                         <div class="form-group">
                                             <label class="mb-1" for="{{ form.title.id_for_label }}">Username:</label>
@@ -113,11 +111,10 @@
                                             class="btn btn-primary btn-block btn-lg px-5">Register</button>
                                         <!-- Submit button for the form -->
                                     </div>
-                                </form>
                                 <p class="text-center text-muted mt-5 mb-0">Have already an account? <a
                                         href="{% url 'login' %}" class="fw-bold text-success"><u>Login here</u></a></p>
                                 <!-- Link to the login page -->
-                            </section>
+                            </div>
                         </form>
                 </div>
             </div>
