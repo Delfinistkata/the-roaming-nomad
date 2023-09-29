@@ -1,4 +1,16 @@
 $(document).ready(function () {
+/* 
+    Show Welcome Modal
+  */
+
+  const pathname = window.location.pathname; // get the path of the URL
+  const hasUserProfile = $('main').data('userprofile'); // get the user profile
+  const isAuth = $('main').data('isauth'); // get if is auth
+  const myModal = new bootstrap.Modal(document.getElementById('modalWelcome'));
+  if (pathname === '/' && hasUserProfile === '' && isAuth !== 'False') {
+    myModal.show();
+  }   
+  
   /* 
     Add plugins Jquery Select 2 to the select of categories
   */
@@ -47,13 +59,12 @@ $(document).ready(function () {
     $("#category_list, #post_actions").on('click', '.delete-button', function (e) {
       e.preventDefault(); // stop the form
       const form = $(this);
-      console.log(form)
       $.confirm({
         title: 'Are you sure ?',
         content: $(this).data('title'),
         buttons: {
           confirm: function () {            
-            form.submit()
+            form.submit();
           },
           cancel: function () {
             e.preventDefault();              
@@ -61,5 +72,4 @@ $(document).ready(function () {
         }
       });
     });
-
   });
