@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %} Create Your Profile! {% endblock %}
+{% block title %} Edit Your Profile! {% endblock %}
 {% block content %}
 {% if user.is_authenticated and user.id == userprofile.user.id %}
 <div class="container">
@@ -147,22 +147,22 @@
                             </div>
                         </div>
                         <div class="text-center mt-3">
-                            <button type= "submit" class= "btn btn-primary btn-sm">Update </button>
-                            <a href="{% url 'home' %}" class="btn btn-secondary btn-sm">Cancel</a>
-                        </div>
-                    </form>
-                    {% else %}
-                        <h3 class="text-center text-dark">
-                            You are not authorised for this activity! Please log in to your profile.
-                        </h3>
-                        <div class="flex text-center mb-3">
-                            <a href="{% url 'account_signup' %}" class="btn btn-primary btn-sm">Register</a>
-                            <a href="{% url 'account_login' %}" class="btn btn-primary btn-sm">LogIn</a>
-                        </div>
-                    
-                {% endif %}
+                <button type="submit" class="btn btn-primary btn-sm">Update </button>
+                <a href="{% url 'home' %}" class="btn btn-secondary btn-sm">Cancel</a>
             </div>
+            </form>
+            {% else %}
+            <h3 class="text-center text-dark">
+                You are not authorised for this activity! Please log in to your profile.
+            </h3>
+            <div class="flex text-center mb-3">
+                <a href="{% url 'account_signup' %}" class="btn btn-primary btn-sm">Register</a>
+                <a href="{% url 'account_login' %}" class="btn btn-primary btn-sm">LogIn</a>
+            </div>
+
+            {% endif %}
         </div>
     </div>
+</div>
 </div>
 {% endblock %}
