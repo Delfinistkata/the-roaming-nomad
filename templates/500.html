@@ -1,1 +1,23 @@
-<h1>Hello </h1>
+{% extends "base_guest.html" %}
+
+{% load static %}
+
+{% block title %} Error {% endblock %}
+
+{% block content %}
+<div class="container mt-5 w-40">
+    <div class="flex flex-sm-row d-sm-flex justify-content-between ">
+        <div class="col-12 col-sm-6">
+            <img src="https://res.cloudinary.com/dugavbmql/image/upload/v1695046729/wepik-export-20230918141652fZZR_cmastr.jpg"
+                class="img-fluid">
+        </div>
+        <div class="col-12 col-sm-6 text-dark" style="height: 800px;">
+            <div class="card border-0 shadow rounded-3 my-5">
+                <div class="card-body p-4 p-sm-5">
+                    <p class="text-center text-danger">{{ error_message }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
