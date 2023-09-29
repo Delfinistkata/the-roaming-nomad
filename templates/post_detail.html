@@ -30,46 +30,45 @@
         <div class="card mb-4">
             <div class="card-img-top">
                 {% if "placeholder" in post.featured_image.url %}
-                <img src="https://res.cloudinary.com/doyc0uqcs/image/upload/v1688827561/Porject%204%20Travel%20Blog/pexels-vojta-kova%C5%99%C3%ADk-3243090_lpneiv.jpg"
-                    width="100%">
+                <img class="rounded img-fluid"
+                src="https://res.cloudinary.com/doyc0uqcs/image/upload/v1688827561/Porject%204%20Travel%20Blog/pexels-vojta-kova%C5%99%C3%ADk-3243090_lpneiv.jpg" alt="Travelling Tools">
                 {% else %}
                 <img src="{{ post.featured_image.url }}" class="rounded img-fluid">
                 {% endif %}
             </div>
 
-            <div class="card-body">
-                <p class="card-text">
-                    {{ post.body_content|safe }}
-                </p>
+                <div class="card-body">
+                    <p class="card-text">
+                        {{ post.body_content|safe }}
+                    </p>
+                </div>
 
                 <form method="POST" action="{% url 'like_dislike_post' pk=post.pk %}">
                     {% csrf_token %}
                     {% if user.is_authenticated %}
-                    {% if user.userprofile.id %}
-                    <div class="d-flex justify-content-end ">
-                        <div>
-                            <button type="submit" class="btn btn-link" name="like">
-                                <i class="far fa-heart text-danger"></i> {{ post.number_of_likes }}
-                            </button>
-                        </div>
-                        <div class="me-3">
-                            <button type="submit" class="btn btn-link" name="dislike">
-                                <i class="far fa-thumbs-down text-primary"></i> {{ post.number_of_dislikes }}
-                            </button>
-                        </div>
-                        <div class="me-3">
-                            <strong class="text-secondary text-center btn">
-                                <i class="far fa-comments text-info"></i> {{ post.comments.count }}
-                            </strong>
-                        </div>
-                    </div>
+                        {% if user.userprofile.id %}
+                            <div class="d-flex justify-content-end ">
+                                <div>
+                                    <button type="submit" class="btn btn-link" name="like">
+                                        <i class="far fa-heart text-danger"></i> {{ post.number_of_likes }}
+                                    </button>
+                                </div>
+                                <div class="me-3">
+                                    <button type="submit" class="btn btn-link" name="dislike">
+                                        <i class="far fa-thumbs-down text-primary"></i> {{ post.number_of_dislikes }}
+                                    </button>
+                                </div>
+                                <div class="me-3">
+                                    <strong class="text-secondary text-center btn">
+                                        <i class="far fa-comments text-info"></i> {{ post.comments.count }}
+                                    </strong>
+                                </div>
+                            </div>
+                        {% else %}
+                            Please <a href="{% url 'create_profile_page' %}">create your profile</a> to like/dislike the post!
+                        {% endif %}
                     {% else %}
-                    Please create your profile to like/dislike the post!
-                    <!-- You might want to add a link to create the user profile here -->
-                    {% endif %}
-                    {% else %}
-                    Please log in to like/dislike the post!
-                    <!-- You might want to add a login link here -->
+                        Please <a href="{% url 'login' %}">log in</a> to like/dislike the post!
                     {% endif %}
                 </form>
             </div>
