@@ -37,7 +37,7 @@ class ProfilePageForm(forms.ModelForm):
             'phone_number', 'address', 'location', 'interests_or_hobbies',
             'subscribed_categories'
         )
-        
+
         widgets = {
             'bio': forms.Textarea(attrs={
                 'class': 'form-control',
@@ -101,7 +101,19 @@ class ProfilePageForm(forms.ModelForm):
 
 
 class EditProfilePageForm(forms.ModelForm):
+    """
+    This form allows users to edit various aspects of their user profile,
+    including their bio, profile picture, date of birth, website, and
+    social media profile links. It also provides fields for email,
+    phone number, address, location, interests or hobbies, and subscribed
+    categories.
+    """
     class Meta:
+        """
+        Meta options for the EditProfilePageForm.
+        It specifies the model to use, the fields to include,
+        and custom widget attributes for each field.
+        """
         model = UserProfile
         fields = (
             'bio', 'profile_picture', 'date_of_birth', 'website',
@@ -225,6 +237,10 @@ class EditProfileForm(UserChangeForm):
     Removes unwanted fields like is_superuser, is_staff, etc.
     """
     class Meta:
+        """
+        Meta options for the EditProfileForm.
+        It specifies the model to use and the fields to include.
+        """
         model = User
         fields = (
             'username',
@@ -277,7 +293,9 @@ class EditProfileForm(UserChangeForm):
             self.fields['last_login'].initial = self.instance.last_login
             self.fields['password'].widget = forms.HiddenInput()
             self.fields['password_change_link'] = forms.CharField(
-                widget=forms.TextInput(attrs={'class': 'form-control', 'readonly': True}),
+                widget=forms.TextInput(
+                    attrs={'class': 'form-control', 'readonly': True}
+                ),
                 initial=reverse_lazy("password_change")
             )
 
