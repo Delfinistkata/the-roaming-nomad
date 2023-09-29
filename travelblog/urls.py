@@ -13,18 +13,18 @@ from .views import (
     EditPostView,
     DeletePostView,
     AddCategoryView,
-    CategoryView,
-    CategoryListView,
+    category_view,
+    category_list_view,
     EditCategoryView,
     DeleteCategoryView,
-    LikeDislikePost,
+    like_dislike_post,
     AddCommentView,
 )
 
 
 urlpatterns = [
     path('', PostList.as_view(), name='home'),
-    path('category_list/', CategoryListView, name='category_list'),
+    path('category_list/', category_list_view, name='category_list'),
     path('<slug:slug>/', PostDetailView.as_view(), name='post_detail'),
     path(
         'templates/create_post/',
@@ -48,7 +48,7 @@ urlpatterns = [
     ),
     path(
         'category/<slug:cats>/',
-        CategoryView,
+        category_view,
         name='category'
     ),
     path(
@@ -61,7 +61,11 @@ urlpatterns = [
         DeleteCategoryView.as_view(),
         name='delete_category'
     ),
-    path('like_dislike/<int:pk>/', LikeDislikePost, name='like_dislike_post'),
+    path(
+        'like_dislike/<int:pk>/',
+        like_dislike_post,
+        name='like_dislike_post'
+    ),
     path(
         'templates/<int:pk>/comment/',
         AddCommentView.as_view(),
