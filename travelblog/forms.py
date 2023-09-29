@@ -32,7 +32,6 @@ class PostForm(forms.ModelForm):
             'body_content',
             'featured_image',
             'excerpt',
-            'status',
         )
 
         widgets = {
@@ -51,7 +50,6 @@ class PostForm(forms.ModelForm):
                     'class': 'form-control',
                     'placeholder': 'Text goes here',
                 }),
-            'status': forms.Select(attrs={'class': 'form-control'}),
         }
 
 
@@ -81,7 +79,6 @@ class EditForm(forms.ModelForm):
             'body_content',
             'featured_image',
             'excerpt',
-            'status',
         )
 
         widgets = {
@@ -100,7 +97,6 @@ class EditForm(forms.ModelForm):
                     'class': 'form-control',
                     'placeholder': 'Text goes here',
                 }),
-            'status': forms.Select(attrs={'class': 'form-control'}),
         }
 
 
