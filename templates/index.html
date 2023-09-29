@@ -22,9 +22,8 @@
                             </div>
                             <div class="ms-2 mt-3 mt-md-0">
                                 <button class="btn btn-block btn-primary text-white" type="submit">Apply</button>
-                                <a type="button" class="btn btn-secondary" href="{% url 'home' %}">Reset</a>
+                                <a class="btn btn-secondary" href="{% url 'home' %}">Reset</a>
                             </div>
-
                         </div>
 
                     </form>
@@ -41,7 +40,7 @@
         <a class="postcard__img_link" href="{% url 'post_detail' post.slug %}">
             {% if "placeholder" in post.featured_image.url %}
             <img class="postcard__img"
-                src="https://res.cloudinary.com/doyc0uqcs/image/upload/v1688827561/Porject%204%20Travel%20Blog/pexels-vojta-kova%C5%99%C3%ADk-3243090_lpneiv.jpg">
+                src="https://res.cloudinary.com/doyc0uqcs/image/upload/v1688827561/Porject%204%20Travel%20Blog/pexels-vojta-kova%C5%99%C3%ADk-3243090_lpneiv.jpg" alt="Scenic view of a travel destination">
             {% else %}
             <img class="postcard__img rounded img-fluid" src=" {{ post.featured_image.url }}" alt="Image Title">
             {% endif %}
@@ -52,8 +51,7 @@
                 <a href="{% url 'show_user_profile_page' post.author.userprofile.id%}"
                     class="text-bold text-dark text-decoration-underline">
                     {% if post.author.userprofile.profile_picture.url == '' %}
-                    <img src="https://res.cloudinary.com/doyc0uqcs/image/upload/v1691407204/Porject%204%20Travel%20Blog/male-user-shadow_318-34042_eotvtf.avif"
-                        class="rounded-circle me-3" height="50px" width="50px" alt="avatar">
+                    <img src="https://res.cloudinary.com/doyc0uqcs/image/upload/placeholder" class="rounded-circle me-3" height="50" width="50" alt="avatar">
                     {% else%}
                     <img src="{{ post.author.userprofile.profile_picture.url }}" class="rounded-circle me-3"
                         height="50px" width="50px" alt="avatar">
@@ -61,10 +59,9 @@
 
                     {{ post.author.userprofile.user.first_name }} {{ post.author.userprofile.user.last_name }}
                 </a>
-
-
                 <time>
-                    <i class="fas fa-clock mr-2"></i><span class="ms-2">{{ post.last_modified }}</span>
+                    <i class="fas fa-clock mr-2"></i>
+                    <span class="ms-2">{{ post.last_modified }}</span>
                 </time>
             </div>
             
@@ -111,8 +108,7 @@
                         <div class="comment mt-4 text-justify float-left">
                             <div class="d-flex">
                                 {% if comment.author.userprofile.profile_picture.url == '' %}
-                                <img src="https://res.cloudinary.com/doyc0uqcs/image/upload/v1691407204/Porject%204%20Travel%20Blog/male-user-shadow_318-34042_eotvtf.avif"
-                                    class="rounded-circle me-3" height="50px" width="50px" alt="avatar">
+                                <img src="https://res.cloudinary.com/doyc0uqcs/image/upload/placeholder" class="rounded-circle me-3" height="50px" width="50" alt="avatar">
                                 {% else%}
                                 <img src="{{ comment.author.userprofile.profile_picture.url }}" class="rounded-circle me-3"
                                     height="50px" width="50px" alt="avatar">
@@ -150,13 +146,36 @@
 </div>
 </div>
 {% else %}
-<div class="container mb-3">
-    <h5 class="text-center row">
-        To access this page you have to be logged in. Please log in to your profile.
-</div>
-<div class="d-flex justify-content-center mb-3">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 p-0 mb-5">
+            
+
+<section class="what-is-working-holiday">
+<article class="what-is-working-holiday-card container-custom-yma">
+  <div class="row no-gutters d-flex flex-wrap flex-column flex-column-reverse flex-md-row">
+    <div class="side-1 col-12 col-md-6">
+    
+      <h3 class="heading-4 text-dark-violet text-bold mt-1 mt-lg-4 mt-md-0">Welcome Traveller!</h3>
+      <p class="fs-18 mb-lg-4 text-dark-violet text-medium my-lg-3">Welcome to The Roaming Nomad, your gateway to wanderlust and adventure! Our platform is designed to ignite your passion for travel and inspire you to explore the world. Whether you're a seasoned globetrotter or just getting started on your journey, The Roaming Nomad is your canvas to share your adventures, connect with fellow travelers, and craft your very own travel stories.  
+
+        The primary purpose of The Roaming Nomad is to inspire, inform, and connect travelers from all walks of life. We believe in the power of travel to broaden horizons, promote cultural understanding, and create unforgettable memories.
+        
+        Join us at The Roaming Nomad and be a part of this exciting journey. Whether you're scaling mountains, traversing deserts, or immersing yourself in local cultures, your travel stories are worth sharing. Start creating your own travel narratives today and inspire others to explore the world!</p>
+    
+    </div>
+    <div class="side-2 col-12 col-md-6">
+      <img class="w-100 h-100" src="https://res.cloudinary.com/doyc0uqcs/image/upload/v1696011413/Porject%204%20Travel%20Blog/WhatsApp_Image_2023-09-29_at_19.08.32_s4c4vp.jpg" alt="Trip Planning">
+    </div>
+  </div>
+</article>
+<div class="d-flex justify-content-center mb-3 mt-4">
     <a href="{% url 'register' %}" class="btn btn-primary btn-sm">Register</a>
     <a href="{% url 'login' %}" class="btn btn-primary btn-sm ms-2">Log In</a>
+</div>
+</section>
+        </div>
+    </div>
 </div>
 
 </div>
