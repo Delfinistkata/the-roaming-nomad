@@ -31,6 +31,9 @@ class Category(models.Model):
     slug = models.SlugField(unique=True, max_length=255, blank=True)
 
     class Meta:
+        """
+        Options for the Category model.
+        """
         verbose_name_plural = "Categories"
 
     def __str__(self) -> str:
@@ -115,7 +118,7 @@ class Post(models.Model):
     dislikes = models.ManyToManyField(
         User, related_name='blog_dislikes', blank=True)
     last_modified = models.DateTimeField(auto_now=True)
-    status = models.IntegerField(choices=STATUS, default=0)
+    status = models.IntegerField(choices=STATUS, default=1)
     excerpt = models.CharField(max_length=255)
 
     class Meta:
@@ -178,13 +181,10 @@ class Comment(models.Model):
     )
     body_content = models.TextField()
     author = models.ForeignKey(
-        User, on_delete=models.CASCADE
+        User, on_delete=models.CASCADE,
+        related_name='comments'
     )
     date_posted = models.DateTimeField(auto_now_add=True)
-    comment_likes = models.ManyToManyField(
-        User, related_name='comment_likes', blank=True)
-    comment_dislikes = models.ManyToManyField(
-        User, related_name='comment_dislikes', blank=True)
     approved = models.BooleanField(default=False)
 
     class Meta:
@@ -201,19 +201,3 @@ class Comment(models.Model):
             else self.author.username
         )
         return f"Comment by {author} on {self.post}"
-
-    def number_of_comment_likes(self) -> str:
-        '''
-        It calculates and returns the total number of likes
-        that the comment has received.
-        '''
-        # pylint: disable=E1101
-        return str(self.comment_likes.count())
-
-    def number_of_comment_dislikes(self) -> str:
-        '''
-        It calculates and returns the total number of dislikes
-        that the comment has received.
-        '''
-        # pylint: disable=E1101
-        return str(self.comment_dislikes.count())
