@@ -59,17 +59,45 @@ $(document).ready(function () {
     $("#category_list, #post_actions").on('click', '.delete-button', function (e) {
       e.preventDefault(); // stop the form
       const form = $(this);
-      $.confirm({
-        title: 'Are you sure ?',
-        content: $(this).data('title'),
-        buttons: {
-          confirm: function () {            
-            form.submit();
-          },
-          cancel: function () {
-            e.preventDefault();              
-          },
-        }
-      });
+      const text = $(this).data('title');
+      confirmAtion(e, form, text);
+
     });
+      
+    /* 
+      Catch event for Update Post to show confirm windows 
+      in case confirm submit the form if not just stop the event
+    */
+      $("#update_post").on('click', function (e) {
+        e.preventDefault(); // stop the form
+        const text = 'To update this post ?';
+        const form = $('#form_update_post');
+        confirmAtion(e, form, text);
+      });
+
+    /* 
+      Catch event for Update Category to show confirm windows 
+      in case confirm submit the form if not just stop the event
+    */
+      $("#update_category").on('click', function (e) {
+        e.preventDefault(); // stop the form
+        const text = 'To update this category ?';
+        const form = $('#form_update_category');
+        confirmAtion(e, form, text);
+      });
   });
+
+  function confirmAtion(e, form , text){
+    $.confirm({
+      title: 'Are you sure ?',
+      content: text,
+      buttons: {
+        confirm: function () {            
+          form.submit();
+        },
+        cancel: function () {
+          e.preventDefault();              
+        },
+      }
+    });
+  }
