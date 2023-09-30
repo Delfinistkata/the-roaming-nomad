@@ -341,38 +341,27 @@ main {
   flex: 1;
   overflow: auto;
 }
-.what-is-working-holiday{
+.about_us{
   background: url('https://www.yomeanimo.com/wp-content/themes/creativedog-timber-theme-v2/assets/images/_Tramas/general-trama-thunder.svg');
-  background-size: cover;
-  padding: 5rem;
 }
 @media (min-width: 992px) {
-.container-custom-yma {
+.container-custom {
   max-width: 1280px;
   padding: 0 70px !important;
 }
 }
 @media (min-width: 768px) {
-.container-custom-yma {
+.container-custom {
   padding-left: 35px;
   padding-right: 35px;
   overflow-x: unset;
 }
 }
-.container-custom-yma {
-width: 100%;
-margin-right: auto;
-margin-left: auto;
-padding-left: 13px;
-padding-right: 13px;
 
-}
-.what-is-working-holiday-card .side-1 {
-position: relative;
+.about_us-card .side-1 {
 background: #cef8f6 ;
 display: -webkit-box;
 display: -ms-flexbox;
-display: flex;
 -ms-flex-wrap: wrap;
 flex-wrap: wrap;
 -webkit-box-orient: vertical;
@@ -388,21 +377,17 @@ align-items: start;
 border-radius: 15px;
 padding: 20px;
 }
-@media (min-width: 1200px) {
-.what-is-working-holiday-card .side-1 {
-  padding: 50px 100px;
-}
-}
-@media (min-width: 992px) {
-.what-is-working-holiday-card .side-1 {
-  padding: 50px 75px;
-}
-}
 
-.what-is-working-holiday-card .side-2 img {
+.about_us-card .side-2 img {
 border-top-right-radius: 15px;
 border-bottom-right-radius: 15px;
 border-radius: 15px;
 -o-object-fit: cover !important;
 object-fit: cover !important;
+}
+
+/* footer colour */
+
+.footer {
+  color: #fbfdff;
 }
