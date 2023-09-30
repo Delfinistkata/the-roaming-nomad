@@ -1,6 +1,6 @@
 # The Roaming Nomad
 
-[Back to the README.md file]()  
+[Back to the README.md file](https://github.com/Delfinistkata/the-roaming-nomad/blob/bbe106d7e2dbd8e1cc77cc84e4bd53b2be1462bb/README.md)  
 
 [Back to the Testing section in the README.md file]()
 
@@ -47,9 +47,43 @@ As a Site Admin I can access the admin from a link on the web page so that I hav
 
 The [W3C Markup Validator](https://validator.w3.org/) service was used to validate the HTML code of the project in order to ensure there were no syntax errors.
 
-W3C Markup Validator found the following errors concerning index.html.
+As my project uses Jinja syntax, such as `{% for ... %}`, `{% url 'home' %}`, and `{{ ... }}`
+it will not validate properly if I copy and paste into the HTML validator straight from my source files.
 
-![index.html]()
+Usually in order to properly validate these types of files, it's recommended to
+[validate by url](https://validator.w3.org/#validate_by_uri) from the deployed Heroku pages.
+
+Unfortunately, nearly all of the pages on this site require a user to be logged-in and authenticated,
+and will not work using this method, due to the fact that the HTML Validator (W3C) doesn't have
+access to login to the pages.
+
+In order to properly validate my HTML pages with Jinja syntax for authenticated pages, I followed these steps:
+
+- Navigate to the deployed pages which require authentication
+- Right-click anywhere on the page, and select **View Page Source** (usually `CTRL+U` or `⌘+U` on Mac).
+- This will display the entire "compiled" code, without any Jinja syntax.
+- Copy everything, and use the [validate by input](https://validator.w3.org/#validate_by_input) method.
+- Repeat this process for every page that requires a user to be logged-in/authenticated.
+
+| Location | Errors / Warnings | Code Reviewed |
+| --- | --- | --- |
+| templates/index.html | No errors / warnings | ![ reviewed image ](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696095354/Porject%204%20Travel%20Blog/index_ll5ocz.png)  |
+| members/edit_profile.html  | No errors / warnings | ![ reviewed image ](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696095354/Porject%204%20Travel%20Blog/edit_settings.html_wq8srg.png)  |
+| members/login.html | No errors / warnings | ![ reviewed image ](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696095354/Porject%204%20Travel%20Blog/login.html_ahdlgg.png)  |
+| members/register.html | No errors / warnings | ![ reviewed image ](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696095355/Porject%204%20Travel%20Blog/register.html_jihuwm.png)  |
+| templates/post_detail.html  | No errors / warnings | ![ reviewed image ](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696095355/Porject%204%20Travel%20Blog/post_detail_f6vstr.png)  |
+| members/user_profile.html | No errors / warnings | ![ reviewed image ](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696095355/Porject%204%20Travel%20Blog/user_profie.html_zsnyph.png)  |
+| templates/add_category.html | No errors / warnings | ![ reviewed image ](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696095356/Porject%204%20Travel%20Blog/add_category.html_e0dtgq.png)  |
+| templates/add_comment.html | No errors / warnings | ![ reviewed image ](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696095356/Porject%204%20Travel%20Blog/add_comment.html_ho5spk.png)  |
+| templates/category_list.html | No errors / warnings | ![ reviewed image ](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696095356/Porject%204%20Travel%20Blog/category_list.html_kvr6af.png)  |
+| members/change-password.html | No errors / warnings | ![ reviewed image ](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696095357/Porject%204%20Travel%20Blog/change_password.html_ng2ijw.png)  |
+| templates/category.html | No errors / warnings | ![ reviewed image ](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696095357/Porject%204%20Travel%20Blog/category.html_e6rstt.png)  |
+| templates/create_post.html | No errors / warnings | ![ reviewed image ](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696095358/Porject%204%20Travel%20Blog/create_post.html_r0el9y.png)  |
+| members/create_user_profile_page.html | No errors / warnings | ![ reviewed image ](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696095358/Porject%204%20Travel%20Blog/create_profile_page.html_shkdd1.png)  |
+| templates/edit_category.html | No errors / warnings | ![ reviewed image ](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696095358/Porject%204%20Travel%20Blog/edit_category.html_mka8q5.png)  |
+| templates/edit_post.html  | No errors / warnings | ![ reviewed image ](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696095359/Porject%204%20Travel%20Blog/edit_post.html_ebghbw.png)  |
+| members/edit_profile_page.html | No errors / warnings | ![ reviewed image ](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696095359/Porject%204%20Travel%20Blog/edit_profile_page.html_jd4x6p.png)  |
+
 
 ### CSS
 
@@ -84,7 +118,7 @@ Pylint was used continuously during the development process to analyze the Pytho
 
 [JSHints JavaScript Code Quality Tool](https://jshint.com/) was used to validate the site's JavaScript code. 
 
-![JS validation image]()
+![JS validation image](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696091355/Porject%204%20Travel%20Blog/js_hint_zkdj3x.png)
 
 
 ## Accessibility
@@ -95,24 +129,22 @@ Lighthouse in Chrome DevTools has been used to confirm that the colors and fonts
 
 Page | Lighthouse Report |
 | --- | --- |
-| Index | ![Index Lighthouse Report]() |
-| Category | ![Category Lighthouse Report]() |
+| Index Log In | ![Index Lighthouse Report](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696087860/Porject%204%20Travel%20Blog/index_logged_in_pbmemy.png) |
+| Category | ![Category Lighthouse Report](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696087860/Porject%204%20Travel%20Blog/category_list_snznec.png) |
 | Register | ![Register Lighthouse Report]() |
 | Login | ![Login Lighthouse Report]() |
-| Logout | ![Logout Lighthouse Report]() |
+| Index Logout | ![Logout Lighthouse Report](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696087860/Porject%204%20Travel%20Blog/index_page_logged_out_fr2us6.png) |
 | Post Detail | ![Post Detail Lighthouse Report]() |
-| User Profile  | ![User Profile Lighthouse Report]() |
-| Add Comment | ![Add Comment Lighthouse Report]() |
-| Create Post | ![Create Post Lighthouse Report]() |
-| Edit Post | ![Edit Post Lighthouse Report]() |
-| Delete Post | ![Delete Post Lighthouse Report]() |
-| Create Category | ![Create Category Lighthouse Report]() |
-| Edit Category | ![Edit Category Lighthouse Report]() |
-| Delete Category | ![Delete Category Lighthouse Report]() |
-| Fill in User Profile | ![Fill in User Profile Lighthouse Report]() |
-| Edit User Profile | ![Edit User Profile Lighthouse Report]() |
-| Edit User Profile Settings | ![Edit User Profile Settings Lighthouse Report]() |
-| Change Password | ![Change Password Lighthouse Report]() |
+| User Profile  | ![User Profile Lighthouse Report](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696088569/Porject%204%20Travel%20Blog/profile_page_kc6fqw.png) |
+| Add Comment | ![Add Comment Lighthouse Report](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696088647/Porject%204%20Travel%20Blog/add_comment_plmcvh.png) |
+| Create Post | ![Create Post Lighthouse Report](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696087860/Porject%204%20Travel%20Blog/create_post_n83i8z.png) |
+| Edit Post | ![Edit Post Lighthouse Report](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696087860/Porject%204%20Travel%20Blog/edit_post_n3mxff.png) |
+| Create Category | ![Create Category Lighthouse Report](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696088217/Porject%204%20Travel%20Blog/add_category_cjmve1.png) |
+| Edit Category | ![Edit Category Lighthouse Report](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696087860/Porject%204%20Travel%20Blog/edit_category_w6zkc2.png) |
+| Fill in User Profile | ![Fill in User Profile Lighthouse Report](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696088446/Porject%204%20Travel%20Blog/fill_in_profile_divnti.png) |
+| Edit User Profile | ![Edit User Profile Lighthouse Report](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696091102/Porject%204%20Travel%20Blog/edit_profile_page_xyabmn.png) |
+| Edit User Profile Settings | ![Edit User Profile Settings Lighthouse Report](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696087861/Porject%204%20Travel%20Blog/edit_settings_profile_page_tebmd2.png) |
+| Change Password | ![Change Password Lighthouse Report](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696090866/Porject%204%20Travel%20Blog/change_password_ukzf6c.png) |
 
 
 ## Tools Testing
@@ -143,12 +175,15 @@ Microsoft Edge | No issues | Pass |
 
 ### Device Compatibility
 
-Device | Operative System |Outcome | Pass/Fail
---- | --- | --- | --- |
-Laptop | Windows 10 | No issues. | Pass |
-iPad Pro | iOS 15 |No issues. | Pass |
-iPhone XR | iOS 15 |No issues. | Pass |
-iPhone 7 | iOS 15 |No issues. | Pass |
+Device | Outcome | Pass/Fail
+--- | --- | --- |
+Laptop | No issues. | Pass |
+iPad  | No issues. | Pass |
+Samsung Galaxy S20 | No issues. | Pass |
+iPhone 12 Pro | No issues. | Pass |
+iPhone XR | No issues. | Pass |
+iPhone SE | No issues. | Pass |
+iPhone 4 | No issues. | Pass |
 
 ### Test Results
 
