@@ -1,18 +1,15 @@
 # The Roaming Nomad
 
 
-![The Roaming Nomad images](...)
+![The Roaming Nomad images](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696091635/Porject%204%20Travel%20Blog/am_i_responsive_g8srvw.png)
 
 Welcome to "The Roaming Nomad," your passport to a world of adventure, discovery, and wanderlust. Our travel blog is more than just a website; it's a vibrant and inclusive community where passionate globetrotters come together to celebrate the art of exploration.
 
 At "The Roaming Nomad," we believe that travel is not just a hobby; it's a way of life. Whether you're an intrepid explorer, a seasoned backpacker, or someone with a burning desire to see the world, this is your digital sanctuary.
-
 This is the place where your travel tales come to life. Share your journeys, your escapades, and your most cherished memories from the farthest corners of the Earth. Our platform is a canvas for your stories and a gallery for your photos.
-
 Discover hidden gems tucked away in remote villages, uncover the secrets of bustling metropolises, and find yourself amidst the serene beauty of nature's wonders. "The Roaming Nomad" is your source for travel inspiration, tips, and recommendations that will make your next adventure unforgettable.
 
 Whether you're a solo traveler embarking on a soul-searching expedition or a family seeking new horizons, "The Roaming Nomad" welcomes you with open arms. Connect with fellow wanderers, exchange travel tips, and become a part of our global tribe of explorers.
-
 Your adventure begins here.
 
 Visit the deployed website [here](.....link....).
@@ -145,43 +142,271 @@ Visit the deployed website [here](.....link....).
 
  - Inspiration and Information: We understand that travel is not just about the destination but the entire journey. Our strategy revolves around providing a wealth of information, including destination guides, travel tips, and cultural insights, to empower and inform our users.
 
+ #### Strategy Table
+
+Opportunity / Problem | Importance | Viability / Feasibility
+--- | --- | ---
+Responsive design | 5 | 5
+Account registration | 5 | 5
+Ability to fill in user profile | 5 | 5
+Create, edit and delete post | 5 | 4
+Create, edit and delete categories | 5 | 4
+Ability to filter posts by its category | 4 | 5
+Add categories to posts | 4 | 5
+Likes and dislikes on posts | 4 | 4
+**Total** | **37** | **37**
+
 [Back to top ⇧](#the-roaming-nomad)
 ### Scope
 
-...........
+According to the strategy table, not all features can be implemented in the first release of the project. For this reason, the project will be divided in multiple phases. The first phase will include the features that have been identified in order to build the minimum viable product.
+
+First Phase:
+
+* Create, edit and delete all posts
+
+* Approve/Disapprove comments
+
+* Create draft posts
+
+Second Phase:
+
+* Add pagination to posts
+
+* A list of all posts
+
+* The number of likes/dislikes on a post
+
+Third Phase:
+
+* Create, edit and delete my own posts
+
+Fourth Phase:
+
+* Account registration
+
+* Upload a photo to a post
+
+Fifth Phase:
+
+* Create, edit, and delete all categories
+
+* Filter posts by their category
+
+Sixth Phase:
+
+* Like/Dislike a post
+
+* Fill in User profile
+
+Seventh Phase:
+
+* Create and View comments on a post
 
 [Back to top ⇧](#the-roaming-nomad)
+
 #### User Stories
 
-pics here from KAnban Board.
+GitHub projects was used as my project management tool to track user stories. Using a Kanban board helped to focus on specific tasks and track the project progress.
+
+**Week 1**
+<details>
+    <summary>Click to View</summary>
+<br>
+
+  ![Iteration 1](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696071414/Porject%204%20Travel%20Blog/Iteration_1_qf2lsj.png)
+
+<br>
+
+  ![Iteration 1](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696071418/Porject%204%20Travel%20Blog/Iteration1_proefr.png)
+
+<br>
+
+  ![Iteration 1](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696071412/Porject%204%20Travel%20Blog/iteratio_1_tdl1cd.png)
+</details>
+
+<br>
+
+**Week 2**
+
+<details>
+    <summary>Click to View</summary>
+<br>
+
+  ![Iteration 2](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696071413/Porject%204%20Travel%20Blog/iteratio_2_lglj6r.png)
+
+<br>
+
+  ![Iteration 2](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696071413/Porject%204%20Travel%20Blog/iteration_2_btz0c6.png)
+
+<br>
+
+  ![Iteration 2](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696071423/Porject%204%20Travel%20Blog/iteration2_p8ukhz.png)
+</details>
+
+<br>
+
+**Week 3**
+
+<details>
+    <summary>Click to View</summary>
+<br>
+
+  ![Iteration 3](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696071420/Porject%204%20Travel%20Blog/iteration3_wsbi1v.png)
+
+<br>
+
+</details>
+
+<br>
+
+**Week 4**
+
+<details>
+    <summary>Click to View</summary>
+<br>
+
+  ![Iteration 4](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696071420/Porject%204%20Travel%20Blog/iteraton_4_jtxxr4.png)
+
+<br>
+
+  ![Iteration 4](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696071418/Porject%204%20Travel%20Blog/iteration_4_fjdf2b.png)
+
+<br>
+
+</details>
+
+<br>
+
+**Week 5**
+
+<details>
+    <summary>Click to View</summary>
+<br>
+
+  ![Iteration 5](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696071413/Porject%204%20Travel%20Blog/Iteration_5_fgpzt9.png)
+
+<br>
+
+  ![Iteration 5](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696071412/Porject%204%20Travel%20Blog/itaration_5_ys0zcs.png)
+
+<br>
+
+</details>
+
+<br>
+
+**Week 6**
+
+<details>
+    <summary>Click to View</summary>
+<br>
+
+  ![Iteration 6](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696071420/Porject%204%20Travel%20Blog/iteration_6_yhc8tf.png)
+
+<br>
+
+  ![Iteration 6](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696071413/Porject%204%20Travel%20Blog/iteratio6_hcl1dk.png)
+
+<br>
+
+</details>
+
+<br>
+
+**Week 7**
+
+<details>
+    <summary>Click to View</summary>
+<br>
+
+  ![Iteration 7](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696071420/Porject%204%20Travel%20Blog/iteration_7_lieufd.png)
+
+<br>
+
+</details>
+
+<br>
+
+**Finish**
+
+<details>
+    <summary>Click to View</summary>
+<br>
+
+  ![Finished Kanban Board](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696072852/Porject%204%20Travel%20Blog/kanban_board_t0zvau.png)
+
+<br>
+
+</details>
+
+<br>
 
 [Back to top ⇧](#the-roaming-nomad)
 ### Structure
 
-...........
+<br>
+
+The website has been organized in a Hierarchical Tree Structure to ensure the site user navigates through the site effortlessly and intuitively.
+
+* Header, footer and navigation bar are consistent through all pages.
+
+* Links and forms provide clear feedback to the site user.
+
+* The opportunity to add additional content to the website is provided for the site user once they register an account.
+
+* A 404-error page is available.
+
+* A 403-error page is available.
+
+* A 500-error page is available.
+
+<br>
+
 [Back to top ⇧](#the-roaming-nomad)
 #### Database Model
 
-.................
+The type of database being used for the is relational database being managed using [PostgreSQL](https://www.postgresql.org/).
+
+![Plan ](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696073828/Porject%204%20Travel%20Blog/models_icfdxo.png)
+
+<br>
 
 [Back to top ⇧](#the-roaming-nomad)
 ### Skeleton
-
 #### Wireframes
 
-pics ...........
+[Balsamiq](https://balsamiq.com/) has been used to showcase the appearance of the site and display the placement of the different elements whitin the pages.
+
+Page | Desktop Version | Mobile Version
+--- | --- | ---
+Index/ Logged out | ![Desktop index wireframe image](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696075864/Porject%204%20Travel%20Blog/home_page_wkkav4.png) | ![Mobile index wireframe image](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696075863/Porject%204%20Travel%20Blog/home_page_1_wsxbeh.png)
+Sign Up | ![Desktop sign up wireframe image](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696075860/Porject%204%20Travel%20Blog/register_wyyimq.png) | ![Mobile sign up wireframe image](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696075860/Porject%204%20Travel%20Blog/resgiter1_u1mee6.png)
+Log In | ![Desktop log in wireframe image](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696075865/Porject%204%20Travel%20Blog/login_dpx5va.png) | ![Mobile log in wireframe image](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696075865/Porject%204%20Travel%20Blog/login1_lxulzf.png)
+Index / User Logged In | ![Desktop index / user logged in wireframe image](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696075864/Porject%204%20Travel%20Blog/logged_in_wswc8t.png) | ![Mobile index / user logged out wireframe image](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696075864/Porject%204%20Travel%20Blog/logged_in_1_dqgjhk.png)
+Create Post | ![Desktop create post wireframe image](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696075861/Porject%204%20Travel%20Blog/create_post_bfci9l.png) | ![Mobile create post wireframe image](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696075861/Porject%204%20Travel%20Blog/create_post1_vtksjc.png)
+Edit Post | ![Desktop edit post wireframe image](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696075862/Porject%204%20Travel%20Blog/edit_post_vvaid6.png) | ![Mobile edit post wireframe image](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696075863/Porject%204%20Travel%20Blog/edit_post_1_pl8mu6.png)
+Delete Post | ![Desktop delete post wireframe image](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696075861/Porject%204%20Travel%20Blog/delete_post_e0eygt.png) | ![Mobile delete post wireframe image](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696075862/Porject%204%20Travel%20Blog/delete_post1_uzal9m.png)
+User Profile | ![Desktop User Profile wireframe image](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696075860/Porject%204%20Travel%20Blog/Profile_Page_xjkrlw.png) | ![Mobile User Profile wireframe image](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696075860/Porject%204%20Travel%20Blog/profile_page_1_tsxloj.png)
 
 [Back to top ⇧](#the-roaming-nomad)
 ### Surface
 
 #### Color Scheme
 
-...........
 
-[Back to top ⇧](#the-roaming-nomad)
+The colors used in the website are ... for secondary buttons, navbar links, as well as for main buttons and links transitions. ..... is used for the main text, footer background, main buttons and secondary buttons and links transitions.
+
+..... for the navigation bar and card footers background, footer and buttons content. ...... is also used in the main background and cards footer as well as for input fields.
+
+The colors were chosen keeping in mind simplicity but also providing the website a modern design. This in order to keep the focus on the content but also appealing for the users.
+
+
 #### Typography
 
-............
+The main font being used in the site is ..., with sans-serif as a fallback in case .... doesn't get imported correctly. Roboto, with sans-serif as a fallback is used mainly for headings.
+
+Nunito and Roboto were chosen after some research on fonts that are better for reading. Specially Nunito which has been used as main font. Quicksand was used for the logo for design purposes.
 
 [Back to top ⇧](#the-roaming-nomad)
 
@@ -212,9 +437,6 @@ pics ...........
 * [Django](https://www.djangoproject.com/)   
     * Django was used as web framework.
 
-* [Django Template](https://jinja.palletsprojects.com)  
-    * Django Template was used as a templating language for Django to display backend data to HTML.
-   
 * [Bootstrap 5](https://getbootstrap.com/docs/5.0/getting-started/introduction/)  
     * Bootstrap 5 was used throughout the website to help with styling and responsiveness.
 
@@ -261,7 +483,7 @@ pics ...........
      * GitPod was used for writing code, committing, and then pushing to GitHub.
 
 * [GitHub](https://github.com)  
-   GitHub was used to store the projects code after being pushed from Git. 
+   * GitHub was used to store the projects code after being pushed from Git. 
 
 * [Heroku](https://www.heroku.com)   
     * Heroku was used to deploy the website.
@@ -291,7 +513,7 @@ pics ...........
 
 ## Testing
 
-The testing documentation can be found [here]().
+The testing documentation can be found [here](https://github.com/Delfinistkata/the-roaming-nomad/blob/d5dcbfdd4db4d4e7e22343b45443c6d109bdb13c/TESTING.md).
 
 [Back to top ⇧](#the-roaming-nomad)
 
@@ -382,6 +604,11 @@ Further reading and troubleshooting on cloning a repository from GitHub [here](h
 
 ## Credits
 
+Throughout the building process I found many helpful tutorials online.
+I sometimes applied principles within them to the site, after fully understanding their code and modifying to fit the site's needs.
+
+<br>
+
 ### Content
 
 * Website content was written by the developer.
@@ -400,8 +627,27 @@ Further reading and troubleshooting on cloning a repository from GitHub [here](h
 [Back to top ⇧](#the-roaming-nomad)
 ### Code
 
-* [Stack Overflow](https://stackoverflow.com/), [W3Schools](https://www.w3schools.com/) and [Code Institute](https://codeinstitute.net/) were consulted on a regular basis for inspiration and sometimes to be able to better understand the code being implement.
+[W3Schools](https://www.w3schools.com/) - was consulted on a regular basis for inspiration and sometimes to be able to better understand the code being implement.
 
+[Code Institute Template](https://github.com/Code-Institute-Org/python-essentials-template) - This repository was created using the template provided by Code Institute.
+
+[Django Documentation](https://docs.djangoproject.com/en/4.0/) - Django step-by-step document to ensure everything is set up correctly. 
+
+[Allauth Documentation](https://django-allauth.readthedocs.io/en/latest/faq.html) - referenced during development.
+
+[Cloudinary Documentation](https://cloudinary.com) - referenced during development.
+
+[Summernote Documentation](https://summernote.org/) and [Git](https://github.com/summernote/django-summernote) - referenced during development.
+
+[Crispy Forms Documentation](https://django-crispy-forms.readthedocs.io/en/latest/) - referenced during development.
+
+[John Elder - Django](https://www.youtube.com/playlist?list=PLCC34OHNcOtqW9BJmgQPPzUpJ8hl49AGy) - YouTube series that help me through project.
+
+[Stackoverflow](https://stackoverflow.com/) -Used to search issues I had.
+
+[Slack](https://slack.com/intl/en-ie/) - I used Slack when I had issues.
+
+<br>
 
 [Back to top ⇧](#the-roaming-nomad)
 
