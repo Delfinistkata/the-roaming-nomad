@@ -6,8 +6,8 @@
         <div class="col-12 col-sm-12 text-dark" style="height: 814px;">
             <div class="card border-0 shadow rounded-3 my-5">
                 <div class="card-body p-4 p-sm-5">
-                    <a href="{% url 'edit_category' slug=category.slug %}">Edit</a>
-                    <form method="POST">
+                    <a href="{% url 'edit_category' slug=category.slug %}"></a>
+                    <form method="POST" id="form_update_category">
                         {% csrf_token %}
                         <div class="form-floating mb-3">
                             <input type="text" id="categoryName" name="category_name" class="form-control" value="{{ category.category_name }}">
@@ -15,7 +15,7 @@
                         </div>                                                                            
 
                         <div class="d-grid">
-                            <button class="btn btn-primary btn-login text-uppercase fw-bold" type="submit">Update</button>
+                            <button class="btn btn-primary btn-login text-uppercase fw-bold" id="update_category" type="submit">Update</button>
                         </div>
                     </form>
                 </div>
