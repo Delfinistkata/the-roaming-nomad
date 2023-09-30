@@ -8,9 +8,9 @@
                 <div class="profile">
                     {% if post.author.userprofile.profile_picture.url == '' %}
                     <img src="https://res.cloudinary.com/doyc0uqcs/image/upload/v1691407204/Porject%204%20Travel%20Blog/male-user-shadow_318-34042_eotvtf.avif"
-                        class="rounded-circle" width="80">
+                        class="rounded-circle" alt="Profile Picture of a Male User" width="80">
                     {% else%}
-                    <img src="{{ post.author.userprofile.profile_picture.url }}" class="rounded-circle" width="100px">
+                    <img src="{{ post.author.userprofile.profile_picture.url }}" alt="{{ post.author.username }}'s Profile Picture" class="rounded-circle" width="100">
                     {% endif%}
 
                 </div>
@@ -84,10 +84,10 @@
                             <div class="d-flex">
                                 {% if comment.author.userprofile.profile_picture.url == '' %}
                                 <img src="https://res.cloudinary.com/doyc0uqcs/image/upload/v1691407204/Porject%204%20Travel%20Blog/male-user-shadow_318-34042_eotvtf.avif"
-                                    class="rounded-circle me-3" height="50px" width="50px" alt="avatar">
+                                    class="rounded-circle me-3" height="50" width="50" alt="avatar">
                                 {% else%}
                                 <img src="{{ comment.author.userprofile.profile_picture.url }}" class="rounded-circle me-3"
-                                    height="50px" width="50px" alt="avatar">
+                                    height="50" width="50" alt="avatar">
                                 {% endif%}                        
                                 <span class="fst-italic ms-2">{{ comment.author.first_name }} {{ comment.author.last_name }}</h4>
                             </div>
@@ -118,8 +118,6 @@
         </div>
         {% endif %}
     </div>
-
-</div>
 
 
 {% endblock content %}
