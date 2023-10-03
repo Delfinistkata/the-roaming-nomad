@@ -8,11 +8,11 @@
         <div class="card border-0 shadow rounded-3 my-5">
             <div class="card-body p-4 p-sm-5">
                 <h1 class="mb-4 text-center">Create Post</h1>
-                {% if user.is_authenticated %}
-                <form method="POST" class="form" enctype="multipart/form-data">
+                <form method="POST" class="form " enctype="multipart/form-data">
+                {% if user.is_authenticated and user.userprofile.is_complete %}
                     {% csrf_token %}
-                    <div class="row">
-                        <div class="col-md-6">
+                    <div class="row ">
+                        <div class="col-md-6 ">
                             <div class="form-group">
                                 <label class="mb-1" for="{{ form.title.id_for_label }}">Title:</label>
                                 {{ form.title }}       
@@ -42,18 +42,7 @@
                                     {% endfor%}                                            
                                 {%endif%}                                     
                             </div>
-                            <div class="form-group">
-                                <label for="{{ form.excerpt.id_for_label }}">Excerpt:</label>
-                                {{ form.excerpt }}
-                                {% if form.errors.excerpt%}
-                                    {% for error in form.errors.excerpt %}
-                                        <p class="text-danger">{{ error }}</p>
-                                    {% endfor%}                                            
-                                {%endif%}                                       
-                            </div>
-                        </div>
-            
-                        <div class="col-md-6">
+
                             <div class="form-group">
                                 <label for="{{ form.body_content.id_for_label }}">Body Content:</label>
                                 {{ form.body_content }}
@@ -69,6 +58,7 @@
                                     {% endfor%}                                            
                                 {%endif%}                                        
                             </div>
+
                             <div class="form-group mt-3">
                                 <label for="{{ form.featured_image.id_for_label }}">Featured Image:</label>
                                 {{ form.featured_image }}
@@ -82,17 +72,16 @@
                     </div>
             
                     <div class="text-center mt-3">
-                        <button type= "submit" class= "btn btn-primary btn-sm">Create Post</button>
+                        <button type= "submit" class= "btn btn-primary btn-sm">Submit</button>
                         <a href="{% url 'home' %}" class="btn btn-secondary btn-sm">Cancel</a>
                     </div>
                 </form>
                 {% else %}
                     <h3 class="text-center">
-                        You are not authorised for this activity! Please log in to your profile.
+                        You are not authorised for this activity! Please register/login to your profile.
                     </div>
 
-                    <a href="{% url 'account_signup' %}" class="btn btn-primary btn-sm">Register</a>
-                    <a href="{% url 'account_login' %}" class="btn btn-primary btn-sm">LogIn</a>
+                    <a href="{% url 'register' %}" class="btn btn-primary btn-sm">Register</a>
 
                 {% endif %}
             </div>
