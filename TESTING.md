@@ -186,5 +186,1832 @@ iPhone SE | No issues. | Pass |
 iPhone 4 | No issues. | Pass |
 
 ### Test Results
+#### Sign Up Page
+
+<table>
+    <tr>
+        <th colspan=2>Feature</th>
+        <th>Users</th>
+        <th>Test</th>
+        <th>Outcome</th>
+        <th>Pass/Fail</th>
+    </tr>
+    <tr>
+        <td rowspan=16>Sign Up Form</td>
+        <td rowspan=2>Username input</td>
+        <td rowspan=2>All</td>
+        <td>Functionality</td>
+        <td>Text can be entered in the field.<br>Field validates input to be present.<br>Display message if the username already exists.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>Focus effect working as expected.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td rowspan=2>E-mail input</td>
+        <td rowspan=2>All</td>
+        <td>Functionality</td>
+        <td>Text can be entered in the field. <br> Validate input is an email address.<br></td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>Focus effect working as expected.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td rowspan=2>First Name input</td>
+        <td rowspan=2>All</td>
+        <td>Functionality</td>
+        <td>Text can be entered in the field. <br> Fill in field required.<br> </td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>Focus effect working as expected.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td rowspan=2>Second Name input</td>
+        <td rowspan=2>All</td>
+        <td>Functionality</td>
+        <td>Text can be entered in the field. <br> Fill in field required.<br> </td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>Focus effect working as expected.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td rowspan=2>Password input</td>
+        <td rowspan=2>All</td>
+        <td>Functionality</td>
+        <td>Text can be entered in the field.<br>Field validates input to be present.<br>Validate input is a valid password.<br>Display message if password is not valid.<br>Display message if both passwords are not equal.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>Focus effect working as expected.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td rowspan=2>Password Repeat input</td>
+        <td rowspan=2>All</td>
+        <td>Functionality</td>
+        <td>Text can be entered in the field.<br>Field validates input to be present.<br>Validate input is a valid password<br>Display message if password is not valid<br>Display message if both passwords are not equal</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>Focus effect working as expected.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td rowspan=2>Sign Up button</td>
+        <td rowspan=2>All</td>
+        <td>Functionality</td>
+        <td>Clicking the button submit the form and redirects to the Login page.<br>Create user if form is valid.<br>Display message if user is successfully created.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>Hover effect working as expected.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td rowspan=2>Login Link</td>
+        <td rowspan=2>All</td>
+        <td>Functionality</td>
+        <td>Clicking the link submit the form and redirects to the Login page.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>N/A</td>
+        <td>N/A</td>
+    </tr>
+</table>
+
+
+#### Login Page
+
+<table>
+    <tr>
+        <th colspan=2>Feature</th>
+        <th>Users</th>
+        <th>Test</th>
+        <th>Outcome</th>
+        <th>Pass/Fail</th>
+    </tr>
+    <tr>
+        <td rowspan=8>Login Form</td>
+        <td rowspan=2>Username input</td>
+        <td rowspan=2>All</td>
+        <td>Functionality</td>
+        <td>Text can be entered in the field.<br>Field validates input to be present.<br>Display message if the username doesn't exists.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>Focus effect working as expected.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td rowspan=2>Password input</td>
+        <td rowspan=2>All</td>
+        <td>Functionality</td>
+        <td>Text can be entered in the field.<br>Field validates input to be present.<br>Display message if password is not valid.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>Focus effect working as expected.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td rowspan=2>Login button</td>
+        <td rowspan=2>All</td>
+        <td>Functionality</td>
+        <td>Clicking the button authenticates the user and redirect to the Home page.<br>Display message if credentials are not valid.<br>Display message if user login successfully.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>Hover effect working as expected.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td rowspan=2>Register Link</td>
+        <td rowspan=2>All</td>
+        <td>Functionality</td>
+        <td>Clicking the link submit the form and redirects to the Register page.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>N/A</td>
+        <td>N/A</td>
+    </tr>
+</table>
+
+#### Logout form
+
+<table>
+    <tr>
+        <th colspan=2>Feature</th>
+        <th>Users</th>
+        <th>Test</th>
+        <th>Outcome</th>
+        <th>Pass/Fail</th>
+    </tr>
+    <tr>
+        <td rowspan=2>Logout Form</td>
+        <td rowspan=2>Link</td>
+        <td rowspan=2>All</td>
+        <td>Functionality</td>
+        <td>Clicking the link logout it redirect to the Home page.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>Hover effect working as expected.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+</table>
 
 #### General
+
+<table>
+    <tr>
+        <th colspan=2>Feature</th>
+        <th>Users</th>
+        <th>Test</th>
+        <th>Outcome</th>
+        <th>Pass/Fail</th>
+    </tr>
+    <tr>
+        <td rowspan=26>Navigation Bar</td>
+        <td rowspan=2>Main logo link</td>
+        <td rowspan=2>All</td>
+        <td>Functionality</td>
+        <td>Clicking the link redirects to the Home page.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>N/A</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td rowspan=2>Home link</td>
+        <td rowspan=2>All</td>
+        <td>Functionality</td>
+        <td>Clicking the link redirects to the Home page.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>Hover effect working as expected.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td rowspan=2>Categories link</td>
+        <td rowspan=2>All</td>
+        <td>Functionality</td>
+        <td>Clicking the link redirects to the Category page.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>Hover effect working as expected.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td rowspan=2>Register link</td>
+        <td rowspan=2>Unregistered</td>
+        <td>Functionality</td>
+        <td>Clicking the link redirects to the Register page.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>Hover effect working as expected.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td rowspan=2>Login link</td>
+        <td rowspan=2>Unregistered</td>
+        <td>Functionality</td>
+        <td>Clicking the link redirects to the Login page.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>Hover effect working as expected.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td rowspan=2>Logout link</td>
+        <td rowspan=2>Registered</td>
+        <td>Functionality</td>
+        <td>Clicking the link redirects to the Home page.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>Hover effect working as expected.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td rowspan=2>Hamburger Menu button </td>
+        <td rowspan=2>All</td>
+        <td>Functionality</td>
+        <td>Clicking the button toggle navigation menu.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>Responsive navigation menu on smaller screens.<br>Hover effect working as expected.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td rowspan=2>Add post</td>
+        <td rowspan=2>All</td>
+        <td>Functionality</td>
+        <td>Clicking the link redirects to the create post page.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>Hover effect working as expected.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td rowspan=2>Add category</td>
+        <td rowspan=2>All</td>
+        <td>Functionality</td>
+        <td>Clicking the add category link redirects to create category.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>Hover effect working as expected.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td rowspan=2>Profile link</td>
+        <td rowspan=2>All</td>
+        <td>Functionality</td>
+        <td>Clicking the link dropdown menu shows the rest of the link.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>Hover effect working as expected.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td rowspan=2>Edit Settings link</td>
+        <td rowspan=2>All</td>
+        <td>Functionality</td>
+        <td>Clicking the link redirects to edit settings page.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>N/A</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td rowspan=2>My Profile link</td>
+        <td rowspan=2>All</td>
+        <td>Functionality</td>
+        <td>Clicking the link redirects to my profile page.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>N/A.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td rowspan=2>Edit Profile link</td>
+        <td rowspan=2>All</td>
+        <td>Functionality</td>
+        <td>Clicking the link redirects to Edit Profile page.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>N/A.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td rowspan=12>Footer</td>
+        <td rowspan=2>Name link</td>
+        <td rowspan=2>All</td>
+        <td>Functionality</td>
+        <td>Clicking the link redirects to owners Linkedin.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>Hover effect working as expected.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td rowspan=2>Facebook icon</td>
+        <td rowspan=2>All</td>
+        <td>Functionality</td>
+        <td>Clicking the link open Facebook page on a separate tab.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>Hover effect working as expected.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td rowspan=2>Instagram icon</td>
+        <td rowspan=2>All</td>
+        <td>Functionality</td>
+        <td>Clicking the link open Instagram page on a separate tab.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>Hover effect working as expected.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td rowspan=2>Youtube icon</td>
+        <td rowspan=2>All</td>
+        <td>Functionality</td>
+        <td>Clicking the link open Youtube page on a separate tab.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>Hover effect working as expected.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td rowspan=2>Twitter icon</td>
+        <td rowspan=2>All</td>
+        <td>Functionality</td>
+        <td>Clicking the link open Twitter page on a separate tab.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>Hover effect working as expected.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td rowspan=2>Vimeo icon</td>
+        <td rowspan=2>All</td>
+        <td>Functionality</td>
+        <td>Clicking the link open Vimeo page on a separate tab.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>Hover effect working as expected.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+</table>
+
+<br>
+
+#### Home Page 
+
+<br>
+
+<table>
+    <tr>
+        <th colspan=2>Feature</th>
+        <th>Users</th>
+        <th>Test</th>
+        <th>Outcome</th>
+        <th>Pass/Fail</th>
+    </tr>
+    <tr>
+        <td rowspan=6>Category Filter</td>
+        <td rowspan=2>Dropdown menu</td>
+        <td rowspan=2>All</td>
+        <td>Functionality</td>
+        <td>Selecting the specific category.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>N/A</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td rowspan=2>Apply button</td>
+        <td rowspan=2>All</td>
+        <td>Functionality</td>
+        <td>Clicking the apply button filters to the posts related to that category.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>Hover effect working as expected.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td rowspan=2>Reset button</td>
+        <td rowspan=2>All</td>
+        <td>Functionality</td>
+        <td>Clicking the reset button deselects the selected categories.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>Hover effect working as expected.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td rowspan=16>Post</td>
+        <td rowspan=2>Title link</td>
+        <td rowspan=2>All</td>
+        <td>Functionality</td>
+        <td>Title renders correctly.<br>Clicking the link redirects to Post Detail page for the correct post.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>N/A</td>
+        <td>N/A</td>
+    </tr>
+    <tr>
+        <td rowspan=2>Author</td>
+        <td rowspan=2>All</td>
+        <td>Functionality</td>
+        <td>Author renders correctly. <br>Clicking the link redirects to user profile page.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>Hover effect working as expected.</td>
+        <td>Pass</td>
+    </tr>
+    <tr>
+        <td rowspan=2>Date/time</td>
+        <td rowspan=2>All</td>
+        <td>Functionality</td>
+        <td>Date and time when the post was created display correctly.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>N/A</td>
+        <td>N/A</td>
+    </tr>
+    <tr>
+        <td rowspan=6>Scores</td>
+        <td rowspan=2>Likes</td>
+        <td rowspan=2>Registered</td>
+        <td>Functionality</td>
+        <td>Shows the score of likes on a post</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>N/A</td>
+        <td>N/A</td>
+    </tr>
+    <tr>
+        <td rowspan=2>Dislikes</td>
+        <td rowspan=2>Registered</td>
+        <td>Functionality</td>
+        <td>Shows the score of dislikes on a post</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>N/A</td>
+        <td>N/A</td>
+    </tr>
+    <tr>
+        <td rowspan=2>Comments</td>
+        <td rowspan=2>Registered</td>
+        <td>Functionality</td>
+        <td>Shows the score of comments on a post</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>N/A</td>
+        <td>N/A</td>
+    </tr>
+    <tr>
+        <td rowspan=6>Site Pagination</td>
+        <td rowspan=2>Pagination</td>
+        <td rowspan=2>All</td>
+        <td>Functionality</td>
+        <td>Pagination occurs if more than 6 posts are listed.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>N/A</td>
+        <td>N/A</td>
+    </tr>
+    <tr>
+        <td rowspan=2>Pagination Buttons</td>
+        <td rowspan=2>All</td>
+        <td>Functionality</td>
+        <td>Clicking the button navigate back and forth between the pages.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>Hover effect working as expected.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+</table>
+
+<br>
+
+#### Post Detail Page
+
+<table>
+    <tr>
+        <th colspan=2>Feature</th>
+        <th>Users</th>
+        <th>Test</th>
+        <th>Outcome</th>
+        <th>Pass/Fail</th>
+    </tr>
+    <tr>
+        <td rowspan=6>Page Buttons</td>
+        <td rowspan=2>Back button</td>
+        <td rowspan=2>All</td>
+        <td>Functionality</td>
+        <td>Clicking the button redirects to the Home page.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>Hover effect working as expected.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td rowspan=2>Edit button</td>
+        <td rowspan=2>All</td>
+        <td>Functionality</td>
+        <td>Clicking the button redirects to the Edit Post page.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>Hover effect working as expected.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td rowspan=2>Delete button</td>
+        <td rowspan=2>All</td>
+        <td>Functionality</td>
+        <td>Clicking the button shows a modal pop up.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>Hover effect working as expected.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td rowspan=20>Post</td>
+        <td rowspan=2>Title</td>
+        <td rowspan=2>All</td>
+        <td>Functionality</td>
+        <td>Title renders correctly.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>N/A</td>
+        <td>N/A</td>
+    </tr>
+    <tr>
+        <td rowspan=2>Author</td>
+        <td rowspan=2>All</td>
+        <td>Functionality</td>
+        <td>Author renders correctly. <br> Clicking on the author it redirects to author profile page. </td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>N/A</td>
+        <td>N/A</td>
+    </tr>
+    <tr>
+        <td rowspan=2>Content</td>
+        <td rowspan=2>All</td>
+        <td>Functionality</td>
+        <td>Content renders correctly.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>N/A</td>
+        <td>N/A</td>
+    </tr>
+    <tr>
+        <td rowspan=2>Date/time</td>
+        <td rowspan=2>All</td>
+        <td>Functionality</td>
+        <td>Date and time when the post was created display correctly.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>N/A</td>
+        <td>N/A</td>
+    </tr>
+    <tr>
+        <td rowspan=6>Scores</td>
+        <td rowspan=2>Likes</td>
+        <td rowspan=2>Registered</td>
+        <td>Functionality</td>
+        <td>Shows the score of likes on a post. <br> Clicking on the button the score goes up by 1.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>N/A</td>
+        <td>N/A</td>
+    </tr>
+    <tr>
+        <td rowspan=2>Dislikes</td>
+        <td rowspan=2>Registered</td>
+        <td>Functionality</td>
+        <td>Shows the score of dislikes on a post. <br> Clicking on the button the score goes up by 1.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>N/A</td>
+        <td>N/A</td>
+    </tr>
+    <tr>
+        <td rowspan=2>Comments</td>
+        <td rowspan=2>Registered</td>
+        <td>Functionality</td>
+        <td>Shows the score of comments on a post. <br> Clicking on the button it redirects to Add comment page.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>N/A</td>
+        <td>N/A</td>
+    </tr>
+</table>
+
+#### Add Post Page
+
+<table>
+    <tr>
+        <th colspan=2>Feature</th>
+        <th>Users</th>
+        <th>Test</th>
+        <th>Outcome</th>
+        <th>Pass/Fail</th>
+    </tr>
+    <tr>
+        <td rowspan=14>Create Post Form</td>
+        <td rowspan=2>Title input</td>
+        <td rowspan=2>Registered</td>
+        <td>Functionality</td>
+        <td>Text can be entered in the field.<br>Validation occurs if field is left empty.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>Focus effect working as expected.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td rowspan=2>Content input</td>
+        <td rowspan=2>Registered</td>
+        <td>Functionality</td>
+        <td>Summernote editor display correctly.<br>Text can be entered in the field.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>Styled correctly by Summernote CSS code.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td rowspan=2>Title Tag input</td>
+        <td rowspan=2>Registered</td>
+        <td>Functionality</td>
+        <td>Default available and renders correctly</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>N/A</td>
+        <td>N/A</td>
+    </tr>
+    <tr>
+        <td rowspan=2>Categories</td>
+        <td rowspan=2>Registered</td>
+        <td>Functionality</td>
+        <td>Clicking on the category.<br>Validation occurs if category is not selected.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>N/A</td>
+        <td>N/A</td>
+    </tr>
+    <tr>
+        <td rowspan=2>Image</td>
+        <td rowspan=2>Registered</td>
+        <td>Functionality</td>
+        <td>Default image available and renders correctly. <br> Selecting your own image available.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>N/A</td>
+        <td>N/A</td>
+    </tr>
+    <tr>
+        <td rowspan=2>Create Post Button</td>
+        <td rowspan=2>Registered</td>
+        <td>Functionality</td>
+        <td>Clicking the button submit the form and redirects to the Home page.<br>Submit post if valid.<br>Display message if the form submits successfully or not.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>Hover effect working as expected.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td rowspan=2>Cancel button</td>
+        <td rowspan=2>Registered</td>
+        <td>Functionality</td>
+        <td>Clicking the button redirects to the Home page.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>Hover effect working as expected.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+</table>
+
+#### Add Comment Page
+
+<table>
+    <tr>
+        <th colspan=2>Feature</th>
+        <th>Users</th>
+        <th>Test</th>
+        <th>Outcome</th>
+        <th>Pass/Fail</th>
+    </tr>
+    <tr>
+        <td rowspan=6>Comment Form</td>
+        <td rowspan=2>Body Content input</td>
+        <td rowspan=2>Registered</td>
+        <td>Functionality</td>
+        <td>Text can be entered in the field. <br>Submit comment if valid. <br>Validation occurs if field is left empty.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>N/A</td>
+        <td>N/A</td>
+    </tr>
+    <tr>
+        <td rowspan=2>Submit button</td>
+        <td rowspan=2>Registered</td>
+        <td>Functionality</td>
+        <td>Clicking the button submit the form and redirects to the home page.<br>Submit comment if valid.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>Hover effect working as expected.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td rowspan=2>Cancel button</td>
+        <td rowspan=2>Registered</td>
+        <td>Functionality</td>
+        <td>Clicking the button redirects to the Home page.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>Hover effect working as expected.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+</table>
+
+<br>
+
+#### Edit Post Page
+
+<table>
+    <table>
+    <tr>
+        <th colspan=2>Feature</th>
+        <th>Users</th>
+        <th>Test</th>
+        <th>Outcome</th>
+        <th>Pass/Fail</th>
+    </tr>
+    <tr>
+        <td rowspan=14>Edit Post Form</td>
+        <td rowspan=2>Title input</td>
+        <td rowspan=2>Registered</td>
+        <td>Functionality</td>
+        <td>Text can be entered in the field.<br>Validation occurs if field is left empty.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>Focus effect working as expected.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td rowspan=2>Content input</td>
+        <td rowspan=2>Registered</td>
+        <td>Functionality</td>
+        <td>Summernote editor display correctly.<br>Text can be entered in the field.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>Styled correctly by Summernote CSS code.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td rowspan=2>Title Tag input</td>
+        <td rowspan=2>Registered</td>
+        <td>Functionality</td>
+        <td>Default available and renders correctly</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>N/A</td>
+        <td>N/A</td>
+    </tr>
+    <tr>
+        <td rowspan=2>Categories</td>
+        <td rowspan=2>Registered</td>
+        <td>Functionality</td>
+        <td>Clicking on the category.<br>Validation occurs if category is not selected.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>N/A</td>
+        <td>N/A</td>
+    </tr>
+    <tr>
+        <td rowspan=2>Image</td>
+        <td rowspan=2>Registered</td>
+        <td>Functionality</td>
+        <td>Default image available and renders correctly. <br> Selecting your own image available.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>N/A</td>
+        <td>N/A</td>
+    </tr>
+    <tr>
+        <td rowspan=2>Submit Button</td>
+        <td rowspan=2>Registered</td>
+        <td>Functionality</td>
+        <td>Clicking the button submit the form and redirects to the Home page.<br>Submit post if valid.<br>Display message if the form submits successfully or not.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>Hover effect working as expected.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td rowspan=2>Cancel button</td>
+        <td rowspan=2>Registered</td>
+        <td>Functionality</td>
+        <td>Clicking the button redirects to the Home page.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>Hover effect working as expected.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+</table>
+
+#### Delete Post Form
+
+<table>
+    <tr>
+        <th colspan=2>Feature</th>
+        <th>Users</th>
+        <th>Test</th>
+        <th>Outcome</th>
+        <th>Pass/Fail</th>
+    </tr>
+    <tr>
+    <tr>
+        <td rowspan=6>Delete Form</td>
+        <td rowspan=2>Title</td>
+        <td rowspan=2>Registered</td>
+        <td>Functionality</td>
+        <td>Title renders correctly.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>N/A</td>
+        <td>N/A</td>
+    </tr>
+    <tr>
+        <td rowspan=2>Confirm button</td>
+        <td rowspan=2>Registered</td>
+        <td>Functionality</td>
+        <td>Clicking the button submit the form and redirects to the Home page.<br>Post gets deleted.<br>Display message if the post is deleted successfully or not.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>Hover effect working as expected.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td rowspan=2>Cancel button</td>
+        <td rowspan=2>Registered</td>
+        <td>Functionality</td>
+        <td>Clicking the button stops the deleting of the post and remains on the same page.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>Hover effect working as expected.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+</table>
+
+#### Edit Category Page
+
+<table>
+    <tr>
+        <th colspan=2>Feature</th>
+        <th>Users</th>
+        <th>Test</th>
+        <th>Outcome</th>
+        <th>Pass/Fail</th>
+    </tr>
+    <tr>
+        <td rowspan=4>Edit Category Form</td>
+        <td rowspan=2>Content input</td>
+        <td rowspan=2>Registered</td>
+        <td>Functionality</td>
+        <td>Text in the field is being prepopulated correctly.<br>Text can be edited.<br>Display message if the category is updated successfully or not. <br>Validation occurs if category is left empty.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>Focus effect working as expected.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td rowspan=2>Submit button</td>
+        <td rowspan=2>Registered</td>
+        <td>Functionality</td>
+        <td>Clicking the button submit the form and redirects to the originating page.<br>Edit category if form is valid.<br>Display message if the reply is edit successfully or not.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>Hover effect working as expected.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+</table>
+
+#### Delete Category Form
+
+<table>
+    <tr>
+        <th colspan=2>Feature</th>
+        <th>Users</th>
+        <th>Test</th>
+        <th>Outcome</th>
+        <th>Pass/Fail</th>
+    </tr>
+    <tr>
+    <tr>
+        <td rowspan=6>Delete Form</td>
+        <td rowspan=2>Title</td>
+        <td rowspan=2>Registered</td>
+        <td>Functionality</td>
+        <td>Title renders correctly.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>N/A</td>
+        <td>N/A</td>
+    </tr>
+    <tr>
+        <td rowspan=2>Confirm button</td>
+        <td rowspan=2>Registered</td>
+        <td>Functionality</td>
+        <td>Clicking the button submit the form and stays on the original page.<br>Category gets deleted.<br>Display message if the category is deleted successfully or not.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>Hover effect working as expected.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td rowspan=2>Cancel button</td>
+        <td rowspan=2>Registered</td>
+        <td>Functionality</td>
+        <td>Clicking the button stops the deleting of the category and remains on the same page.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>Hover effect working as expected.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+</table>
+
+<br>
+
+#### Add Category Page
+
+<table>
+    <tr>
+        <th colspan=2>Feature</th>
+        <th>Users</th>
+        <th>Test</th>
+        <th>Outcome</th>
+        <th>Pass/Fail</th>
+    </tr>
+    <tr>
+        <td rowspan=6>Add Category Form</td>
+        <td rowspan=2>Content input</td>
+        <td rowspan=2>Registered</td>
+        <td>Functionality</td>
+        <td><br>Text can be filled in.<br>Display message if the category is updated successfully. <br>Validation occurs if category is left empty.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>Focus effect working as expected.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td rowspan=2>Submit button</td>
+        <td rowspan=2>Registered</td>
+        <td>Functionality</td>
+        <td>Clicking the button submit the form and redirects to the category list page.<br>Create category if form is valid.<br>Display message if the category was created successfully.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>Hover effect working as expected.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td rowspan=2>Back button</td>
+        <td rowspan=2>Registered</td>
+        <td>Functionality</td>
+        <td>Clicking the button redirects to the Home page.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>Hover effect working as expected.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+</table>
+
+<br>
+
+#### Category List Page
+
+<table>
+    <tr>
+        <th colspan=2>Feature</th>
+        <th>Users</th>
+        <th>Test</th>
+        <th>Outcome</th>
+        <th>Pass/Fail</th>
+    </tr>
+    <tr>
+        <td rowspan=6>Category List Form</td>
+        <td rowspan=2>Name of Categories</td>
+        <td rowspan=2>Registered</td>
+        <td>Functionality</td>
+        <td>The name of the category is rendered correctly. <br> The name of the category is clickable and redirects to all the posts associated with that category</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>N/A</td>
+        <td>N/A</td>
+    </tr>
+    <tr>
+        <td rowspan=2>Delete button</td>
+        <td rowspan=2>Registered</td>
+        <td>Functionality</td>
+        <td>Clicking the button submit the form and stays on the original page.<br>Category gets deleted.<br>Display message if the category is deleted successfully or not.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>Hover effect working as expected.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td rowspan=4>Edit Category button</td>
+        <td rowspan=2>Registered</td>
+        <td>Functionality</td>
+        <td>Clicking the button redirect to edit category page.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>N/A</td>
+        <td>N/A</td>
+    </tr>
+</table>
+
+#### Category Page
+
+<table>
+    <tr>
+        <th colspan=2>Feature</th>
+        <th>Users</th>
+        <th>Test</th>
+        <th>Outcome</th>
+        <th>Pass/Fail</th>
+    </tr>
+    <tr>
+        <td rowspan=6>Category Form</td>
+        <td rowspan=2>Name of Posts by category</td>
+        <td rowspan=2>Registered</td>
+        <td>Functionality</td>
+        <td>The name of the post is rendered correctly. <br> The post is clickable and redirects to the specific post associated with that category</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>N/A</td>
+        <td>N/A</td>
+    </tr>
+    <tr>
+        <td rowspan=2>User Profile Picture</td>
+        <td rowspan=2>Registered</td>
+        <td>Functionality</td>
+        <td>Clicking the user profile picture redirects to user profile page.<br>Category gets deleted.<br>Display message if the category is deleted successfully or not.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>Hover effect working as expected.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td rowspan=2>Date/time</td>
+        <td rowspan=2>All</td>
+        <td>Functionality</td>
+        <td>Date and time when the post was created display correctly.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>N/A</td>
+        <td>N/A</td>
+    </tr>
+    <tr>
+        <td rowspan=6>Scores</td>
+        <td rowspan=2>Likes</td>
+        <td rowspan=2>Registered</td>
+        <td>Functionality</td>
+        <td>Shows the score of likes on a post. <br> Clicking on the button the score goes up by 1.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>N/A</td>
+        <td>N/A</td>
+    </tr>
+    <tr>
+        <td rowspan=2>Dislikes</td>
+        <td rowspan=2>Registered</td>
+        <td>Functionality</td>
+        <td>Shows the score of dislikes on a post. <br> Clicking on the button the score goes up by 1.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>N/A</td>
+        <td>N/A</td>
+    </tr>
+    <tr>
+        <td rowspan=2>Comments</td>
+        <td rowspan=2>Registered</td>
+        <td>Functionality</td>
+        <td>Shows the score of comments on a post. <br> Clicking on the button it redirects to Add comment page.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>N/A</td>
+        <td>N/A</td>
+    </tr>
+</table>
+
+#### Create User Profile Page
+
+<table>
+    <tr>
+        <th colspan=2>Feature</th>
+        <th>Users</th>
+        <th>Test</th>
+        <th>Outcome</th>
+        <th>Pass/Fail</th>
+    </tr>
+    <tr>
+        <td rowspan=30>Fill in User profile Form</td>
+        <td rowspan=2>Bio</td>
+        <td rowspan=2>Registered</td>
+        <td>Functionality</td>
+        <td>Text can be entered in the field.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>Focus effect working as expected.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td rowspan=2>Image input</td>
+        <td rowspan=2>Registered</td>
+        <td>Functionality</td>
+        <td>Default image available. Upload your own picture successfully</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>N/A</td>
+        <td>N/A</td>
+    </tr>
+    <tr>
+        <td rowspan=2>Date of Birth</td>
+        <td rowspan=2>Registered</td>
+        <td>Functionality</td>
+        <td>The date could be selected from the calendar.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>N/A</td>
+        <td>N/A</td>
+    </tr>
+    <tr>
+        <td rowspan=2>Email Input</td>
+        <td rowspan=2>Registered</td>
+        <td>Functionality</td>
+        <td>Text can be entered in the field.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>Focus effect working as expected.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td rowspan=2>Address Input</td>
+        <td rowspan=2>Registered</td>
+        <td>Functionality</td>
+        <td>Text can be entered in the field.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>Focus effect working as expected.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td rowspan=2>Location</td>
+        <td rowspan=2>Registered</td>
+        <td>Functionality</td>
+        <td>Text can be entered in the field.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>Focus effect working as expected.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td rowspan=2>Location</td>
+        <td rowspan=2>Registered</td>
+        <td>Functionality</td>
+        <td>Text can be entered in the field.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>Focus effect working as expected.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td rowspan=2>Website Input</td>
+        <td rowspan=2>Registered</td>
+        <td>Functionality</td>
+        <td>Text can be entered in the field.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>Focus effect working as expected.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td rowspan=2>Facebook Input</td>
+        <td rowspan=2>Registered</td>
+        <td>Functionality</td>
+        <td>Text can be entered in the field.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>Focus effect working as expected.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td rowspan=2>Twitter Input</td>
+        <td rowspan=2>Registered</td>
+        <td>Functionality</td>
+        <td>Text can be entered in the field.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>Focus effect working as expected.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td rowspan=2>LinkedIn Input</td>
+        <td rowspan=2>Registered</td>
+        <td>Functionality</td>
+        <td>Text can be entered in the field.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>Focus effect working as expected.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td rowspan=2>Instagram Input</td>
+        <td rowspan=2>Registered</td>
+        <td>Functionality</td>
+        <td>Text can be entered in the field.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>Focus effect working as expected.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td rowspan=2>Youtube Input</td>
+        <td rowspan=2>Registered</td>
+        <td>Functionality</td>
+        <td>Text can be entered in the field.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>Focus effect working as expected.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td rowspan=2>Interests/hobbies Input</td>
+        <td rowspan=2>Registered</td>
+        <td>Functionality</td>
+        <td>Text can be entered in the field.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>Focus effect working as expected.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td rowspan=2>Categories Input</td>
+        <td rowspan=2>Registered</td>
+        <td>Functionality</td>
+        <td>Multiple categories can be selected by ticking the box.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>N/A</td>
+        <td>N/A</td>
+    </tr>
+</table>
+
+#### Edit User Profile Page
+
+<table>
+    <tr>
+        <th colspan=2>Feature</th>
+        <th>Users</th>
+        <th>Test</th>
+        <th>Outcome</th>
+        <th>Pass/Fail</th>
+    </tr>
+    <tr>
+        <td rowspan=30>Edit User profile Form</td>
+        <td rowspan=2>Bio</td>
+        <td rowspan=2>Registered</td>
+        <td>Functionality</td>
+        <td>Text can be entered in the field.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>Focus effect working as expected.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td rowspan=2>Image input</td>
+        <td rowspan=2>Registered</td>
+        <td>Functionality</td>
+        <td>Default image available. Upload your own picture successfully</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>N/A</td>
+        <td>N/A</td>
+    </tr>
+    <tr>
+        <td rowspan=2>Date of Birth</td>
+        <td rowspan=2>Registered</td>
+        <td>Functionality</td>
+        <td>The date could be selected from the calendar.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>N/A</td>
+        <td>N/A</td>
+    </tr>
+    <tr>
+        <td rowspan=2>Email Input</td>
+        <td rowspan=2>Registered</td>
+        <td>Functionality</td>
+        <td>Text can be entered in the field.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>Focus effect working as expected.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td rowspan=2>Address Input</td>
+        <td rowspan=2>Registered</td>
+        <td>Functionality</td>
+        <td>Text can be entered in the field.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>Focus effect working as expected.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td rowspan=2>Location</td>
+        <td rowspan=2>Registered</td>
+        <td>Functionality</td>
+        <td>Text can be entered in the field.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>Focus effect working as expected.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td rowspan=2>Location</td>
+        <td rowspan=2>Registered</td>
+        <td>Functionality</td>
+        <td>Text can be entered in the field.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>Focus effect working as expected.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td rowspan=2>Website Input</td>
+        <td rowspan=2>Registered</td>
+        <td>Functionality</td>
+        <td>Text can be entered in the field.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>Focus effect working as expected.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td rowspan=2>Facebook Input</td>
+        <td rowspan=2>Registered</td>
+        <td>Functionality</td>
+        <td>Text can be entered in the field.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>Focus effect working as expected.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td rowspan=2>Twitter Input</td>
+        <td rowspan=2>Registered</td>
+        <td>Functionality</td>
+        <td>Text can be entered in the field.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>Focus effect working as expected.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td rowspan=2>LinkedIn Input</td>
+        <td rowspan=2>Registered</td>
+        <td>Functionality</td>
+        <td>Text can be entered in the field.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>Focus effect working as expected.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td rowspan=2>Instagram Input</td>
+        <td rowspan=2>Registered</td>
+        <td>Functionality</td>
+        <td>Text can be entered in the field.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>Focus effect working as expected.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td rowspan=2>Youtube Input</td>
+        <td rowspan=2>Registered</td>
+        <td>Functionality</td>
+        <td>Text can be entered in the field.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>Focus effect working as expected.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td rowspan=2>Interests/hobbies Input</td>
+        <td rowspan=2>Registered</td>
+        <td>Functionality</td>
+        <td>Text can be entered in the field.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>Focus effect working as expected.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td rowspan=2>Categories Input</td>
+        <td rowspan=2>Registered</td>
+        <td>Functionality</td>
+        <td>Multiple categories can be selected by ticking the box.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>N/A</td>
+        <td>N/A</td>
+    </tr>
+</table>
+
+#### Edit Settings Page
+
+<table>
+    <tr>
+        <th colspan=2>Feature</th>
+        <th>Users</th>
+        <th>Test</th>
+        <th>Outcome</th>
+        <th>Pass/Fail</th>
+    </tr>
+    <tr>
+        <td rowspan=12>Edit Settings Form</td>
+        <td rowspan=2>Username input</td>
+        <td rowspan=2>All</td>
+        <td>Functionality</td>
+        <td>Text can be entered in the field.<br>Field validates input to be present.<br>Display message when updated</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>Focus effect working as expected.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td rowspan=2>First Name input</td>
+        <td rowspan=2>All</td>
+        <td>Functionality</td>
+        <td>Text can be entered in the field.<br>Field validates input to be present.<br>Display message when updated.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>Focus effect working as expected.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td rowspan=2>Last Name input</td>
+        <td rowspan=2>All</td>
+        <td>Functionality</td>
+        <td>Text can be entered in the field.<br>Field validates input to be present.<br>Display message when updated.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>Focus effect working as expected.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td rowspan=2>Email input</td>
+        <td rowspan=2>All</td>
+        <td>Functionality</td>
+        <td>Text can be entered in the field.<br>Field validates input to be present.<br>Display message when updated.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>Focus effect working as expected.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td rowspan=2>Change Password link</td>
+        <td rowspan=2>All</td>
+        <td>Functionality</td>
+        <td>Link is clickable and redirects to change password page.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>Focus effect working as expected.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td rowspan=2>Submit Button</td>
+        <td rowspan=2>All</td>
+        <td>Functionality</td>
+        <td>Clicking the button, submit the form and redirects to user profile. <br> Display message when updated.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>Focus effect working as expected.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+</table>
+
+#### Change Password Page
+
+<table>
+    <tr>
+        <th colspan=2>Feature</th>
+        <th>Users</th>
+        <th>Test</th>
+        <th>Outcome</th>
+        <th>Pass/Fail</th>
+    </tr>
+    <tr>
+        <td rowspan=8>Edit Password Form</td>
+        <td rowspan=2>Old Password input</td>
+        <td rowspan=2>All</td>
+        <td>Functionality</td>
+        <td>Text can be entered in the field.<br>Field validates input to be present.<br>Display message when updated.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>Focus effect working as expected.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td rowspan=2>New Password input</td>
+        <td rowspan=2>All</td>
+        <td>Functionality</td>
+        <td>Text can be entered in the field.<br>Field validates input to be present.<br>Display message when updated.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>Focus effect working as expected.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td rowspan=2>Repeat Password input</td>
+        <td rowspan=2>All</td>
+        <td>Functionality</td>
+        <td>Text can be entered in the field.<br>Field validates input to be present.<br>Display message when updated.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>Focus effect working as expected.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td rowspan=2>Confirm Button</td>
+        <td rowspan=2>All</td>
+        <td>Functionality</td>
+        <td>Clicking the button, submit the form and redirects to user profile. <br> Display message when updated.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>Focus effect working as expected.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+</table>
