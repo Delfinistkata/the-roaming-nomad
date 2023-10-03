@@ -14,21 +14,17 @@
         {{ form.as_p }}
 
         <div class="text-center">
-            <button type= "submit" class= "btn btn-secondary btn-sm">Add comment</button>
-            <a href="{% url 'home' %}" class="btn btn-primary btn-sm">Back</a>
+            <button type= "submit" class= "btn btn-primary btn-sm">Submit</button>
+            <a href="{% url 'home' %}" class="btn btn-secondary btn-sm">Cancel</a>
         </div>
     </form>
 </div>
 
 {% else %}
 <div>
-    You are not authorised for this activity! Please log in to your profile.
+    You are not authorised for this activity! Please login to your profile.
 </div>
-
-<a href="{% url 'account_signup' %}" class="btn btn-primary btn-sm">Register</a>
-<a href="{% url 'account_login' %}" class="btn btn-primary btn-sm">LogIn</a>
-
-
+<a href="{% url 'login' %}" class="btn btn-primary btn-sm">Login</a>
 {% endif %}
 
 {% endblock %}
