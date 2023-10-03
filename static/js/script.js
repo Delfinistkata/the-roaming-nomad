@@ -70,7 +70,7 @@ $(document).ready(function () {
     */
       $("#update_post").on('click', function (e) {
         e.preventDefault(); // stop the form
-        const text = 'To update this post ?';
+        const text = 'to update this post?';
         const form = $('#form_update_post');
         confirmAtion(e, form, text);
       });
@@ -81,7 +81,7 @@ $(document).ready(function () {
     */
       $("#update_category").on('click', function (e) {
         e.preventDefault(); // stop the form
-        const text = 'To update this category ?';
+        const text = 'to update this category?';
         const form = $('#form_update_category');
         confirmAtion(e, form, text);
       });
@@ -89,7 +89,7 @@ $(document).ready(function () {
 
   function confirmAtion(e, form , text){
     $.confirm({
-      title: 'Are you sure ?',
+      title: 'Are you sure you want',
       content: text,
       buttons: {
         confirm: function () {            
