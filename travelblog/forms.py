@@ -31,7 +31,6 @@ class PostForm(forms.ModelForm):
             'categories',
             'body_content',
             'featured_image',
-            'excerpt',
         )
 
         widgets = {
@@ -46,10 +45,6 @@ class PostForm(forms.ModelForm):
                     'placeholder': 'Text goes here',
                 }),
             'featured_image': forms.FileInput(attrs={'class': 'form-control'}),
-            'excerpt': forms.Textarea(attrs={
-                    'class': 'form-control',
-                    'placeholder': 'Text goes here',
-                }),
         }
 
 
@@ -78,7 +73,6 @@ class EditForm(forms.ModelForm):
             'categories',
             'body_content',
             'featured_image',
-            'excerpt',
         )
 
         widgets = {
@@ -93,10 +87,6 @@ class EditForm(forms.ModelForm):
                     'placeholder': 'Text goes here',
                 }),
             'featured_image': forms.FileInput(attrs={'class': 'form-control'}),
-            'excerpt': forms.Textarea(attrs={
-                    'class': 'form-control',
-                    'placeholder': 'Text goes here',
-                }),
         }
 
 
