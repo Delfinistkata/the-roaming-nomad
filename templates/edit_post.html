@@ -9,7 +9,7 @@
         <div class="card border-0 shadow rounded-3 my-5">
             <div class="card-body p-4 p-sm-5">
                 <h1 class="mb-4 text-center">Edit Post</h1>
-                {% if user.is_authenticated and  user.id == post.author.id%}
+                {% if user.is_authenticated and user.id == post.author.id%}
                 <form method="POST" class="form" enctype="multipart/form-data" id="form_update_post">
                     {% csrf_token %}
                     <div class="row">
@@ -43,15 +43,6 @@
                                 {% endfor%}                                            
                             {%endif%}   
                             </div>
-                            <div class="form-group">
-                                <label for="{{ form.excerpt.id_for_label }}">Excerpt:</label>
-                                {{ form.excerpt }}
-                                {% if form.errors.excerpt%}
-                                {% for error in form.errors.excerpt %}
-                                    <p class="text-danger">{{ error }}</p>
-                                {% endfor%}                                            
-                            {%endif%}     
-                            </div>
                         </div>
             
                         <div class="col-md-6">
@@ -84,18 +75,15 @@
                     </div>
             
                     <div class="text-center mt-3">
-                        <button id="update_post" type= "submit" class= "btn btn-primary btn-sm">Update Post</button>
+                        <button id="update_post" type= "submit" class= "btn btn-primary btn-sm">Submit</button>
                         <a href="{% url 'home' %}" class="btn btn-secondary btn-sm">Cancel</a>
                     </div>
                 </form>
                 {% else %}
                     <h3 class="text-center">
-                        You are not authorised for this activity! Please log in to your profile.
+                        You are not authorised for this activity! Please contact the admin.
                     </div>
-
-                    <a href="{% url 'account_signup' %}" class="btn btn-primary btn-sm">Register</a>
-                    <a href="{% url 'account_login' %}" class="btn btn-primary btn-sm">LogIn</a>
-
+                    <a href="{% url 'home' %}" class="btn btn-primary  btn-sm">Home</a>
                 {% endif %}
             </div>
         </div>
