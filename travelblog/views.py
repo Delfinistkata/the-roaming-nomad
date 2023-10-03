@@ -25,7 +25,7 @@ from .models import Post, Category, Comment
 from .forms import PostForm, EditForm, CategoryEditForm, CommentForm
 
 
-def like_dislike_post(request, post_id):
+def like_dislike_post(request, pk):
     """
     View function to handle liking and disliking a post.
     If the 'like' button is clicked and
@@ -36,7 +36,7 @@ def like_dislike_post(request, post_id):
     Similarly, if the 'dislike' button is clicked,
     it adds or removes the user from the post's dislikes accordingly.
     """
-    post = get_object_or_404(Post, id=post_id)
+    post = get_object_or_404(Post, id=pk)
 
     if request.method == 'POST':
         if 'like' in request.POST:
@@ -146,6 +146,10 @@ class AddCategoryView(CreateView):
     template_name = 'add_category.html'
     fields = '__all__'
     success_url = reverse_lazy('category_list')
+
+    def form_valid(self, form):
+        messages.success(self.request, 'Category was created successfully.')
+        return super().form_valid(form)
 
 
 @method_decorator(login_required, name='dispatch')
