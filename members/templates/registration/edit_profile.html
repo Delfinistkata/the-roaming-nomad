@@ -2,6 +2,7 @@
 {% load static %}
 {% block title%} Edit Settings {% endblock %}
 {% block content %}
+{% if user.is_authenticated and user.id %}
     <div class="container  mt-5 mb-4">
         <div class="card border-0 shadow rounded-3 my-5">
             <div class="card-body p-4 p-sm-5">
@@ -52,10 +53,18 @@
                         {%endif%}
                     </div>
                     <p>Password: <a href="{% url 'password_change' %}">Click here to change your password</a></p>
-                    <button class="btn btn-primary"> Update Profile </button>
-                
+                    <button class="btn btn-primary"> Submit </button>
                 </form>
             </div>
         </div>
     </div>
+{% else %}
+    <h3 class="text-center text-dark">
+        You are not authorised for this activity! Please login to your profile.
+    </h3>
+    <div class="flex text-center mb-3">
+        <a href="{% url 'login' %}" class="btn btn-primary btn-sm">Login</a>
+    </div>
+
+{% endif %}
 {% endblock %}
