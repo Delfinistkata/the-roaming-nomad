@@ -103,19 +103,27 @@
                 </div>     
             
             </div>
+            <div class="text-center mt-4">
+                <a href="{% url 'home' %}" class="btn btn-primary btn-sm">Back</a>
+            </div>
         </div>
-        {% if user.is_authenticated and user.id == post.author.id %}
-        <div class="d-flex flex-row-reverse mb-4 mt-4" id="post_actions">
-            <a href="{% url 'home' %}" class="btn btn-primary btn-sm ">Back</a>
-            <a href="{% url 'edit_post' post.slug %}" class="btn btn-secondary btn-sm me-3">Edit</a>
-            <form method="post" action="{% url 'delete_post' post.slug %}" class="delete-button me-3"
-                data-title="Delete post {{post.title}}">
-                {% csrf_token %}
-                <button class="btn btn-danger btn-sm">
-                    <i class="fas fa-edit mr-2"></i> Delete
-                </button>
-            </form>
-        </div>
+        {% if user.is_authenticated %}
+            {% if user.id == post.author.id %}
+                <div class="d-flex flex-row-reverse mb-4 mt-4" id="post_actions">
+                    <a href="{% url 'edit_post' post.slug %}" class="btn btn-secondary btn-sm me-3">Edit</a>
+                    <form method="post" action="{% url 'delete_post' post.slug %}" class="delete-button me-3"
+                        data-title="Delete post {{post.title}}">
+                        {% csrf_token %}
+                        <button class="btn btn-danger btn-sm">
+                            <i class="fas fa-edit mr-2"></i> Delete
+                        </button>
+                    </form>
+                </div>
+            {% endif %}
+        {% else %}
+            <div class="text-center mt-4">
+                <a href="{% url 'home' %}" class="btn btn-primary btn-sm">Back</a>
+            </div>
         {% endif %}
     </div>
 
