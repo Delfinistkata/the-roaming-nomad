@@ -5,7 +5,6 @@
 
 <head>
   <title>{% block title %}The Roaming Nomad{% endblock %}</title>
-
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;700&display=swap" rel="stylesheet">
@@ -49,8 +48,8 @@
   <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-white p-3">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#"><img
-            src="https://www.cvalencianatb.com/wp-content/uploads/2016/07/Consejero-Viajero-LOGO-300x300.jpg"
+        <a class="navbar-brand" href="{% url 'home' %}"><img class="rounded-circle" id="logo" 
+            src="https://res.cloudinary.com/doyc0uqcs/image/upload/v1696247601/Porject%204%20Travel%20Blog/airline1_kkln8y.png"
             height="70" alt="MDB Logo" loading="lazy"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
           aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -85,7 +84,7 @@
                 <a class="dropdown-item" href="{% url 'edit_profile' %}">Edit Settings</a>
                 {% if user.userprofile.id %}
                 <a class="dropdown-item" href="{% url 'show_user_profile_page' user.userprofile.id%}">My Profile</a>
-                <a class="dropdown-item" href="{% url 'edit_profile_page' user.userprofile.id %}">Edit Profile Page</a>
+                <a class="dropdown-item" href="{% url 'edit_profile_page' user.userprofile.id %}">Edit Profile</a>
                 {% else %}
                 <a class="dropdown-item" href="{% url 'create_profile_page' %}">Create Profile Page</a>
                 {% endif %}
@@ -127,6 +126,7 @@
 
     </div>
   </section>
+
   <main data-userprofile="{{user.userprofile}}" data-isauth="{{user.is_authenticated}}">
     {% if messages %}
     <div class="messages container py-2">
@@ -141,6 +141,7 @@
     <!-- Content Goes here -->
     {% endblock content %}
   </main>
+
   <footer class="bg-dark py-4 mb-0">
     <div class="container">
       <div class="row py-2 gy-2">
@@ -183,7 +184,5 @@
       </div>
     </div>
   </footer>
-
 </body>
-
 </html>
