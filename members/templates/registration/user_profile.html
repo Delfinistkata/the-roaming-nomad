@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
-
+{% if user.is_authenticated %}
 <div class="container mt-5">
     <section class="section about-section gray-bg" id="about">
         <div class="container">
@@ -31,11 +31,11 @@
                     <div class="text-center mt-3">
 
                         <h5 class="mt-2 mb-0">{{ page_user.user.first_name }} {{ page_user.user.last_name }}</h5>
-                        <span>{{ page_user.website}}</span>
-
-
-
                         <div class="mt-2">
+                            {% if page_user.website_profile %}
+                            <a href="{{page_user.website_profile}}" class="social-icon" target="_blank"><i
+                                    class="fa-regular fa-globe"></i>Website</a> |
+                            {% endif %}
                             {% if page_user.twitter_profile %}
                             <a href="{{page_user.twitter_profile}}" class="social-icon" target="_blank"><i
                                     class="fab fa-twitter"></i> Twitter</a> |
@@ -48,15 +48,11 @@
                             <a href="{{page_user.linkedin_profile}}" class="social-icon" target="_blank"><i
                                     class="fab fa-linkedin"></i> LinkedIn</a> |
                             {% endif %}
-                            {% if page_user.website %}
-                            <a href="{{page_user.website}}" class="social-icon" target="_blank"><i
-                                    class="fas fa-globe"></i> Website</a> |
-                            {% endif %}
-                            {% if page_user.youtube %}
+                            {% if page_user.youtube_profile %}
                             <a href="{{page_user.youtube}}" class="social-icon" target="_blank"><i
                                     class="fab fa-youtube"></i> YouTube</a> |
                             {% endif %}
-                            {% if page_user.instagram %}
+                            {% if page_user.instagram_profile %}
                             <a href="{{page_user.instagram}}" class="social-icon" target="_blank"><i
                                     class="fab fa-instagram"></i> Instagram</a> |
                             {% endif %}
@@ -67,7 +63,6 @@
         </div>
     </section>
     <div class="row d-flex justify-content-center" id="post-lists">
-
         <div class="col-md-12">
             <div class="col-12 text-center">
                 <h1 class="heading-1  text-bold text-center">My Posts</h1>
@@ -170,12 +165,14 @@
                     </div>
                 </div>
             </div>
-
             {% endfor %}
         </div>
-
     </div>
-
 </div>
-
+{% else %}
+    <h3 class="text-center">
+        You are not authorised for this activity! Please contact the admin.
+    </div>
+    <a href="{% url 'login' %}" class="btn btn-primary  btn-sm">Login</a>
+{% endif%}
 {% endblock %}
