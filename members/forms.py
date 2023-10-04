@@ -280,6 +280,14 @@ class EditProfileForm(UserChangeForm):
         required=False,
         disabled=True,
     )
+    password_change_link = forms.CharField(
+        max_length=100,
+        widget=forms.TextInput(
+            attrs={'class': 'form-control', 'readonly': True}
+        ),
+        required=False,
+        disabled=True,
+    )
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -291,13 +299,7 @@ class EditProfileForm(UserChangeForm):
         if self.instance:
             self.fields['date_joined'].initial = self.instance.date_joined
             self.fields['last_login'].initial = self.instance.last_login
-            self.fields['password'].widget = forms.HiddenInput()
-            self.fields['password_change_link'] = forms.CharField(
-                widget=forms.TextInput(
-                    attrs={'class': 'form-control', 'readonly': True}
-                ),
-                initial=reverse_lazy("password_change")
-            )
+            self.fields['password'].widget = forms.HiddenInput()          
 
 
 class PasswordChangedForm(PasswordChangeForm):
