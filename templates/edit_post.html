@@ -9,7 +9,7 @@
         <div class="card border-0 shadow rounded-3 my-5">
             <div class="card-body p-4 p-sm-5">
                 <h1 class="mb-4 text-center">Edit Post</h1>
-                {% if user.is_authenticated and user.id == post.author.id%}
+                {% if user.id == post.author.id%}
                 <form method="POST" class="form" enctype="multipart/form-data" id="form_update_post">
                     {% csrf_token %}
                     <div class="row">
@@ -82,8 +82,7 @@
                 {% else %}
                     <h3 class="text-center">
                         You are not authorised for this activity! Please contact the admin.
-                    </div>
-                    <a href="{% url 'home' %}" class="btn btn-primary  btn-sm">Home</a>
+                    </div>                
                 {% endif %}
             </div>
         </div>
