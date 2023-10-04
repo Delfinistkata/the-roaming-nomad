@@ -1,8 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
-{% if user.is_authenticated %}
-
 <div class="container py-2" id="post-lists">
     {% if post_list %}
         <div class="h1 text-center text-dark" id="pageHeaderTitle">Travel Posts</div>
@@ -50,8 +48,8 @@
             <div>
                 <a href="{% url 'show_user_profile_page' post.author.userprofile.id%}"
                     class="text-bold text-dark text-decoration-underline">
-                    {% if post.author.userprofile.profile_picture.url == '' %}
-                    <img src="https://res.cloudinary.com/doyc0uqcs/image/upload/placeholder" class="rounded-circle me-3" height="50" width="50" alt="avatar">
+                    {% if "placeholder" in post.author.userprofile.profile_picture.url %}
+                    <img src="https://res.cloudinary.com/doyc0uqcs/image/upload/v1691407204/Porject%204%20Travel%20Blog/male-user-shadow_318-34042_eotvtf.avif" class="rounded-circle me-3" height="50" width="50" alt="avatar">
                     {% else%}
                     <img src="{{ post.author.userprofile.profile_picture.url }}" class="rounded-circle me-3"
                         height="50px" width="50px" alt="avatar">
@@ -108,18 +106,17 @@
                         <div class="comment mt-4 text-justify float-left">
                             <div class="d-flex">
                                 {% if comment.author.userprofile.profile_picture.url == '' %}
-                                <img src="https://res.cloudinary.com/doyc0uqcs/image/upload/placeholder" class="rounded-circle me-3" height="50px" width="50" alt="avatar">
+                                <img src="https://res.cloudinary.com/doyc0uqcs/image/upload/v1691407204/Porject%204%20Travel%20Blog/male-user-shadow_318-34042_eotvtf.avif"
+                                    class="rounded-circle me-3" height="50" width="50" alt="avatar">
                                 {% else%}
                                 <img src="{{ comment.author.userprofile.profile_picture.url }}" class="rounded-circle me-3"
-                                    height="50px" width="50px" alt="avatar">
+                                    height="50" width="50" alt="avatar">
                                 {% endif%}                        
                                 <span class="fst-italic ms-2">{{ comment.author.first_name }} {{ comment.author.last_name }}</h4>
                             </div>
-                        
                             <span class="be-comment-time">
                                 <p class="mt-2">{{ comment.date_posted }}</p>
                             </span>
-                        
                             <p class="be-comment-text bg-white">{{ comment.body_content  }}</p>
                         </div>
                         {% endfor %}
@@ -144,36 +141,4 @@
     </nav>
     {% endif %}
 </div>
-
-{% else %}
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-12 p-0 mb-5">
-            
-
-<section class="about_us p-5 bg-img bg-cove">
-<article class="about_us-card container-custom w-100 mx-auto px-3 position-relative d-flex">
-    <div class="row no-gutters d-flex flex-wrap flex-column flex-column-reverse flex-md-row">
-    <div class="side-1 col-12 col-md-6">
-    
-    <h3 class="heading-4 text-dark-violet text-bold mt-1 mt-lg-4 mt-md-0">Welcome Traveller!</h3>
-    <p class="fs-18 mb-lg-4 text-dark-violet text-medium my-lg-3">Welcome to The Roaming Nomad, your gateway to wanderlust and adventure! Our platform is designed to ignite your passion for travel and inspire you to explore the world. Whether you're a seasoned globetrotter or just getting started on your journey, The Roaming Nomad is your canvas to share your adventures, connect with fellow travelers, and craft your very own travel stories.  
-
-        The primary purpose of The Roaming Nomad is to inspire, inform, and connect travelers from all walks of life. We believe in the power of travel to broaden horizons, promote cultural understanding, and create unforgettable memories.
-        
-        Join us at The Roaming Nomad and be a part of this exciting journey. Whether you're scaling mountains, traversing deserts, or immersing yourself in local cultures, your travel stories are worth sharing. Start creating your own travel narratives today and inspire others to explore the world!</p>
-    
-    </div>
-    <div class="side-2 col-12 col-md-6 d-none d-sm-none d-md-block ">
-        <img class="w-100 h-100" src="https://res.cloudinary.com/doyc0uqcs/image/upload/v1696011413/Porject%204%20Travel%20Blog/WhatsApp_Image_2023-09-29_at_19.08.32_s4c4vp.jpg" alt="Trip Planning">
-    </div>
-    </div>
-</article>
-</section>
-        </div>
-    </div>
-</div>
-
-</div>
-{% endif %}
 {%endblock%}
