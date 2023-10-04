@@ -6,8 +6,8 @@
         <div class="col-12 col-sm-12 text-dark" style="height: 814px;">
             <div class="card border-0 shadow rounded-3 my-5">
                 <div class="card-body p-4 p-sm-5">
-                    {% if user.is_staff %}
                     <h1 class="mb-4 text-center">Edit Category</h1>
+                    {% if user.is_staff %}                
                     <a href="{% url 'edit_category' slug=category.slug %}"></a>
                     <form method="POST" id="form_update_category">
                         {% csrf_token %}
@@ -21,13 +21,12 @@
                     {% else %}
                         <h3 class="text-center text-dark">
                             You are not authorized for this activity! Please contact the admin.
-                        </h3>
-                    
-                        <a href="{% url 'home' %}" class="btn btn-primary  btn-sm">Home</a>
+                        </h3>    
                     {% endif %}
                     </form>
                 </div>
             </div>
         </div>
     </div>
+    
 {% endblock %}
