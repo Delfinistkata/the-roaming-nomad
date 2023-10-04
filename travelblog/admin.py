@@ -40,8 +40,7 @@ class CommentAdmin(admin.ModelAdmin):
     actions, and additional methods for managing comments.
     """
     list_display = ('author', 'body_content', 'post', 'date_posted',
-                    'approved', 'number_of_comment_likes',
-                    'number_of_comment_dislikes')
+                    'approved')
     list_filter = ('approved', 'date_posted')
     search_fields = ('author', 'email', 'body_content')
     actions = ['approve_comments']
@@ -55,22 +54,6 @@ class CommentAdmin(admin.ModelAdmin):
         """
         queryset.update(approved=True)
     approve_comments.short_description = "Approve selected comments"
-
-    def number_of_comment_likes(self, obj):
-        '''
-        It calculates and returns the total number of likes
-        that the comment has received.
-        '''
-        # pylint: disable=E1101
-        return obj.comment_likes.count()
-
-    def number_of_comment_dislikes(self, obj):
-        '''
-        It calculates and returns the total number of dislikes
-        that the comment has received.
-        '''
-        # pylint: disable=E1101
-        return obj.comment_dislikes.count()
 
 
 @admin.register(Category)
