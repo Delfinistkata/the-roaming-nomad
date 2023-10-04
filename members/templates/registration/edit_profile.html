@@ -46,12 +46,12 @@
                         {%endif%}
                     </div>
                     <div class="form-floating mb-3">
-                        {% if form.errors.password_change_link%}
+                        {% if form.errors.password_change_link%}                                           
                             {% for error in form.errors.password_change_link %}
                                 <p class="text-danger">{{ error }}</p>
                             {% endfor%}                                            
                         {%endif%}
-                    </div>
+                    </div>                   
                     <p>Password: <a href="{% url 'password_change' %}">Click here to change your password</a></p>
                     <button class="btn btn-primary"> Submit </button>
                 </form>
