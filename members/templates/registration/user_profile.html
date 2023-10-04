@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
-{% if user.is_authenticated %}
 <div class="container mt-5">
     <section class="section about-section gray-bg" id="about">
         <div class="container">
@@ -13,8 +12,18 @@
                             <p class="fonts">{{ page_user.bio }} </p>
 
                         </div>
+                    </div> 
 
-                    </div>
+                    <ul class="list-inline d-sm-flex my-0">
+                        {% for category in page_user.subscribed_categories.all %}
+                            <li class="list-inline-item g-mr-20 mb-3">
+                                <span class="badge bg-secondary">
+                                    <i class="fas fa-tag mr-2"></i>
+                                    {{category}}
+                                </span>
+                            </li>
+                            {% endfor %}
+                    </ul>
                 </div>
                 <div class="col-lg-6">
 
@@ -31,6 +40,11 @@
                     <div class="text-center mt-3">
 
                         <h5 class="mt-2 mb-0">{{ page_user.user.first_name }} {{ page_user.user.last_name }}</h5>
+                        <p class="mt-2 mb-0">{{ page_user.user.email }}</p>      
+                        <p>
+                            <i class="fas fa-map-marker-alt"></i> <span class="me-3">{{page_user.address }} / {{page_user.location }}</span>
+                        </p>           
+                        <p>{{page_user.date_of_birth}}</p>   
                         <div class="mt-2">
                             {% if page_user.website_profile %}
                             <a href="{{page_user.website_profile}}" class="social-icon" target="_blank"><i
@@ -62,7 +76,7 @@
             </div>
         </div>
     </section>
-    <div class="row d-flex justify-content-center" id="post-lists">
+    <div class="row d-flex justify-content-center mt-5" id="post-lists">
         <div class="col-md-12">
             <div class="col-12 text-center">
                 <h1 class="heading-1  text-bold text-center">My Posts</h1>
@@ -101,7 +115,7 @@
                     </div>
 
                     <div class="postcard__bar"></div>
-                    <p class="postcard__preview-txt">{{ post.body_content | slugify }}</p>
+                    <p class="postcard__preview-txt">{{ post.body_content|truncatewords:"50"|safe }}</p>
 
                     <ul class="list-inline d-sm-flex my-0">
                         {% for category in post.categories.all %}
@@ -169,10 +183,4 @@
         </div>
     </div>
 </div>
-{% else %}
-    <h3 class="text-center">
-        You are not authorised for this activity! Please contact the admin.
-    </div>
-    <a href="{% url 'login' %}" class="btn btn-primary  btn-sm">Login</a>
-{% endif%}
 {% endblock %}
