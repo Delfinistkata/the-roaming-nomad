@@ -1,9 +1,6 @@
 {% extends "base_guest.html" %}
 <!-- Extends a base template: "base_guest.html" -->
 
-{% load static %}
-<!-- Load static files for this template -->
-
 {% block title %} Register {% endblock %}
 <!-- Title of this page -->
 
@@ -28,20 +25,21 @@
                             <div class="gradient-custom">
                                     <div class="row">
                                         <div class="form-group">
-                                            <label class="mb-1" for="{{ form.title.id_for_label }}">Username:</label>
+                                            
+                                            <label class="mb-1" for="{{ form.username.id_for_label }}">Username:</label>
                                             {{ form.username }}
                                             <!-- Username input field -->
                                             {% if form.errors.username%}
-                                            {% for error in form.errors.username %}
-                                            <p class="text-danger">{{ error }}</p>
-                                            {% endfor%}
+                                                {% for error in form.errors.username %}
+                                                <p class="text-danger">{{ error }}</p>
+                                                {% endfor%}
                                             {%endif%}
                                         </div>
                                     </div>
                                     <div class="row mt-3">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label class="mb-1" for="{{ form.title.id_for_label }}">First
+                                                <label class="mb-1" for="{{ form.first_name.id_for_label }}">First
                                                     Name:</label>
                                                 {{ form.first_name }}
                                                 <!-- First Name input field -->
@@ -54,7 +52,7 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label class="mb-1" for="{{ form.title.id_for_label }}">Last
+                                                <label class="mb-1" for="{{ form.last_name.id_for_label }}">Last
                                                     Name:</label>
                                                 {{ form.last_name }}
                                                 <!-- Last Name input field -->
@@ -82,7 +80,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label class="mb-1"
-                                                    for="{{ form.title.id_for_label }}">Password:</label>
+                                                    for="{{ form.password1.id_for_label }}">Password:</label>
                                                 {{ form.password1 }}
                                                 <!-- Password input field -->
                                                 {% if form.errors.password1%}
@@ -94,7 +92,7 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label class="mb-1" for="{{ form.password.id_for_label }}"> Confirm
+                                                <label class="mb-1" for="{{ form.password2.id_for_label }}"> Confirm
                                                     Password:</label>
                                                 {{ form.password2 }}
                                                 <!-- Password confirmation input field -->
