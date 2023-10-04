@@ -1,8 +1,8 @@
 # The Roaming Nomad
 
-[Back to the README.md file](https://github.com/Delfinistkata/the-roaming-nomad/blob/bbe106d7e2dbd8e1cc77cc84e4bd53b2be1462bb/README.md)  
+[Back to the README.md file](README.md)  
 
-[Back to the Testing section in the README.md file](https://github.com/Delfinistkata/the-roaming-nomad/blob/bbe106d7e2dbd8e1cc77cc84e4bd53b2be1462bb/README.md#testing)
+[Back to the Testing section in the README.md file](https://github.com/Delfinistkata/the-roaming-nomad/blob/main/README.md#testing)
 
 [View the live website here]()  
 
