@@ -5,8 +5,8 @@
     <div class="text-center mb-4 mt-4">
         <div class="container mt-md-3">
             <div class="user text-center">
-                <div class="profile">
-                    {% if post.author.userprofile.profile_picture.url == '' %}
+                <div class="profile">                    
+                    {% if "placeholder" in post.author.userprofile.profile_picture.url %}
                     <img src="https://res.cloudinary.com/doyc0uqcs/image/upload/v1691407204/Porject%204%20Travel%20Blog/male-user-shadow_318-34042_eotvtf.avif"
                         class="rounded-circle" alt="Profile Picture of a Male User" width="80">
                     {% else%}
@@ -44,8 +44,7 @@
                 </div>
 
                 <form method="POST" action="{% url 'like_dislike_post' pk=post.pk %}">
-                    {% csrf_token %}
-                    {% if user.is_authenticated %}
+                    {% csrf_token %}            
                         {% if user.userprofile.id %}
                             <div class="d-flex justify-content-end ">
                                 <div>
@@ -66,10 +65,7 @@
                             </div>
                         {% else %}
                             Please <a href="{% url 'create_profile_page' %}">create your profile</a> to like/dislike the post!
-                        {% endif %}
-                    {% else %}
-                        Please <a href="{% url 'login' %}">log in</a> to like/dislike the post!
-                    {% endif %}
+                        {% endif %}            
                 </form>
             </div>
         </div>
@@ -103,14 +99,15 @@
                 </div>     
             
             </div>
-            <div class="text-center mt-4">
-                <a href="{% url 'home' %}" class="btn btn-primary btn-sm">Back</a>
-            </div>
         </div>
-        {% if user.is_authenticated %}
-            {% if user.id == post.author.id %}
+            
                 <div class="d-flex flex-row-reverse mb-4 mt-4" id="post_actions">
-                    <a href="{% url 'edit_post' post.slug %}" class="btn btn-secondary btn-sm me-3">Edit</a>
+                    <a href="{% url 'home' %}" class="btn btn-primary btn-sm">Back</a>
+                    {% if user.id == post.author.id %}
+                    <a href="{% url 'edit_post' post.slug %}" class="btn btn-secondary btn-sm me-3">
+                        <i class="fas fa-edit mr-2"></i>
+                        Edit
+                    </a>
                     <form method="post" action="{% url 'delete_post' post.slug %}" class="delete-button me-3"
                         data-title="Delete post {{post.title}}">
                         {% csrf_token %}
@@ -118,13 +115,9 @@
                             <i class="fas fa-edit mr-2"></i> Delete
                         </button>
                     </form>
-                </div>
-            {% endif %}
-        {% else %}
-            <div class="text-center mt-4">
-                <a href="{% url 'home' %}" class="btn btn-primary btn-sm">Back</a>
-            </div>
-        {% endif %}
+                    {% endif %}       
+                </div>            
+            
     </div>
 
 
