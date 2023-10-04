@@ -1,7 +1,7 @@
 # The Roaming Nomad
 
 
-![The Roaming Nomad images]()
+![The Roaming Nomad image](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696458133/Porject%204%20Travel%20Blog/finished%20product%20P4/amiresponsive1_tzprkz.png)
 
 Welcome to "The Roaming Nomad," your passport to a world of adventure, discovery, and wanderlust. Our travel blog is more than just a website; it's a vibrant and inclusive community where passionate globetrotters come together to celebrate the art of exploration.
 
@@ -12,7 +12,7 @@ Discover hidden gems tucked away in remote villages, uncover the secrets of bust
 Whether you're a solo traveler embarking on a soul-searching expedition or a family seeking new horizons, "The Roaming Nomad" welcomes you with open arms. Connect with fellow wanderers, exchange travel tips, and become a part of our global tribe of explorers.
 Your adventure begins here.
 
-Visit the deployed website [here](.....link....).
+Visit the deployed website [here]().
 
 
 ## Table of Contents
@@ -28,18 +28,25 @@ Visit the deployed website [here](.....link....).
     4. [Skeleton](#skeleton)
     5. [Surface](#surface)
 2. [Features](#features)
-    1. [Registration Page](#registration-page)
-    2. [Home Page](#home-page)
-    3. [Login Page](#login-page)
-    4. [Categories Page](#categories-page)
-    5. [Edit Categories Page](#edit-categories-page)
-    6. [Delete Categories Page](#delete-categories-page)
-    7. [Create Post Page](#create-post-page)
-    8. [Edit Post Page](#edit-post-page)
-    9. [Delete Post Page](#delete-post-page)
-    10. [Edit User Profile Settings Page](#edit-user-profile-settings-page)
-    11. [User Profile Page](#user-profile-page)
-    12. [Edit User Profile Page](#edit-user-profile-page)
+    1. [General](#general)
+    2. [Authentication Pages](#authentication-pages)
+    3. [Home Page](#home-page)
+    4. [Logged out Page](#logged-out-page)
+    5. [Post Detail Page](#post-detail-page)
+    6. [Create Post Page](#create-post-page)
+    7. [Update Post Modal](#update-post-modal)
+    8. [Add Comment Page](#add-comment-page)
+    9. [Add Category Page](#add-category-page)
+    10. [Edit Category Page](#edit-category-page)
+    11. [Delete Category Button](#delete-category-button)
+    12. [Category List Page](#category-list-page)
+    13. [Category Page](#category-page)
+    14. [Edit Settings Page](#edit-settings-page)
+    15. [Password Page](#password-page)
+    16. [User Profile Page](#user-profile-page)
+    17. [Edit User Profile Page](#edit-user-profile-page)
+    18. [Modal for User Profile](#modal-for-user-profile)
+    19. [Complete User Profile](#complete-user-profile)
 3. [Technologies Used](#technologies-used)
     1. [Languages Used](#languages-used)
     2. [Libraries and Frameworks](#languages-and-frameworks)
@@ -367,8 +374,10 @@ The website has been organized in a Hierarchical Tree Structure to ensure the si
 #### Database Model
 The database model has been designed using [dbdiagram](https://dbdiagram.io/home). The type of database being used for the is relational database being managed using [PostgreSQL](https://www.postgresql.org/).
 
-![website map](diagram...)
+![website map](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696458644/Porject%204%20Travel%20Blog/finished%20product%20P4/database_diagram_srryvs.png)
 
+<br>
+<br>
 
 ![Plan ](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696073828/Porject%204%20Travel%20Blog/models_icfdxo.png)
 
@@ -627,7 +636,7 @@ Logout | Allow the Site User to sign out from their account. | ![Sign Out Page](
 
 <br>
 
-### User Profile Page
+### Edit User Profile Page
 ![User Profile image](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696443451/Porject%204%20Travel%20Blog/edit_profile_page_ahnlwd.png)
 
 * Available to all users to update their information about their profile. 
@@ -751,7 +760,7 @@ Logout | Allow the Site User to sign out from their account. | ![Sign Out Page](
 
 ## Testing
 
-The testing documentation can be found [here](https://github.com/Delfinistkata/the-roaming-nomad/blob/d5dcbfdd4db4d4e7e22343b45443c6d109bdb13c/TESTING.md).
+The testing documentation can be found [here](https://github.com/Delfinistkata/the-roaming-nomad/blob/main/TESTING.md).
 
 [Back to top ⇧](#the-roaming-nomad)
 
@@ -871,6 +880,7 @@ I sometimes applied principles within them to the site, after fully understandin
 
 * [Pixabay](https://pixabay.com/)
 
+* [YoMeanimo!](https://www.yomeanimo.com/)
 
 [Back to top ⇧](#the-roaming-nomad)
 ### Code
@@ -901,7 +911,7 @@ I sometimes applied principles within them to the site, after fully understandin
 
 ## Known Bugs
 
-No bugs found before submission.
+No bugs found after testing.
 
 [Back to top ⇧](#the-roaming-nomad)
 
