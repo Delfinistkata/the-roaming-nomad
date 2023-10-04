@@ -2,15 +2,11 @@
 {% load static %}
 {% block title %} Create Your Profile! {% endblock %}
 {% block content %}
-
-
-
 <div class="container">
     <div class="container  mt-5 mb-4">
         <div class="card border-0 shadow rounded-3 my-5">
             <div class="card-body p-4 p-sm-5">
-                <h1 class="mb-4 text-center">Create Profile</h1>
-                {% if user.is_authenticated %}
+                <h1 class="mb-4 text-center">Complete Your Profile</h1>                
                     <form method="POST" class="form" enctype="multipart/form-data">
                         {% csrf_token %}
                         <div class="row">
@@ -71,7 +67,7 @@
                                         {% endfor%}                                            
                                     {%endif%}
                                 </div> 
-                              
+                            
                             </div>
                             <div class="col-md-6 mt-3">
                                 <div class="form-floating mb-3">            
@@ -155,22 +151,9 @@
                             <button type= "submit" class= "btn btn-primary btn-sm">Create Profile</button>
                             <a href="{% url 'home' %}" class="btn btn-secondary btn-sm">Cancel</a>
                         </div>
-                    </form>
-                    {% else %}
-                        <h3 class="text-center text-dark">
-                            You are not authorised for this activity! Please log in to your profile.
-                        </h3>
-                        <div class="flex text-center mb-3">
-                            <a href="{% url 'account_signup' %}" class="btn btn-primary btn-sm">Register</a>
-                            <a href="{% url 'account_login' %}" class="btn btn-primary btn-sm">LogIn</a>
-                        </div>
-                    
-                {% endif %}
+                    </form>                
             </div>
         </div>
     </div>
 </div>
-
-
-
 {% endblock %}
