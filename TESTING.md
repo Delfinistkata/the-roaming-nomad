@@ -2,7 +2,7 @@
 
 [Back to the README.md file](https://github.com/Delfinistkata/the-roaming-nomad/blob/bbe106d7e2dbd8e1cc77cc84e4bd53b2be1462bb/README.md)  
 
-[Back to the Testing section in the README.md file]()
+[Back to the Testing section in the README.md file](https://github.com/Delfinistkata/the-roaming-nomad/blob/bbe106d7e2dbd8e1cc77cc84e4bd53b2be1462bb/README.md#testing)
 
 [View the live website here]()  
 
@@ -131,10 +131,10 @@ Page | Lighthouse Report |
 | --- | --- |
 | Index Log In | ![Index Lighthouse Report](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696087860/Porject%204%20Travel%20Blog/index_logged_in_pbmemy.png) |
 | Category | ![Category Lighthouse Report](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696087860/Porject%204%20Travel%20Blog/category_list_snznec.png) |
-| Register | ![Register Lighthouse Report]() |
-| Login | ![Login Lighthouse Report]() |
+| Register | ![Register Lighthouse Report](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696397779/Porject%204%20Travel%20Blog/register_page_qjfrku.png) |
+| Login | ![Login Lighthouse Report](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696397779/Porject%204%20Travel%20Blog/login_page_tnlqdf.png) |
 | Index Logout | ![Logout Lighthouse Report](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696087860/Porject%204%20Travel%20Blog/index_page_logged_out_fr2us6.png) |
-| Post Detail | ![Post Detail Lighthouse Report]() |
+| Post Detail | ![Post Detail Lighthouse Report](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696397779/Porject%204%20Travel%20Blog/post_detail_page_eqa1wn.png) |
 | User Profile  | ![User Profile Lighthouse Report](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696088569/Porject%204%20Travel%20Blog/profile_page_kc6fqw.png) |
 | Add Comment | ![Add Comment Lighthouse Report](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696088647/Porject%204%20Travel%20Blog/add_comment_plmcvh.png) |
 | Create Post | ![Create Post Lighthouse Report](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696087860/Porject%204%20Travel%20Blog/create_post_n83i8z.png) |
@@ -2013,5 +2013,186 @@ iPhone 4 | No issues. | Pass |
         <td>Style</td>
         <td>Focus effect working as expected.</td>
         <td><span style="color:green">Pass</span></td>
+    </tr>
+</table>
+
+#### User Profile Page
+
+<table>
+    <tr>
+        <th colspan=2>Feature</th>
+        <th>Users</th>
+        <th>Test</th>
+        <th>Outcome</th>
+        <th>Pass/Fail</th>
+    </tr>
+    <tr>
+        <td rowspan=30> User profile Form</td>
+        <td rowspan=2>Bio</td>
+        <td rowspan=2>Registered</td>
+        <td>Functionality</td>
+        <td>Information rendered correctly</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>N/A</td>
+        <td>N/A</td>
+    </tr>
+    <tr>
+        <td rowspan=2>Image</td>
+        <td rowspan=2>Registered</td>
+        <td>Functionality</td>
+        <td>User Picture/Default Picture rendered correctly</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>N/A</td>
+        <td>N/A</td>
+    </tr>
+    <tr>
+        <td rowspan=2>Date of Birth</td>
+        <td rowspan=2>Registered</td>
+        <td>Functionality</td>
+        <td>Information rendered correctly</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>N/A</td>
+        <td>N/A</td>
+    </tr>
+    <tr>
+        <td rowspan=2>Email</td>
+        <td rowspan=2>Registered</td>
+        <td>Functionality</td>
+        <td>Information rendered correctly</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>N/A</td>
+        <td>N/A</td>
+    </tr>
+    <tr>
+        <td rowspan=2>Address</td>
+        <td rowspan=2>Registered</td>
+        <td>Functionality</td>
+        <td>Information rendered correctly</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>N/A</td>
+        <td>N/A</td>
+    </tr>
+    <tr>
+        <td rowspan=2>Location</td>
+        <td rowspan=2>Registered</td>
+        <td>Functionality</td>
+        <td>Information rendered correctly</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>N/A</td>
+        <td>N/A</td>
+    </tr>
+    <tr>
+        <td rowspan=2>Website Link</td>
+        <td rowspan=2>Registered</td>
+        <td>Functionality</td>
+        <td>Information rendered correctly. <br> Link opens on a different page.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>N/A</td>
+        <td>N/A</td>
+    </tr>
+    <tr>
+        <td rowspan=2>Facebook Link</td>
+        <td rowspan=2>Registered</td>
+        <td>Functionality</td>
+        <td>Information rendered correctly. <br> Link opens on a different page.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>N/A</td>
+        <td>N/A</td>
+    </tr>
+    <tr>
+        <td rowspan=2>Twitter Link</td>
+        <td rowspan=2>Registered</td>
+        <td>Functionality</td>
+        <td>Information rendered correctly. <br> Link opens on a different page.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>N/A</td>
+        <td>N/A</td>
+    </tr>
+    <tr>
+        <td rowspan=2>LinkedIn Link</td>
+        <td rowspan=2>Registered</td>
+        <td>Functionality</td>
+        <td>Information rendered correctly. <br> Link opens on a different page.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>N/A</td>
+        <td>N/A</td>
+    </tr>
+    <tr>
+        <td rowspan=2>Instagram Link</td>
+        <td rowspan=2>Registered</td>
+        <td>Functionality</td>
+        <td>Information rendered correctly. <br> Link opens on a different page.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>N/A</td>
+        <td>N/A</td>
+    </tr>
+    <tr>
+        <td rowspan=2>Youtube Link</td>
+        <td rowspan=2>Registered</td>
+        <td>Functionality</td>
+        <td>Information rendered correctly. <br> Link opens on a different page.</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>N/A</td>
+        <td>N/A</td>
+    </tr>
+    <tr>
+        <td rowspan=2>Interests/hobbies</td>
+        <td rowspan=2>Registered</td>
+        <td>Functionality</td>
+        <td>Information rendered correctly</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>N/A</td>
+        <td>N/A</td>
+    </tr>
+    <tr>
+        <td rowspan=2>Categories</td>
+        <td rowspan=2>Registered</td>
+        <td>Functionality</td>
+        <td>Information rendered correctly</td>
+        <td><span style="color:green">Pass</span></td>
+    </tr>
+    <tr>
+        <td>Style</td>
+        <td>N/A</td>
+        <td>N/A</td>
     </tr>
 </table>
