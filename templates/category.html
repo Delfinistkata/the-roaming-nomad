@@ -2,7 +2,6 @@
 {% load static %}
 
 {% block content %}
-{% if user.is_authenticated %}
 <div class="container mt-5">
     <div class="row d-flex justify-content-center">
             <div class="col-md-12"  id="post-lists">
@@ -27,12 +26,11 @@
                         <div>
                             <a href="{% url 'show_user_profile_page' post.author.userprofile.id%}"
                                 class="text-bold text-dark text-decoration-underline">
-                                {% if post.author.userprofile.profile_picture.url == '' %}
-                                <img src="https://res.cloudinary.com/doyc0uqcs/image/upload/v1691407204/Porject%204%20Travel%20Blog/male-user-shadow_318-34042_eotvtf.avif"
-                                    class="rounded-circle me-3" height="50" width="50" alt="avatar">
+                                {% if "placeholder" in post.author.userprofile.profile_picture.url %}
+                                    <img src="https://res.cloudinary.com/doyc0uqcs/image/upload/v1691407204/Porject%204%20Travel%20Blog/male-user-shadow_318-34042_eotvtf.avif" class="rounded-circle me-3" height="50" width="50" alt="avatar">
                                 {% else%}
-                                <img src="{{ post.author.userprofile.profile_picture.url }}" class="rounded-circle me-3"
-                                    height="50" width="50" alt="avatar">
+                                    <img src="{{ post.author.userprofile.profile_picture.url }}" class="rounded-circle me-3"
+                                        height="50px" width="50px" alt="avatar">
                                 {% endif%}
             
                                 {{ post.author.userprofile.user.first_name }} {{ post.author.userprofile.user.last_name }}
@@ -45,7 +43,7 @@
                         </div>
                         
                         <div class="postcard__bar"></div>
-                        <p class="postcard__preview-txt">{{ post.body_content | slugify }}</p>
+                        <p class="postcard__preview-txt">{{ post.body_content|truncatewords:"50"|safe }}</p>
                         
                         <ul class="list-inline d-sm-flex my-0">
                             {% for category in post.categories.all %}
@@ -86,13 +84,12 @@
                                 {% for comment in post.comments.all %}
                                     <div class="comment mt-4 text-justify float-left">
                                         <div class="d-flex">
-                                            {% if comment.author.userprofile.profile_picture.url == '' %}
-                                            <img src="https://res.cloudinary.com/doyc0uqcs/image/upload/v1691407204/Porject%204%20Travel%20Blog/male-user-shadow_318-34042_eotvtf.avif"
-                                                class="rounded-circle me-3" height="50px" width="50px" alt="avatar">
+                                            {% if "placeholder" in post.author.userprofile.profile_picture.url %}
+                                            <img src="https://res.cloudinary.com/doyc0uqcs/image/upload/v1691407204/Porject%204%20Travel%20Blog/male-user-shadow_318-34042_eotvtf.avif" class="rounded-circle me-3" height="50" width="50" alt="avatar">
                                             {% else%}
-                                            <img src="{{ comment.author.userprofile.profile_picture.url }}" class="rounded-circle me-3"
+                                            <img src="{{ post.author.userprofile.profile_picture.url }}" class="rounded-circle me-3"
                                                 height="50px" width="50px" alt="avatar">
-                                            {% endif%}                        
+                                            {% endif%}                      
                                             <span class="fst-italic ms-2">{{ comment.author.first_name }} {{ comment.author.last_name }}</h4>
                                         </div>
                                     
@@ -112,12 +109,5 @@
                 {% endfor %}
             </div>
     </div>
-{% else %}
-    <h3 class="text-center">
-        You are not authorised for this activity! Please contact the admin.
-    </div>
-    <a href="{% url 'login' %}" class="btn btn-primary  btn-sm">Login</a>
-{% endif%}
-
 {% endblock %}
 
