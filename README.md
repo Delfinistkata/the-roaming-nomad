@@ -1,7 +1,7 @@
 # The Roaming Nomad
 
 
-![The Roaming Nomad images](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696091635/Porject%204%20Travel%20Blog/am_i_responsive_g8srvw.png)
+![The Roaming Nomad images]()
 
 Welcome to "The Roaming Nomad," your passport to a world of adventure, discovery, and wanderlust. Our travel blog is more than just a website; it's a vibrant and inclusive community where passionate globetrotters come together to celebrate the art of exploration.
 
@@ -33,13 +33,13 @@ Visit the deployed website [here](.....link....).
     3. [Login Page](#login-page)
     4. [Categories Page](#categories-page)
     5. [Edit Categories Page](#edit-categories-page)
-    6. [Delete Categories Page](#ask-question-page)
-    7. [Create Post Page](#leave-reply-page)
-    8. [Edit Post Page](#edit-question-page)
-    9. [Delete Post Page](#delete-question-page)
-    10. [Edit User Profile Settings Page](#edit-reply-page)
-    11. [User Profile Page](#delete-reply-page)
-    12. [Edit User Profile Page](#authentication-pages)
+    6. [Delete Categories Page](#delete-categories-page)
+    7. [Create Post Page](#create-post-page)
+    8. [Edit Post Page](#edit-post-page)
+    9. [Delete Post Page](#delete-post-page)
+    10. [Edit User Profile Settings Page](#edit-user-profile-settings-page)
+    11. [User Profile Page](#user-profile-page)
+    12. [Edit User Profile Page](#edit-user-profile-page)
 3. [Technologies Used](#technologies-used)
     1. [Languages Used](#languages-used)
     2. [Libraries and Frameworks](#languages-and-frameworks)
@@ -47,7 +47,7 @@ Visit the deployed website [here](.....link....).
     4. [Database Management](#database-management)
     5. [Tools and Programs](#tools-and-programs)
 4. [Testing](#testing)
-    1. [Go to TESTING.md](link...)
+    1. [Go to TESTING.md](https://github.com/Delfinistkata/the-roaming-nomad/blob/d5dcbfdd4db4d4e7e22343b45443c6d109bdb13c/TESTING.md)
 5. [Deployment](#deployment)
 6. [Finished Product](#finished-product)
 7. [Credits](#credits)
@@ -365,8 +365,10 @@ The website has been organized in a Hierarchical Tree Structure to ensure the si
 
 [Back to top ⇧](#the-roaming-nomad)
 #### Database Model
+The database model has been designed using [dbdiagram](https://dbdiagram.io/home). The type of database being used for the is relational database being managed using [PostgreSQL](https://www.postgresql.org/).
 
-The type of database being used for the is relational database being managed using [PostgreSQL](https://www.postgresql.org/).
+![website map](diagram...)
+
 
 ![Plan ](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696073828/Porject%204%20Travel%20Blog/models_icfdxo.png)
 
@@ -395,18 +397,19 @@ User Profile | ![Desktop User Profile wireframe image](https://res.cloudinary.co
 #### Color Scheme
 
 
-The colors used in the website are ... for secondary buttons, navbar links, as well as for main buttons and links transitions. ..... is used for the main text, footer background, main buttons and secondary buttons and links transitions.
+The color scheme used in the website is designed to create a clean and modern design that aligns with the website's travel blog theme. The color choices are as follows:
 
-..... for the navigation bar and card footers background, footer and buttons content. ...... is also used in the main background and cards footer as well as for input fields.
+Primary Color (Bootstrap Primary): This color is used for all buttons throughout the website, providing a consistent and visually appealing look for interactive elements.
 
-The colors were chosen keeping in mind simplicity but also providing the website a modern design. This in order to keep the focus on the content but also appealing for the users.
+Secondary Color (Bootstrap Secondary): Similar to the primary color, the secondary color is also used for buttons, contributing to the website's visual coherence.
 
+Footer Color: The footer is styled in black, creating a distinct separation between the main content and the footer area.
+
+Warning Messages: To draw attention to warning messages and alerts, a vivid red color is employed. This color choice effectively signals important information to users.
 
 #### Typography
 
-The main font being used in the site is ..., with sans-serif as a fallback in case .... doesn't get imported correctly. Roboto, with sans-serif as a fallback is used mainly for headings.
-
-Nunito and Roboto were chosen after some research on fonts that are better for reading. Specially Nunito which has been used as main font. Quicksand was used for the logo for design purposes.
+The website uses the default system fonts with a fallback to "sans-serif" and "Arial." This approach allows the website to adapt to the user's system font settings while ensuring readability and compatibility. "Sans-serif" is a generic sans-serif font family, and "Arial" serves as an additional fallback option to provide consistency in case "sans-serif" is not available.
 
 [Back to top ⇧](#the-roaming-nomad)
 
@@ -414,13 +417,248 @@ Nunito and Roboto were chosen after some research on fonts that are better for r
 
 ### General
 
-........
+* The website has been designed from a mobile first perspective.
+
+* Responsive design across all device sizes.
+
+* Navigation Bar
+![Navigation Bar image](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696400357/Porject%204%20Travel%20Blog/header_for_admin_uju6at.png)
+
+    *  Contains the main logo and section links.
+
+    * The navigation bar contains links to all sections to facilitate navigation across the site. It also has a hover effect that changes color to provide feedback to the Site User for a better user experience.
+
+    * The user will does not have the 'add category' option on their navigation bar. This is only available for the admin.
+
+* Footer
+  ![Footer image](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696400356/Porject%204%20Travel%20Blog/footer_qfkytp.png)
+
+    * The footer includes link to social media channels.
+
+<br>
+
 [Back to top ⇧](#the-roaming-nomad)
+
+### Authentication Pages
+
+Page | Purpose | Image |
+--- | --- | --- |
+Register | Allow the Site User to sign up an account for the website. | ![Sign Up Page](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696400359/Porject%204%20Travel%20Blog/sign_up_jstu6h.png) |
+Login | Allow the Site User to sign in with their account. | ![Sign In Page](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696400358/Porject%204%20Travel%20Blog/log_in_page_loffzk.png) |
+Logout | Allow the Site User to sign out from their account. | ![Sign Out Page](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696400358/Porject%204%20Travel%20Blog/home_page-logged_out_do2h0p.png) |
+
+[Back to top ⇧](#the-roaming-nomad)
+
+<br>
+
 ### Home Page
 
-.....
+* Post list
+![Post List image](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696400357/Porject%204%20Travel%20Blog/home_page_logged_in_u7y5ct.png)
+
+    * Display a paginated list of all the posts and its relevant information for the user to identify.
+
+    * Provide the Site User with a link to the detailed question.
+
+    * Post likes/dislikes as well as voting possibilities for registered users is provided next to the post.
+
+    * For users who has filled in their profile page, an add post link is provided to allow the user to access the page to create new post. If they haven't filled in their profile, they won't be able to create posts.
+
+    * Comment button is provided, once its clicked all comments show under the post, along with the name of the user, the time it was commented at and the comment itself.
+
+    * Filter for posts by a category is provided to users to make their search easier.
+
+<br>
 
 [Back to top ⇧](#the-roaming-nomad)
+
+<br>
+
+### Logged out Page
+
+![Logged out Page image](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696400358/Porject%204%20Travel%20Blog/home_page-logged_out_do2h0p.png)
+
+* Provide relevant information about the website's objective.
+
+<br>
+
+[Back to top ⇧](#the-roaming-nomad)
+
+<br>
+
+### Post Detail Page
+![Post Detail Page image](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696400358/Porject%204%20Travel%20Blog/post_detail_page_y9gebv.png)
+
+* Display the full post as well as a list of its comments.
+
+* Comments, likes/dislikes scores as well as voting possibilities for registered users is provided.
+
+* Edit, delete and back buttons are provided for the user for their own posts. A back button is only availabe when the user is looking at another user's post.
+
+<br>
+
+![Delete button image](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696400355/Porject%204%20Travel%20Blog/delete_post_pop_up_eg7ga2.png)
+
+<br>
+
+![Edit button image](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696400352/Porject%204%20Travel%20Blog/update_post_pop_up_vfrlv6.png)
+
+<br>
+
+[Back to top ⇧](#the-roaming-nomad)
+
+<br>
+
+### Create Post Page
+![Create Post Page](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696400354/Porject%204%20Travel%20Blog/create_post_page_oktucn.png)
+
+* Provide a form to allow registered Site Users to create a new post.
+
+<br>
+
+[Back to top ⇧](#the-roaming-nomad)
+
+<br>
+
+### Update Post Modal
+![Update modal](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696400352/Porject%204%20Travel%20Blog/update_post_pop_up_vfrlv6.png)
+
+* Asks the user if they want to update their post.
+
+### Add Comment Page
+![Add comment Page](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696400353/Porject%204%20Travel%20Blog/add_comment_page_kbqshm.png)
+
+* Provide a form to allow registered Site Users to create a new comment.
+
+<br>
+
+[Back to top ⇧](#the-roaming-nomad)
+
+<br>
+
+### Add Category Page
+![Add category image](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696400353/Porject%204%20Travel%20Blog/add_category_page_vt9l04.png)
+
+* Only available to the admin. Users don't have access to this page.
+
+<br>
+
+[Back to top ⇧](#the-roaming-nomad)
+
+<br>
+
+### Edit Category Page
+![edit category image](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696400355/Porject%204%20Travel%20Blog/edit_category_page_s08eav.png)
+
+* Only available to the admin. Users don't have access to this page.
+
+<br>
+
+[Back to top ⇧](#the-roaming-nomad)
+
+<br>
+
+### Delete Category Button
+![delete category image](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696400354/Porject%204%20Travel%20Blog/delete_pop_up_for_category_rg3svc.png)
+
+* Only available to the admin. Users don't have access to this button.
+
+<br>
+
+[Back to top ⇧](#the-roaming-nomad)
+
+<br>
+
+### Category List Page
+![Category list image](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696400353/Porject%204%20Travel%20Blog/category_list_page_cxraa9.png
+)
+
+* Available to all users to see all of the available categories.
+
+* A link is available on the category, which lists all the posts associated with that category.
+
+<br>
+
+[Back to top ⇧](#the-roaming-nomad)
+
+<br>
+
+### Category Page
+![Category image](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696441802/Porject%204%20Travel%20Blog/category_page_iveuej.png)
+
+* Available to all users to see all posts associated with the category they have selected. 
+
+<br>
+
+[Back to top ⇧](#the-roaming-nomad)
+
+<br>
+
+### Edit Settings Page
+![Settings image](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696400356/Porject%204%20Travel%20Blog/edit_settings_page_lubpoo.png)
+
+* Available to all users to see their current settings and update them. 
+
+<br>
+
+[Back to top ⇧](#the-roaming-nomad)
+
+<br>
+
+### Password Page
+![Password image](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696400353/Porject%204%20Travel%20Blog/chnage_password_page_nw344c.png)
+
+* Available to all users to update their password. 
+
+<br>
+
+[Back to top ⇧](#the-roaming-nomad)
+
+<br>
+
+### User Profile Page
+![User Profile image](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696443451/Porject%204%20Travel%20Blog/user_profile_rvfo7d.png)
+
+* Available to all users to see their information and their posts related to their profile. 
+
+<br>
+
+[Back to top ⇧](#the-roaming-nomad)
+
+<br>
+
+### User Profile Page
+![User Profile image](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696443451/Porject%204%20Travel%20Blog/edit_profile_page_ahnlwd.png)
+
+* Available to all users to update their information about their profile. 
+
+<br>
+
+[Back to top ⇧](#the-roaming-nomad)
+
+<br>
+
+### Modal for User Profile 
+![Modal image](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696443451/Porject%204%20Travel%20Blog/modal_for_complete_profile_r2zkbb.png)
+
+* Available to all users after log in, they see this message warning them that if they want to create posts they need to fill in their profile, otherwise they can not create posts, like or/and dislike posts.
+
+<br>
+
+[Back to top ⇧](#the-roaming-nomad)
+
+<br>
+
+### Complete User Profile 
+![fill in profile image](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696443450/Porject%204%20Travel%20Blog/Complete_profile_page_l15hqx.png)
+
+* Available to all registered users after log in, they can fill in the form and complete their profile, which will be visible to all registered users.
+
+<br>
+
+[Back to top ⇧](#the-roaming-nomad)
+
+<br>
 
 ## Technologies Used
 
@@ -598,7 +836,23 @@ Further reading and troubleshooting on cloning a repository from GitHub [here](h
 
 ## Finished Product
 
-.......
+Page | Desktop |
+--- | --- |
+| Login/Home | ![Desktop Login/Home Page image](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696449906/Porject%204%20Travel%20Blog/finished%20product%20P4/home_logged_in_1_e7mvae.png) 
+| Logout/Home | ![Desktop Logout/ Page image](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696449793/Porject%204%20Travel%20Blog/finished%20product%20P4/loggedout_home_znbvpg.png) 
+| Post Detail | ![Desktop Post Detail Page image](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696449793/Porject%204%20Travel%20Blog/finished%20product%20P4/post_detail_vtjsx8.png) 
+| Create Post | ![Desktop Create Post Page image](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696449791/Porject%204%20Travel%20Blog/finished%20product%20P4/add_post_an2gwy.png) 
+| Edit Post | ![Desktop Edit Post Page image](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696449793/Porject%204%20Travel%20Blog/finished%20product%20P4/edit_post_page_fu4qfi.png) 
+| Category | ![Desktop category Page image](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696449792/Porject%204%20Travel%20Blog/finished%20product%20P4/category_page_kieir0.png)
+| Category List | ![Desktop category List Page image](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696449791/Porject%204%20Travel%20Blog/finished%20product%20P4/category_list_s6rwan.png)
+| Create Category | ![Desktop Create category Page image](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696449791/Porject%204%20Travel%20Blog/finished%20product%20P4/add_category_gkjs8y.png) 
+| Edit Category | ![Desktop Edit Category Page image](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696449791/Porject%204%20Travel%20Blog/finished%20product%20P4/edit_category_zqu54j.png) 
+| Sign Up | ![Desktop Sign Up Page image](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696449791/Porject%204%20Travel%20Blog/finished%20product%20P4/signup_xocwq2.png) 
+| Sign In | ![Desktop Sing In Page image](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696449793/Porject%204%20Travel%20Blog/finished%20product%20P4/login_w24twg.png)
+| Edit Settings | ![Desktop Edit Settings Page image](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696449792/Porject%204%20Travel%20Blog/finished%20product%20P4/edit_settings_profile_j1zpa4.png)
+| Edit Profile | ![Desktop Edit Profile Page image](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696449792/Porject%204%20Travel%20Blog/finished%20product%20P4/edit_profile_page_oemgob.png)
+| Edit Password | ![Desktop Edit Settings Page image](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696449792/Porject%204%20Travel%20Blog/finished%20product%20P4/change_password_page_segr93.png)
+| User Profile | ![Desktop Edit Category Page image](https://res.cloudinary.com/doyc0uqcs/image/upload/v1696449802/Porject%204%20Travel%20Blog/finished%20product%20P4/profile_page_bhjglk.png)
 
 [Back to top ⇧](#the-roaming-nomad)
 
@@ -609,21 +863,15 @@ I sometimes applied principles within them to the site, after fully understandin
 
 <br>
 
-### Content
-
-* Website content was written by the developer.
-* 
-
-[Back to top ⇧](#the-roaming-nomad)
 ### Media
 
 * [Pexels](https://www.pexels.com/)
 
-    * 
-
 * [Unsplash](https://unsplash.com/)
 
-    * 
+* [Pixabay](https://pixabay.com/)
+
+
 [Back to top ⇧](#the-roaming-nomad)
 ### Code
 
@@ -653,7 +901,7 @@ I sometimes applied principles within them to the site, after fully understandin
 
 ## Known Bugs
 
-..............
+No bugs found before submission.
 
 [Back to top ⇧](#the-roaming-nomad)
 
