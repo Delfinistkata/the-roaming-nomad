@@ -1,7 +1,5 @@
 {% extends "base_guest.html" %}  <!-- Extends a base template: "base_guest.html" -->
 
-{% load static %}  <!-- Load static files for this template -->
-
 {% block title %} Login {% endblock %}  <!-- Title of this page -->
 
 {% block content %}  <!-- Content block for this template -->
@@ -22,19 +20,25 @@
                                 <input type="text" id="typeUsername" name="username"
                                     class="form-control form-control-lg">  <!-- Username input field -->
                                 <label class="form-label" for="typeUsername">Username</label>
+                                {% if form.errors.username%}
+                                    {% for error in form.errors.username %}
+                                    <p class="text-danger">{{ error }}</p>
+                                    {% endfor%}
+                                {%endif%}
                             </div>
                             <div class="form-floating mb-3">
                                 <input type="password" id="typePasswordX" name="password"
                                     class="form-control form-control-lg">  <!-- Password input field -->
                                 <label class="form-label" for="typePasswordX">Password</label>
-                            </div>
-
-                            {% if form.errors %}  <!-- Checks for form errors -->
-                            {% for error in form.errors %}
-                            <p class="text-danger">Username or password incorrect</p>  <!-- Display an error message -->
-                            {% endfor %}
-                            {% endif %}
-
+                                {% if form.errors.password%}
+                                    {% for error in form.errors.password %}
+                                    <p class="text-danger">{{ error }}</p>
+                                    {% endfor%}
+                                {%endif%}
+                            </div> 
+                            {% if form.non_field_errors%}
+                                <p class="text-danger">{{ form.non_field_errors }} </p>
+                            {%endif%}
                             <div class="d-grid">
                                 <button class="btn btn-primary btn-login text-uppercase fw-bold" type="submit">Login
                                     </button>  <!-- Submit button for the form -->
