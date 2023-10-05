@@ -54,7 +54,7 @@ Visit the deployed website [here](https://the-roaming-nomad-travel-blog-f5d807b2
     4. [Database Management](#database-management)
     5. [Tools and Programs](#tools-and-programs)
 4. [Testing](#testing)
-    1. [Go to TESTING.md](https://github.com/Delfinistkata/the-roaming-nomad/blob/d5dcbfdd4db4d4e7e22343b45443c6d109bdb13c/TESTING.md)
+    1. [Go to TESTING.md](https://github.com/Delfinistkata/the-roaming-nomad/blob/main/TESTING.md)
 5. [Deployment](#deployment)
 6. [Finished Product](#finished-product)
 7. [Credits](#credits)
