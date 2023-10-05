@@ -12,7 +12,7 @@ Discover hidden gems tucked away in remote villages, uncover the secrets of bust
 Whether you're a solo traveler embarking on a soul-searching expedition or a family seeking new horizons, "The Roaming Nomad" welcomes you with open arms. Connect with fellow wanderers, exchange travel tips, and become a part of our global tribe of explorers.
 Your adventure begins here.
 
-Visit the deployed website [here]().
+Visit the deployed website [here](https://the-roaming-nomad-travel-blog-f5d807b27cbd.herokuapp.com/).
 
 
 ## Table of Contents
@@ -889,17 +889,19 @@ I sometimes applied principles within them to the site, after fully understandin
 
 [Code Institute Template](https://github.com/Code-Institute-Org/python-essentials-template) - This repository was created using the template provided by Code Institute.
 
+[Code Institute Videos](https://codeinstitute.net/) - The video series that help me throughout project for P4.
+
 [Django Documentation](https://docs.djangoproject.com/en/4.0/) - Django step-by-step document to ensure everything is set up correctly. 
 
 [Allauth Documentation](https://django-allauth.readthedocs.io/en/latest/faq.html) - referenced during development.
 
 [Cloudinary Documentation](https://cloudinary.com) - referenced during development.
 
-[Summernote Documentation](https://summernote.org/) and [Git](https://github.com/summernote/django-summernote) - referenced during development.
+[CKeditor Documentation](https://ckeditor.com/) - referenced during development.
 
-[Crispy Forms Documentation](https://django-crispy-forms.readthedocs.io/en/latest/) - referenced during development.
+[Crispy Forms Documentation](https://django-crispy-forms.readthedocs.io/en/latest/) - used for information.
 
-[John Elder - Django](https://www.youtube.com/playlist?list=PLCC34OHNcOtqW9BJmgQPPzUpJ8hl49AGy) - YouTube series that help me through project.
+[John Elder - Django](https://www.youtube.com/playlist?list=PLCC34OHNcOtqW9BJmgQPPzUpJ8hl49AGy) - YouTube series that help me throughout the project.
 
 [Stackoverflow](https://stackoverflow.com/) -Used to search issues I had.
 
